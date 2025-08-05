@@ -110,6 +110,14 @@ To get the project up and running locally:
 
 -   The project adopts a **mobile-first** approach for responsive design using Tailwind's responsive prefixes (e.g., `md:`, `lg:`).
 
+ Examples
+----------
+
+-   URL: https://www.kodomogakuen.com/
+
+- Follow this exact layout with these pages
+
+
 * * * * *
 
 💡 Important Notes

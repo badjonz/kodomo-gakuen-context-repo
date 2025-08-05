@@ -1,0 +1,53 @@
+/* Text colour */
+.text-color-light {
+  color: #fff;
+}
+
+.text-color-1 {
+  color: #32cd32;
+}
+
+.text-color-2 {
+  color: #f35588;
+}
+
+.text-color-3 {
+  color: #ffca3a;
+}
+
+.text-color-4 {
+  color: #00aeff;
+}
+
+/* Background Colour */
+.bg-color-1 {
+  background: #32cd32;
+  color: #fff;
+}
+
+.bg-color-2 {
+  background: #f35588;
+  color: #fff;
+}
+
+.bg-color-3 {
+  background: #ffca3a;
+  color: #fff;
+}
+
+.bg-color-4 {
+  background: #00aeff;
+  color: #fff;
+}
+
+
+
+
+
+
+
+
+
+
+
+
