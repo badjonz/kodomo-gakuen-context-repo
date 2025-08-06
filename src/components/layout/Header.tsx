@@ -1,11 +1,30 @@
 'use client'
 
-import React from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { usePathname } from "next/navigation";
 import Link from 'next/link';
+import { motion, useMotionValue, useTransform } from 'framer-motion';
 
 export default function Header() {
   const pathname = usePathname();
+  const headerRef = useRef(null);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [animationKey, setAnimationKey] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY;
+      const newIsScrolled = scrollPosition > 100;
+      
+      if (newIsScrolled !== isScrolled) {
+        setIsScrolled(newIsScrolled);
+        setAnimationKey(prev => prev + 1); // Force re-animation
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [isScrolled]);
 
   // Type-safe active link styling
   const navLinkClass = (path: string): string => 
@@ -14,12 +33,45 @@ export default function Header() {
     }`;
 
    return <div className="flex flex-col">
-    <div className="flex justify-between h-[30px] bg-[rgba(0,174,255,0.85)] px-[60px] text-white text-[11px] items-center fixed w-full z-50">
+    <motion.div 
+      className="flex justify-between h-[30px] px-[60px] text-[11px] items-center fixed w-full z-50"
+      initial={{
+        backgroundColor: 'rgba(0,174,255,0.85)',
+        color: 'rgba(255,255,255,1)'
+      }}
+      animate={{
+        backgroundColor: isScrolled ? 'rgba(255,255,255,0.85)' : 'rgba(0,174,255,0.85)',
+        color: isScrolled ? 'rgba(0,174,255,1)' : 'rgba(255,255,255,1)'
+      }}
+      transition={{ duration: 0.4, ease: "easeOut" }}
+    >
       <a href=""> info@kodomogakuen.com</a>
       <a href="">English</a>
-    </div>
-    <div className="fixed top-[30px] w-full z-50 bg-[rgba(0,0,0,0.1)] h-[75px]">
-      <nav className="flex justify-between items-center h-full px-[30px]">
+    </motion.div>
+    <motion.div 
+      ref={headerRef}
+      className="fixed top-[30px] w-full z-50 h-[75px]"
+      initial={{
+        backgroundColor: 'rgba(0,0,0,0.1)',
+        y: 0
+      }}
+      animate={{
+        backgroundColor: isScrolled ? 'rgba(243, 85, 136, 0.85)' : 'rgba(0,0,0,0.1)',
+        y: isScrolled ? [0,-30,0] : 0,
+      }}
+      transition={{ duration: 0.4, ease: "easeOut" }}
+    >
+      
+      <motion.nav 
+        key={animationKey}
+        className="flex justify-between items-center h-full px-[30px]"
+        // initial={{ scale: 1.01 }}
+        animate={{scale: isScrolled ? 1 : 1.01}}
+        transition={{ 
+          duration: 0.4,
+          ease: "easeOut"
+        }}
+      >
         <div className="pl-6">
           <a href="" className="text-[28px] text-white"><span className="text-[#32CD32]"></span>こども学園 Kodomo Gakuen</a>
         </div>
@@ -145,7 +197,7 @@ export default function Header() {
     </ul>
           
 
-      </nav>
-    </div>
+      </motion.nav>
+    </motion.div>
   </div>;
 };

@@ -101,6 +101,10 @@ body {
     @apply flex items-center p-[1.4rem]  w-full justify-center text-quaternary hover:text-white hover:opacity-100 duration-200 text-[1.4rem];
   }
 
+  .btn{
+    @apply bg-[#17c528] text-white px-[25px] py-[10px] rounded-[50px] border-none cursor-pointer transition-all duration-300 hover:translate-y-[-3px] hover:shadow-xl active:translate-y-[-1px] active:shadow-lg text-base;
+  }
+
   // Navbar icons
   .navbar-icon {
     @apply mr-2;

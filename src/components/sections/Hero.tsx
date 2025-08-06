@@ -55,7 +55,7 @@ export default function Hero({
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.2 }}
+        transition={{ duration: 0.4, delay: 0.2 }}
         className="relative z-10 max-w-4xl px-8 pt-32"
       >
         <div className="mb-8">
@@ -82,7 +82,7 @@ export default function Hero({
           >
             <Link
               href="/about"
-              className="inline-flex items-center btn px-8 py-4 hover:scale-105 transition-transform"
+              className='btn'
               style={{ fontSize: '1.6rem' }}
             >
               <i className="fas fa-chevron-right mr-2"></i>
