@@ -1,0 +1,157 @@
+// Import mixins
+@import '../styles/mixins';
+
+// Google Fonts
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kosugi:wght@400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fredericka+the+Great&display=swap');
+
+// Tailwind CSS
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+// CSS Custom Properties
+:root {
+  --color-primary: #32cd32;
+  --color-primary-light: #6fdc6f;
+  --color-primary-dark: #2db82d;
+  --color-secondary: #f35588;
+  --color-tertiary: #ffca3a;
+  --color-quaternary: #00aeff;
+  --color-light-1: #fff;
+  --color-light-2: #faf9f9;
+  --color-dark-1: #444;
+  --color-dark-2: #666;
+  --nav-bar-height-reg: 7.5rem;
+  --nav-bar-height-port: 13.5rem;
+  --nav-bar-height-smphone: 16rem;
+}
+
+// Responsive Base Font Size using Sass mixins
+html {
+  font-size: 62.5%; // 10px base (1rem = 10px)
+  
+  @include respond(tab-land) {
+    font-size: 56.25%; // 9px base
+  }
+  
+  @include respond(tab-port) {
+    font-size: 50%; // 8px base
+  }
+  
+  @include respond(big-desktop) {
+    font-size: 75%; // 12px base
+  }
+}
+
+// Global Reset
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+body {
+  box-sizing: border-box;
+  font-family: "Kosugi", sans-serif;
+  background: var(--color-light-2);
+  color: var(--color-dark-1);
+  line-height: 1.6;
+}
+
+// Tailwind Layer Components
+@layer components {
+  .nav-menu-style {
+    @apply px-5 py-3 w-full rounded hover:bg-primary;
+  }
+
+  .nav-menu-link{
+    @apply text-[1.4rem] px-[2rem] py-[1.3rem] w-full rounded-[3px] hover:bg-[#32cd32] transition-colors duration-200;
+  }
+
+  // Dropdown container
+  .dropdown-container {
+    @apply relative;
+  }
+
+  // Dropdown menu
+  .dropdown-menu {
+    @apply absolute left-0 top-[3.1rem] hidden bg-gray-100/95 rounded w-[18rem] z-50 transition-all duration-300 ease-in-out overflow-hidden shadow-lg;
+  }
+
+  // Show dropdown on hover
+  .dropdown-container:hover .dropdown-menu {
+    @apply block;
+  }
+
+  // Dropdown items
+  .dropdown-item {
+    @apply hover:bg-primary transition-colors duration-200 flex justify-center;
+  }
+
+  .dropdown-item:not(:last-child) {
+    @apply border-b border-quaternary border-solid;
+  }
+
+  // Dropdown links
+  .dropdown-link {
+    @apply flex items-center p-[1.4rem]  w-full justify-center text-quaternary hover:text-white hover:opacity-100 duration-200 text-[1.4rem];
+  }
+
+  // Navbar icons
+  .navbar-icon {
+    @apply mr-2;
+  }
+
+  // Custom responsive utilities using Sass mixins
+  .responsive-text-lg {
+    font-size: 2.4rem;
+    
+    @include respond(tab-land) {
+      font-size: 2.2rem;
+    }
+    
+    @include respond(tab-port) {
+      font-size: 2rem;
+    }
+    
+    @include respond(phone) {
+      font-size: 1.8rem;
+    }
+  }
+
+  .responsive-text-xl {
+    font-size: 3.2rem;
+    
+    @include respond(tab-land) {
+      font-size: 2.8rem;
+    }
+    
+    @include respond(tab-port) {
+      font-size: 2.4rem;
+    }
+    
+    @include respond(phone) {
+      font-size: 2rem;
+    }
+  }
+
+  .responsive-text-2xl {
+    font-size: 4.8rem;
+    
+    @include respond(tab-land) {
+      font-size: 4.2rem;
+    }
+    
+    @include respond(tab-port) {
+      font-size: 3.6rem;
+    }
+    
+    @include respond(phone) {
+      font-size: 2.8rem;
+    }
+  }
+}

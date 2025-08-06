@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import './globals.css'
+import './globals.scss'
 
 export const metadata: Metadata = {
   title: 'こども学園[Kodomo Gakuen] - 幼稚園/保育園',

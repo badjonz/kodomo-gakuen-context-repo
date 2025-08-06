@@ -21,7 +21,7 @@ export default function Hero({
   isHomepage = false,
 }: HeroProps) {
   const coloredTitle = isHomepage ? (
-    <h1 className="mb-8 bg-black/10 rounded-lg p-4" style={{ fontSize: '5.5rem' }}>
+    <h1 className="mb-8 bg-black/10 rounded-lg p-4 text-[4.2rem]">
       <span className="text-primary">E</span>
       <span className="text-secondary">n</span>
       <span className="text-tertiary">j</span>
@@ -29,7 +29,7 @@ export default function Hero({
       <span className="text-primary">y</span> Learning With Us
     </h1>
   ) : (
-    <h1 className="mb-8 bg-black/10 rounded-lg p-4" style={{ fontSize: '3rem' }}>
+    <h1 className="mb-8 bg-black/10 rounded-lg p-4" style={{ fontSize: '4rem' }}>
       {title}
     </h1>
   )
@@ -66,8 +66,8 @@ export default function Hero({
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="mb-8 bg-black/10 rounded-lg p-6 font-kosugi"
-              style={{ fontSize: '2rem' }}
+              className="mb-8 bg-black/10 rounded-lg p-6 font-kosugi text-[2rem]"
+              
             >
               {subtitle}
             </motion.p>
