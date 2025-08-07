@@ -2,7 +2,6 @@
 
 import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
-import Image from 'next/image'
 import { motion, AnimatePresence } from 'framer-motion'
 import { cn } from '@/utils/cn'
 
@@ -25,7 +24,7 @@ const ageGroups: AgeGroupData[] = [
     description: [
       '四季折々の自然を感じられる中でのびのびと駆け回り笑顔のあふれる保育をしています。'
     ],
-    image: '/images/tamago.JPG',
+    image: '/images/nyuuji-pic.JPG',
     buttonText: 'More Details',
     href: '/nyuuji',
     color: 'primary'
@@ -45,7 +44,7 @@ const ageGroups: AgeGroupData[] = [
   },
   {
     id: 3,
-    title: 'スター',
+    title: '国際クラス',
     subtitle: '3〜6歳',
     description: [
       'スタークラスの目標言葉は「Reach for the Stars」＝「高望みする」という意味です。スタークラスの子ども達はお互いに、どんな事にでも一生懸命頑張れる様に、一人一人に声をかけながら応援しています。'
@@ -69,65 +68,45 @@ export default function AgeGroups() {
     return <div className="py-16 mb-12"><div className="container"><div className="section-header mb-16"><h2 className="text-4xl lg:text-5xl font-light text-center mb-4">学年の<span className="text-secondary">紹介</span></h2><hr className="heading-hr border-secondary" /></div></div></div>
   }
 
-  const getColorClasses = (color: string, isActive: boolean = false) => {
-    const colorMap = {
-      primary: {
-        bg: 'bg-primary',
-        hover: 'hover:bg-primary-dark',
-        active: isActive ? '-translate-y-2' : '',
-        content: 'bg-primary',
-        button: 'bg-primary hover:bg-primary-dark'
-      },
-      secondary: {
-        bg: 'bg-secondary',
-        hover: 'hover:bg-pink-600',
-        active: isActive ? '-translate-y-2' : '',
-        content: 'bg-secondary',
-        button: 'bg-secondary hover:bg-pink-600'
-      },
-      quaternary: {
-        bg: 'bg-quaternary',
-        hover: 'hover:bg-blue-600',
-        active: isActive ? '-translate-y-2' : '',
-        content: 'bg-quaternary',
-        button: 'bg-quaternary hover:bg-blue-600'
-      }
-    }
-    return colorMap[color as keyof typeof colorMap] || colorMap.primary
-  }
 
   return (
-    <section id="class-info" className="flex-items section-mb-3 class-info">
-      <div className="container">
+    <section className="py-16 mb-12">
+      <div className="container px-8">
         {/* Section Header */}
-        <header id="age-group-header" className="age-group-header section-header">
-          <h2 style={{ fontSize: '4.4rem' }}>
-            学年の<span className="text-color-2">紹介</span>
+        <div className="text-center mb-16">
+          <h2 className="text-[3.4rem] lg:text-[4.4rem] font-light mb-4">
+            学年の<span className="text-secondary">紹介</span>
           </h2>
-          <hr className="heading-hr text-color-2" />
-        </header>
+          <hr className="w-[14rem] h-[3px] bg-secondary mx-auto border-0" />
+        </div>
 
-        {/* Age Group Container */}
-        <div className="age-group">
-          
-          {/* Tab Container */}
-          <div className="age-group__tab-container">
+        {/* Tab Container */}
+        <div className="relative w-[90%] mx-auto">
+          {/* Tabs */}
+          <div className="flex gap-0 mb-0">
             {ageGroups.map((group) => {
               const isActive = activeTab === group.id
+              const tabColors = {
+                1: isActive ? 'bg-primary text-white' : 'bg-primary/80 text-white hover:bg-primary',
+                2: isActive ? 'bg-secondary text-white' : 'bg-secondary/80 text-white hover:bg-secondary', 
+                3: isActive ? 'bg-quaternary text-white' : 'bg-quaternary/80 text-white hover:bg-quaternary'
+              }
+              
               return (
-                <button
+                <motion.button
                   key={group.id}
                   onClick={() => setActiveTab(group.id)}
                   className={cn(
-                    'age-group__tab',
-                    `age-group__tab--${group.id}`,
-                    isActive ? 'age-group__tab--active' : ''
+                    'px-[3rem] py-[1.7rem] text-[1.6rem] mr-[4px] font-bold transition-all duration-300 border-none cursor-pointer',
+                    'rounded-md',
+                    tabColors[group.id as keyof typeof tabColors],
+                    isActive ? 'transform -translate-y-2 z-10' : 'hover:transform hover:-translate-y-1'
                   )}
-                  data-tab={group.id}
-                  style={{ fontSize: '2rem' }}
+                  whileHover={{ y: isActive ? -8 : -4 }}
+                  whileTap={{ y: isActive ? -6 : -2 }}
                 >
                   {group.title}
-                </button>
+                </motion.button>
               )
             })}
           </div>
@@ -136,98 +115,63 @@ export default function AgeGroups() {
           <AnimatePresence mode="wait">
             {ageGroups.map((group) => {
               if (activeTab !== group.id) return null
+              
+              const contentColors = {
+                1: 'bg-primary',
+                2: 'bg-secondary', 
+                3: 'bg-quaternary'
+              }
 
               return (
                 <motion.div
                   key={group.id}
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  transition={{ duration: 0.2 }}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: -15 }}
+                  exit={{ opacity: 0, y: -20 }}
+                  transition={{ duration: 0.3, ease: "easeOut" }}
                   className={cn(
-                    'age-group__content',
-                    `age-group__content--${group.id}`,
-                    'age-group__content--active'
+                    'rounded-lg rounded-tl-none p-[6rem] h-[48rem]',
+                    contentColors[group.id as keyof typeof contentColors]
                   )}
                 >
-                  <div className={cn(
-                    'age-group__content-container',
-                    `age-group__content-container--${group.id}`
-                  )}>
-                    {/* Conditional layout for group 2 (reversed) */}
-                    {group.id === 2 ? (
-                      <>
-                        {/* Info first, then image for group 2 */}
-                        <div className="age-group__info">
-                          <h2 className="age-group__header" style={{ fontSize: '3rem' }}>
-                            {group.title} &ndash; {group.subtitle}
-                          </h2>
-                          
-                          {group.description.map((desc, index) => (
-                            <p key={index} className="age-group__text" style={{ fontSize: '1.6rem' }}>
-                              {desc}
-                            </p>
-                          ))}
+                  <div className="bg-white/70 backdrop-blur-sm rounded-lg p-8 h-full">
+                    <div className="flex items-center justify-between h-full gap-8">
+                      {/* Image */}
+                      <div className="flex-1">
+                        <img
+                          src={group.image}
+                          alt={group.title}
+                          className="w-full h-80 object-cover rounded-lg shadow-lg"
+                        />
+                      </div>
+                      
+                      {/* Content */}
+                      <div className="flex-1 flex flex-col justify-center">
+                        <h2 className="text-[3.4rem] font-light text-gray-800 mb-6">
+                          {group.title} － {group.subtitle}
+                        </h2>
+                        
+                        {group.description.map((desc, index) => (
+                          <p key={index} className="text-lg text-gray-700 mb-4 leading-relaxed">
+                            {desc}
+                          </p>
+                        ))}
 
-                          <div className="age-group__button-box">
-                            <Link
-                              href={group.href}
-                              className={cn(
-                                'btn age-group__button',
-                                `age-group__button--${group.id}`,
-                                `btn--${group.color}`
-                              )}
-                              style={{ fontSize: '1.6rem' }}
-                            >
-                              {group.buttonText}
-                            </Link>
-                          </div>
+                        <div className="mt-8">
+                          <Link
+                            href={group.href}
+                            className={cn(
+                              'inline-block px-8 py-4 text-lg font-medium text-white rounded-full',
+                              'transition-all duration-300 hover:shadow-lg hover:scale-105',
+                              contentColors[group.id as keyof typeof contentColors],
+                              'hover:brightness-110'
+                            )}
+                          >
+                            {group.buttonText}
+                          </Link>
                         </div>
-                        <div className="age-group__pic-container">
-                          <img
-                            src={group.image}
-                            alt={group.title}
-                            className="age-group__pic"
-                          />
-                        </div>
-                      </>
-                    ) : (
-                      <>
-                        {/* Image first, then info for groups 1 and 3 */}
-                        <div className="age-group__pic-container">
-                          <img
-                            src={group.image}
-                            alt={group.title}
-                            className="age-group__pic"
-                          />
-                        </div>
-                        <div className="age-group__info">
-                          <h2 className="age-group__header" style={{ fontSize: '3rem' }}>
-                            {group.title} &ndash; {group.subtitle}
-                          </h2>
-                          
-                          {group.description.map((desc, index) => (
-                            <p key={index} className="age-group__text" style={{ fontSize: '1.6rem' }}>
-                              {desc}
-                            </p>
-                          ))}
-
-                          <div>
-                            <Link
-                              href={group.href}
-                              className={cn(
-                                'btn age-group__button',
-                                `age-group__button--${group.id}`,
-                                `btn--${group.color}`
-                              )}
-                              style={{ fontSize: '1.6rem' }}
-                            >
-                              {group.buttonText}
-                            </Link>
-                          </div>
-                        </div>
-                      </>
-                    )}
+                      </div>
+                    </div>
                   </div>
                 </motion.div>
               )

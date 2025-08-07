@@ -42,10 +42,13 @@ export default function Hero({
       )}
     >
       {/* Background image */}
-      <img
+      <motion.img
         src={backgroundImage}
         alt="Hero Background"
         className="absolute inset-0 w-full h-full object-cover"
+        initial={{ scale: 1.05 }}
+        animate={{ scale: 1 }}
+        transition={{ duration: 1, delay: 0.3, ease: 'easeInOut' }}
       />
 
       {/* Overlay */}

@@ -67,7 +67,8 @@ export default function Header() {
         className="flex justify-between items-center h-full px-[30px]"
         // initial={{ scale: 1.01 }}
         animate={{scale: isScrolled ? 1 : 1.01}}
-        transition={{ 
+        transition={{
+          delay: 0.2, 
           duration: 0.4,
           ease: "easeOut"
         }}

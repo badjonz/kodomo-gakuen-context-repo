@@ -102,7 +102,11 @@ body {
   }
 
   .btn{
-    @apply bg-[#17c528] text-white px-[25px] py-[10px] rounded-[50px] border-none cursor-pointer transition-all duration-300 hover:translate-y-[-3px] hover:shadow-xl active:translate-y-[-1px] active:shadow-lg text-base;
+    @apply bg-[#17c528] text-white px-[25px] py-[10px] rounded-[50px] border-none cursor-pointer transition-all duration-300 hover:translate-y-[-3px] hover:shadow-xl active:translate-y-[-1px] active:shadow-lg text-base inline-block;
+  }
+
+  .container{
+    @apply max-w-[78vw] mx-auto;
   }
 
   // Navbar icons
