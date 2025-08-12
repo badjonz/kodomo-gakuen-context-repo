@@ -33,22 +33,34 @@ function AboutCard({ title, content, color, delay }: AboutCardProps) {
     return () => observer.disconnect()
   }, [])
 
+  // Function to truncate text to approximately 25 words
+  const truncateText = (text: string, wordLimit: number = 10) => {
+    // For Japanese text, use character limit instead of word limit
+    // Approximate 10 words = 50-80 characters in Japanese
+    const charLimit = wordLimit * 7; // Roughly 7 characters per "word" in Japanese
+    
+    if (text.length <= charLimit) {
+      return text
+    }
+    return text.slice(0, charLimit) + '...'
+  }
+
   const getColorClasses = (colorName: string) => {
     const colorMap = {
-      school: 'bg-color-2',
-      nurture: 'bg-color-1', 
-      vision: 'bg-color-4'
+      school: 'bg-secondary border-l-4 border-secondary',
+      nurture: 'bg-primary border-l-4 border-primary', 
+      vision: 'bg-quaternary border-l-4 border-quaternary'
     }
-    return colorMap[colorName as keyof typeof colorMap] || 'bg-color-1'
+    return colorMap[colorName as keyof typeof colorMap] || 'bg-primary/10 border-l-4 border-primary'
   }
 
   const getButtonClasses = (colorName: string) => {
     const buttonMap = {
-      school: 'btn-color-2',
-      nurture: 'btn-color-1',
-      vision: 'btn-color-4'
+      school: 'hover:text-secondary',
+      nurture: 'hover:text-primary',
+      vision: 'hover:text-quaternary'
     }
-    return buttonMap[colorName as keyof typeof buttonMap] || 'btn-color-1'
+    return buttonMap[colorName as keyof typeof buttonMap] || 'border-primary text-primary hover:bg-primary hover:text-white'
   }
 
   return (
@@ -58,20 +70,26 @@ function AboutCard({ title, content, color, delay }: AboutCardProps) {
       animate={isVisible ? { opacity: 1, visibility: 'visible' } : { opacity: 0, visibility: 'hidden' }}
       transition={{ duration: 1, delay }}
       className={cn(
-        'about-col column',
+        'py-[5rem] px-[3rem] rounded-lg shadow-lg transition-all duration-300 hover:shadow-xl',
         getColorClasses(color),
-        isVisible ? 'show' : ''
+        isVisible ? 'opacity-100' : 'opacity-0'
       )}
     >
-      <div>
-        <h3 style={{ fontSize: '3rem' }}>{title}</h3>
-        <p style={{ fontSize: '1.6rem' }}>
-          {content}
+      {/* Card Content Container */}
+      <div className="space-y-6 text-center">
+        {/* Card Title */}
+        <h3 className="text-[3rem] font-bold font-kosugi text-white">{title}</h3>
+        
+        {/* Card Description */}
+        <p className="text-[1.6rem] leading-relaxed text-white font-kosugi">
+          {truncateText(content)}
         </p>
+        
+        {/* Call to Action Button */}
         <Link
           href="/about"
           className={cn(
-            'btn btn-outline',
+            'btn-transparent',
             getButtonClasses(color)
           )}
         >
@@ -83,6 +101,7 @@ function AboutCard({ title, content, color, delay }: AboutCardProps) {
 }
 
 export default function AboutInfo() {
+  // About section data configuration
   const aboutData = [
     {
       title: 'こども学園',
@@ -102,18 +121,21 @@ export default function AboutInfo() {
   ]
 
   return (
-    <section id="about-info" className="about-info col-3 section-margin">
-      <div className="container">
+    <section id="about-info" className="py-20 bg-light-2">
+      {/* Container for centered content */}
+      <div className="container mx-auto px-6">
         {/* Section Header */}
-        <header id="about-header" className="about-header section-header">
-          <h2 style={{ fontSize: '4.4rem' }}>
-            なんで<span className="text-color-3">こども</span>がくえん？
+        <header className="text-center mb-16">
+          {/* Main Section Title */}
+          <h2 className="text-5xl md:text-6xl font-bold font-kosugi text-dark-1 mb-6">
+            なんで<span className="text-tertiary">こども</span>がくえん？
           </h2>
-          <hr className="heading-hr text-color-3" />
+          {/* Decorative underline */}
+          <div className="w-24 h-1 bg-tertiary mx-auto rounded-full"></div>
         </header>
 
-        {/* About Cards */}
-        <div className="row">
+        {/* About Cards Grid Container */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {aboutData.map((item, index) => (
             <AboutCard
               key={index}

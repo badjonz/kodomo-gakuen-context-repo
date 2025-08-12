@@ -101,8 +101,17 @@ body {
     @apply flex items-center p-[1.4rem]  w-full justify-center text-quaternary hover:text-white hover:opacity-100 duration-200 text-[1.4rem];
   }
 
+  // Button styles
   .btn{
     @apply bg-[#17c528] text-white px-[25px] py-[10px] rounded-[50px] border-none cursor-pointer transition-all duration-300 hover:translate-y-[-3px] hover:shadow-xl active:translate-y-[-1px] active:shadow-lg text-base inline-block;
+  }
+
+  .tabbed-btn{
+    @apply px-[3rem] py-[1.7rem] text-[1.6rem] mr-[4px] font-bold transition-all duration-100 border-none cursor-pointer;
+  }
+
+  .btn-transparent {
+    @apply inline-block px-[25px] py-[10px] rounded-full text-white text-[1.6rem] transition-all duration-300 hover:scale-105 border-white border-[1px] text-white hover:bg-white;
   }
 
   .container{
