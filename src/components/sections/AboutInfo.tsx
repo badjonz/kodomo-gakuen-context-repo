@@ -5,39 +5,56 @@ import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { cn } from '@/utils/cn'
 
+/**
+ * Props interface for individual AboutCard component
+ * Used to define the structure and styling of each information card
+ */
 interface AboutCardProps {
-  title: string
-  content: string
-  color: string
-  delay: number
+  title: string    // Card title (e.g., "こども学園", "はぐくみ", "ビジョン")
+  content: string  // Main description text content
+  color: string    // Theme color identifier for styling
+  delay: number    // Animation delay for staggered entrance effects
 }
-
+/**
+ * Individual AboutCard Component
+ * Renders an animated card with intersection observer for scroll-triggered animations
+ * Features truncated text, themed colors, and hover effects
+ */
 function AboutCard({ title, content, color, delay }: AboutCardProps) {
+  // State to track if the card is visible in viewport
   const [isVisible, setIsVisible] = useState(false)
+  // Reference to the card element for intersection observer
   const cardRef = useRef<HTMLDivElement>(null)
-
+  // Set up intersection observer for scroll-triggered animations
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setIsVisible(true)
+          setIsVisible(true) // Trigger animation when card comes into view
         }
       },
-      { threshold: 0.1 }
+      { threshold: 0.1 } // Trigger when 10% of the card is visible
     )
 
     if (cardRef.current) {
       observer.observe(cardRef.current)
     }
 
+    // Cleanup observer on component unmount
     return () => observer.disconnect()
   }, [])
 
-  // Function to truncate text to approximately 25 words
+  /**
+   * Truncates Japanese text content for consistent card heights
+   * Uses character-based truncation since Japanese doesn't use spaces between words
+   * @param text - The original text content
+   * @param wordLimit - Approximate number of "words" (converted to character limit)
+   * @returns Truncated text with ellipsis if needed
+   */
   const truncateText = (text: string, wordLimit: number = 10) => {
     // For Japanese text, use character limit instead of word limit
-    // Approximate 10 words = 50-80 characters in Japanese
-    const charLimit = wordLimit * 7; // Roughly 7 characters per "word" in Japanese
+    // Approximate 10 words = 50 characters in Japanese
+    const charLimit = wordLimit * 5; // Roughly 5 characters per "word" in Japanese
     
     if (text.length <= charLimit) {
       return text
@@ -45,52 +62,81 @@ function AboutCard({ title, content, color, delay }: AboutCardProps) {
     return text.slice(0, charLimit) + '...'
   }
 
+  /**
+   * Returns appropriate background and border color classes based on card theme
+   * @param colorName - Theme identifier ('school', 'nurture', 'vision')
+   * @returns CSS class string for background and border styling
+   */
   const getColorClasses = (colorName: string) => {
     const colorMap = {
-      school: 'bg-secondary border-l-4 border-secondary',
-      nurture: 'bg-primary border-l-4 border-primary', 
-      vision: 'bg-quaternary border-l-4 border-quaternary'
+      school: 'bg-secondary border-l-4 border-secondary',    // Blue theme for school info
+      nurture: 'bg-primary border-l-4 border-primary',      // Primary theme for nurturing
+      vision: 'bg-quaternary border-l-4 border-quaternary'  // Quaternary theme for vision
     }
     return colorMap[colorName as keyof typeof colorMap] || 'bg-primary/10 border-l-4 border-primary'
   }
 
+// In the AboutCard component, replace the current animation logic:
+
+const getInitialPosition = (colorName: string) => {
+  const positionMap = {
+    school: { opacity: 0, x: -200 },    // Come from left
+    nurture: { opacity: 0, y: 200 },    // Come from bottom  
+    vision: { opacity: 0, x: 200 }      // Come from right
+  }
+  return positionMap[colorName as keyof typeof positionMap] || { opacity: 0 }
+}
+
+const getAnimatePosition = (colorName: string, isVisible: boolean) => {
+  if (!isVisible) {
+    return getInitialPosition(colorName)
+  }
+  
+  return { opacity: 1, x: 0, y: 0 } // End position for all cards
+}
+
+
+  /**
+   * Returns appropriate button hover color classes based on card theme
+   * @param colorName - Theme identifier ('school', 'nurture', 'vision')
+   * @returns CSS class string for button hover effects
+   */
   const getButtonClasses = (colorName: string) => {
     const buttonMap = {
-      school: 'hover:text-secondary',
-      nurture: 'hover:text-primary',
-      vision: 'hover:text-quaternary'
+      school: 'hover:text-secondary',    // Blue hover for school cards
+      nurture: 'hover:text-primary',     // Primary hover for nurture cards
+      vision: 'hover:text-quaternary'    // Quaternary hover for vision cards
     }
     return buttonMap[colorName as keyof typeof buttonMap] || 'border-primary text-primary hover:bg-primary hover:text-white'
   }
 
   return (
     <motion.div
-      ref={cardRef}
-      initial={{ opacity: 0, visibility: 'hidden' }}
-      animate={isVisible ? { opacity: 1, visibility: 'visible' } : { opacity: 0, visibility: 'hidden' }}
-      transition={{ duration: 1, delay }}
-      className={cn(
-        'py-[5rem] px-[3rem] rounded-lg shadow-lg transition-all duration-300 hover:shadow-xl',
-        getColorClasses(color),
-        isVisible ? 'opacity-100' : 'opacity-0'
-      )}
-    >
-      {/* Card Content Container */}
-      <div className="space-y-6 text-center">
-        {/* Card Title */}
-        <h3 className="text-[3rem] font-bold font-kosugi text-white">{title}</h3>
+  ref={cardRef}
+  initial={getInitialPosition(color)}
+  animate={getAnimatePosition(color, isVisible)}
+  transition={{ duration: .5, delay }}
+  className={cn(
+    'py-[5rem] px-[3rem] rounded-lg shadow-lg hover:shadow-xl shadow-[3px_3px_5px_1px_rgba(0,0,0,0.3)] transition-shadow duration-300',
+    getColorClasses(color)
+  )}
+>
+      {/* Card Content Container - Centers content and provides spacing */}
+      <div className="text-center">
+        {/* Card Title - Large, bold heading */}
+        <h3 className="text-[3rem] font-bold font-kosugi text-white mb-[2rem]">{title}</h3>
         
-        {/* Card Description */}
-        <p className="text-[1.6rem] leading-relaxed text-white font-kosugi">
+        {/* Card Description - Truncated content with consistent spacing */}
+        <p className="text-[1.6rem] leading-relaxed text-white font-kosugi mb-[4rem]">
           {truncateText(content)}
         </p>
         
-        {/* Call to Action Button */}
+        {/* Call to Action Button - Links to detailed about page */}
         <Link
           href="/about"
           className={cn(
-            'btn-transparent',
-            getButtonClasses(color)
+            'btn-transparent', // Base transparent button styling
+            getButtonClasses(color) // Theme-specific hover colors
           )}
         >
           <i className="fas fa-chevron-right"></i> もっと詳しく知る
@@ -100,8 +146,18 @@ function AboutCard({ title, content, color, delay }: AboutCardProps) {
   )
 }
 
+/**
+ * Main AboutInfo Component
+ * Displays three informational cards about the kindergarten's philosophy and approach
+ * Features staggered animations and responsive grid layout
+ * 
+ * Cards cover:
+ * - こども学園 (School Information)
+ * - はぐくみ (Nurturing Philosophy) 
+ * - ビジョン (Vision & Goals)
+ */
 export default function AboutInfo() {
-  // About section data configuration
+  // About section data configuration - Content and styling for each card
   const aboutData = [
     {
       title: 'こども学園',
@@ -121,20 +177,20 @@ export default function AboutInfo() {
   ]
 
   return (
-    <section id="about-info" className="py-20 bg-light-2">
-      {/* Container for centered content */}
-      <div className="container mx-auto px-6">
-        {/* Section Header */}
+    <section id="about-info" className="py-20 pb-[10rem] bg-light-2">
+      {/* Container for centered content with responsive padding */}
+      <div className="container mx-auto px-6 overflow-hidden pb-[4rem]">
+        {/* Section Header - Centered title with decorative underline */}
         <header className="text-center mb-16">
-          {/* Main Section Title */}
+          {/* Main Section Title - Large Japanese text with colored accent */}
           <h2 className="text-5xl md:text-6xl font-bold font-kosugi text-dark-1 mb-6">
             なんで<span className="text-tertiary">こども</span>がくえん？
           </h2>
-          {/* Decorative underline */}
+          {/* Decorative underline - Small accent bar below title */}
           <div className="w-24 h-1 bg-tertiary mx-auto rounded-full"></div>
         </header>
 
-        {/* About Cards Grid Container */}
+        {/* About Cards Grid Container - Responsive grid that stacks on mobile */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {aboutData.map((item, index) => (
             <AboutCard
@@ -142,7 +198,7 @@ export default function AboutInfo() {
               title={item.title}
               content={item.content}
               color={item.color}
-              delay={index * 0.2}
+              delay={index * 0.2} // Staggered animation delays (0s, 0.2s, 0.4s)
             />
           ))}
         </div>

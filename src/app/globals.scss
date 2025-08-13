@@ -103,11 +103,11 @@ body {
 
   // Button styles
   .btn{
-    @apply bg-[#17c528] text-white px-[25px] py-[10px] rounded-[50px] border-none cursor-pointer transition-all duration-300 hover:translate-y-[-3px] hover:shadow-xl active:translate-y-[-1px] active:shadow-lg text-base inline-block;
+    @apply bg-[#17c528] text-white px-[25px] py-[10px] rounded-[50px] border-none cursor-pointer transition-all duration-300 hover:translate-y-[-3px] hover:shadow-xl active:translate-y-[-1px] active:shadow-lg text-base inline-block text-[1.6rem];
   }
 
   .tabbed-btn{
-    @apply px-[3rem] py-[1.7rem] text-[1.6rem] mr-[4px] font-bold transition-all duration-100 border-none cursor-pointer;
+    @apply px-[3rem] py-[1.7rem] text-[1.6rem] mr-[4px] font-bold border-none cursor-pointer;
   }
 
   .btn-transparent {

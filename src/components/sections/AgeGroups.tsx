@@ -81,7 +81,7 @@ export default function AgeGroups() {
         </div>
 
         {/* Tab Container */}
-        <div className="relative w-[90%] mx-auto">
+        <div className="relative w-[90%] mx-auto h-[54rem]">
           {/* Tabs */}
           <div className="flex gap-0 mb-0">
             {ageGroups.map((group) => {
@@ -97,13 +97,14 @@ export default function AgeGroups() {
                   key={group.id}
                   onClick={() => setActiveTab(group.id)}
                   className={cn(
-                    'px-[3rem] py-[1.7rem] text-[1.6rem] mr-[4px] font-bold transition-all duration-300 border-none cursor-pointer',
+                    'tabbed-btn',
                     'rounded-md',
                     tabColors[group.id as keyof typeof tabColors],
-                    isActive ? 'transform -translate-y-2 z-10' : 'hover:transform hover:-translate-y-1'
+                    isActive ? 'transform -translate-y-[6px] z-10' : ''
                   )}
-                  whileHover={{ y: isActive ? -8 : -4 }}
-                  whileTap={{ y: isActive ? -6 : -2 }}
+                  whileHover={{ y: isActive ? -6 : -4 }}
+                  whileTap={{ y: isActive ? -5 : -4 }}
+                  animate={{ y: isActive ? -6 : 0 }}
                 >
                   {group.title}
                 </motion.button>
@@ -112,7 +113,7 @@ export default function AgeGroups() {
           </div>
 
           {/* Content Container */}
-          <AnimatePresence mode="wait">
+         
             {ageGroups.map((group) => {
               if (activeTab !== group.id) return null
               
@@ -123,14 +124,11 @@ export default function AgeGroups() {
               }
 
               return (
-                <motion.div
+                <div
                   key={group.id}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: -15 }}
-                  exit={{ opacity: 0, y: -20 }}
-                  transition={{ duration: 0.3, ease: "easeOut" }}
+                  
                   className={cn(
-                    'rounded-lg rounded-tl-none p-[6rem] h-[48rem]',
+                    'rounded-lg rounded-tl-none p-[6rem] h-[48rem] absolute top-[5rem]',
                     contentColors[group.id as keyof typeof contentColors]
                   )}
                 >
@@ -152,7 +150,7 @@ export default function AgeGroups() {
                         </h2>
                         
                         {group.description.map((desc, index) => (
-                          <p key={index} className="text-lg text-gray-700 mb-4 leading-relaxed">
+                          <p key={index} className="text-[1.6rem] text-gray-700 mb-4 leading-relaxed">
                             {desc}
                           </p>
                         ))}
@@ -160,12 +158,7 @@ export default function AgeGroups() {
                         <div className="mt-8">
                           <Link
                             href={group.href}
-                            className={cn(
-                              'inline-block px-8 py-4 text-lg font-medium text-white rounded-full',
-                              'transition-all duration-300 hover:shadow-lg hover:scale-105',
-                              contentColors[group.id as keyof typeof contentColors],
-                              'hover:brightness-110'
-                            )}
+                            className='btn'
                           >
                             {group.buttonText}
                           </Link>
@@ -173,10 +166,10 @@ export default function AgeGroups() {
                       </div>
                     </div>
                   </div>
-                </motion.div>
+                </div>
               )
             })}
-          </AnimatePresence>
+          
         </div>
       </div>
     </section>
