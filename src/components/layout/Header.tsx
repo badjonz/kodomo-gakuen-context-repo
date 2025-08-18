@@ -123,7 +123,7 @@ export default function Header() {
 
         {/* Logo - Centered on mobile, left on desktop */}
         <div className="pl-6 md:order-1 order-2 md:flex-none flex-1 md:text-left text-center">
-          <a href="" className="text-[28px] md:text-[28px] text-[20px] text-white">
+          <a href="" className="text-[20px] md:text-[28px] text-white">
             <span className="text-[#32CD32]"></span>こども学園 Kodomo Gakuen
           </a>
         </div>

@@ -3,7 +3,7 @@ import Hero from '@/components/sections/Hero'
 import Footer from '@/components/layout/Footer'
 import AgeGroups from '@/components/sections/AgeGroups'
 import AboutInfo from '@/components/sections/AboutInfo'
-import BlogSection from '@/components/sections/BlogSection'
+// import BlogSection from '@/components/sections/BlogSection'
 
 export default function HomePage() {
   return (
@@ -18,7 +18,7 @@ export default function HomePage() {
         />
         <AgeGroups />
         <AboutInfo />
-        <BlogSection />
+        {/* <BlogSection /> */}
       </main>
       <Footer />
     </>

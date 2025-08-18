@@ -64,6 +64,50 @@ body {
 
 // Tailwind Layer Components
 @layer components {
+  .bg-primary {
+    @apply bg-[var(--color-primary)];
+  }
+  .bg-primary-light {
+    @apply bg-[var(--color-primary-light)];
+  }
+
+  .bg-primary-dark {
+    @apply bg-[var(--color-primary-dark)];
+  }
+  .bg-secondary {
+    @apply bg-[var(--color-secondary)];
+  }
+  .bg-tertiary {
+    @apply bg-[var(--color-tertiary)];
+  }
+  .bg-quaternary {
+    @apply bg-[var(--color-quaternary)];
+  }
+
+  .text-primary {
+    @apply text-[var(--color-primary)];
+  }
+
+  .text-primary-light {
+    @apply text-[var(--color-primary-light)];
+  }
+
+  .text-primary-dark {
+    @apply text-[var(--color-primary-dark)];
+  }
+
+  .text-secondary {
+    @apply text-[var(--color-secondary)];
+  }
+
+  .text-tertiary {
+    @apply text-[var(--color-tertiary)];
+  }
+
+  .text-quaternary {
+    @apply text-[var(--color-quaternary)];
+  }
+
   .nav-menu-style {
     @apply px-5 py-3 w-full rounded hover:bg-primary;
   }
@@ -116,6 +160,26 @@ body {
 
   .container{
     @apply max-w-[78vw] mx-auto;
+  }
+
+  .column{
+    @apply w-[70%] my-0 mx-auto md:w-full md:mx-0;
+  }
+
+  .footer-heading{
+    @apply text-[2.6rem] md:text-[2.2rem];
+  }
+
+  .footer-hr{
+    @apply bg-[var(--color-primary)] h-[3px] border-none w-[40%] mb-[1.5rem];
+  }
+
+  .footer__item {
+    @apply py-[.5rem] border-b-[1px] border-white border-dotted w-[90%];
+  }
+
+  .footer__link{
+    @apply text-[1.6rem] md:text-[1.4rem] hover:text-primary transition-colors duration-200;
   }
 
   // Navbar icons

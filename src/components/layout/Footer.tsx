@@ -20,13 +20,13 @@ export default function Footer() {
   ]
 
   return (
-    <footer id="main-footer" className="home-footer">
-      <div className="container footer-container">
+    <footer id="main-footer" className="home-footer bg-quaternary text-white pt-[2rem]">
+      <div className="container footer-container grid grid-cols-1 md:grid-cols-4 gap-[1.5rem]">
         
         {/* Quick Links */}
         <div className="column">
-          <h3 style={{ fontSize: '2.2rem' }}>クイックリンク</h3>
-          <hr className="footer-hr heading-hr text-color-1" />
+          <h3 className='footer-heading'>クイックリンク</h3>
+          <hr className="footer-hr" />
           <ul className="footer__list">
             {quickLinks.map((link, index) => (
               <li key={index} className="footer__item">
@@ -44,16 +44,16 @@ export default function Footer() {
 
         {/* Contact Information */}
         <div className="column">
-          <h3 style={{ fontSize: '2.2rem' }}>お問い合わせ</h3>
-          <hr className="footer-hr heading-hr text-color-1" />
+          <h3 className='footer-heading'>お問い合わせ</h3>
+          <hr className="footer-hr" />
           <ul className="footer__list">
             <li className="footer__item">
-              <table>
+              <table className=''>
                 <tbody>
                   <tr>
-                    <td><i className="fas fa-home"></i></td>
+                    <td className='border-r-[6px] border-transparent align-top'><i className="fas fa-home text-[1.6rem] md:text-[1.4rem] mt-[4px]"></i></td>
                     <td>
-                      <span>こども学園、〒207-0031 Tokyo, Higashiyamato, Narahashi, 2 Chome-409</span>
+                      <span className='text-[1.6rem] md:text-[1.4rem]'>こども学園、〒207-0031 Tokyo, Higashiyamato, Narahashi, 2 Chome-409</span>
                     </td>
                   </tr>
                 </tbody>
@@ -61,18 +61,20 @@ export default function Footer() {
             </li>
           </ul>
           <ul className="footer__list">
-            <li className="footer__item">
-              <i className="fas fa-phone-alt"></i>
+            <li className="footer__item flex gap-[6px] items-center">
+              <i className="fas fa-phone-alt text-[1.6rem] md:text-[1.4rem]"></i>
               <span className="footer__text">
                 <Link href="tel:+810425643549" className="footer__link">
                   +81 042 564 3549
                 </Link>
               </span>
             </li>
-            <li className="footer__item">
-              <i className="fas fa-envelope"></i>
-              <span className="footer__text">
+            <li className="footer__item flex gap-[1rem] items-center">
+
+              <span className="text-[1.6rem] md:text-[1.4rem]">
+
                 <Link href="mailto:info@kodomogakuen.com" className="footer__link">
+                <i className="fas fa-envelope mr-[6px]"></i>
                   info@kodomogakuen.com
                 </Link>
               </span>
@@ -82,8 +84,8 @@ export default function Footer() {
 
         {/* Social Media */}
         <div className="column">
-          <h3 style={{ fontSize: '2.2rem' }}>ソーシャルメディア</h3>
-          <hr className="footer-hr heading-hr text-color-1" />
+          <h3 className='footer-heading'>ソーシャルメディア</h3>
+          <hr className="footer-hr" />
           <ul className="footer__list">
             {socialLinks.map((link, index) => (
               <li key={index} className="footer__item">
@@ -103,8 +105,8 @@ export default function Footer() {
 
         {/* Location */}
         <div className="column">
-          <h3 style={{ fontSize: '2.2rem' }}>位置</h3>
-          <hr className="footer-hr heading-hr text-color-1" />
+          <h3 className='footer-heading'>位置</h3>
+          <hr className="footer-hr" />
           <div>
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3237.8396466980057!2d139.42459591521808!3d35.75474588017728!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6018e0be04eef839%3A0x676af2805051e982!2s2-ch%C5%8Dme-409%20Narahashi%2C%20Higashiyamato%2C%20T%C5%8Dky%C5%8D-to%20207-0031%2C%20Japan!5e0!3m2!1sen!2sus!4v1589112755684!5m2!1sen!2sus"
@@ -120,9 +122,9 @@ export default function Footer() {
         </div>
 
         {/* Copyright */}
-        <div className="copyright">
-          <hr />
-          <p>Kodomo Gakuen &copy; 2020, All Rights Reserved</p>
+        <div className="copyright col-span-1 md:col-start-1 md:col-span-4 text-center">
+          <hr className='h-[1px] border-[0px] bg-white'/>
+          <p className='text-[1.6rem] mt-[1rem] mb-[1rem]'>Kodomo Gakuen &copy; 2020, All Rights Reserved</p>
         </div>
       </div>
     </footer>
