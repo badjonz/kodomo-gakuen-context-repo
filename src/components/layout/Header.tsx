@@ -81,6 +81,10 @@ export default function Header() {
       pathname === path ? 'bg-[#32cd32]' : '' // Green background for active link
     }`;
 
+  // Helper: Generate className for mobile navigation links with active state
+  const mobileNavLinkClass = (path: string): string => 
+    pathname === path ? 'mobile-nav-link-active' : 'mobile-nav-link';
+
    return <div className="flex flex-col">
     {/* Top info bar - changes color on scroll */}
     <motion.div 
@@ -117,12 +121,12 @@ export default function Header() {
       transition={{ delay: 0.2, duration: 0.4, ease: "easeOut" }}
     >
       {/* Hamburger icon with animation to X when open */}
-       <span className={`absolute top-[25%] left-[50%] transform -translate-x-[52%] -translate-y-[-50%] w-[2.2rem] h-[2px] ${isMobileMenuOpen ? 'bg-primary' : 'bg-white'} transition-all duration-300 
+       <span className={`absolute top-[25%] left-[50%] transform -translate-x-[52%] -translate-y-[-50%] w-[2.2rem] h-[2px] transition-all duration-300 
         ${isMobileMenuOpen ? 'bg-primary rotate-45 translate-y-[7px]' : 'bg-white'} 
         before:content-[""] before:absolute before:top-[6px] before:left-0 before:w-full before:h-[2px] before:bg-white before:transition-all before:duration-300 
         ${isMobileMenuOpen ? 'before:opacity-0' : ''} 
-        after:content-[""] after:absolute after:top-[12px] after:left-0 after:w-full after:h-[2px] after:bg-white after:transition-all after:duration-300 
-        ${isMobileMenuOpen ? 'after:rotate-90 after:translate-y-[-12px] after:bg-primary ' : 'bg-white'}`}>
+        after:content-[""] after:absolute after:top-[12px] after:left-0 after:w-full after:h-[2px] after:transition-all after:duration-300 
+        ${isMobileMenuOpen ? 'after:rotate-90 after:translate-y-[-12px] after:bg-primary ' : 'after:bg-white'}`}>
       </span>
     </motion.button> 
     
@@ -168,7 +172,7 @@ export default function Header() {
         {/* Desktop Navigation Menu - Hidden on mobile */}
         <ul className="hidden md:flex gap-[5px] text-white order-3">
           {/* Home Link */}
-          <li>
+          <li className=''>
             <Link href="/" className={navLinkClass('/')}>
               <span>ホーム</span>
             </Link>
@@ -281,13 +285,13 @@ export default function Header() {
     >
 
       {/* Mobile Menu Navigation Items */}
-      <nav className="pt-16 px-6 h-full flex flex-col items-center justify-center">
-        <ul className="space-y-2 text-white">
+      <nav className="pt-16 h-full flex flex-col items-center justify-center">
+        <ul className="space-y-2 text-white w-full">
           {/* Home */}
-          <li>
+          <li className='text-center '>
             <Link 
               href="/" 
-              className="block py-3 px-4 text-lg hover:bg-white hover:bg-opacity-20 rounded"
+              className={mobileNavLinkClass('/') }
               onClick={() => setIsMobileMenuOpen(false)} // Close menu on link click
             >
               ホーム
@@ -296,39 +300,39 @@ export default function Header() {
           
           {/* Information Section with Submenu */}
           <li>
-            <div className="py-3 px-4 text-lg font-semibold">インフォメーション</div>
-            <ul className="ml-4 space-y-1">
-              <li>
+            <div className="py-[2rem] text-[1.4rem] w-full hover:bg-primary hover:text-white transition-colors duration-200 text-center">インフォメーション</div>
+            <ul className="w-full text-center bg-dark-1 divide-y divide-[#333]">
+              <li className=''>
                 <Link 
                   href="/about" 
-                  className="block py-2 px-4 hover:bg-white hover:bg-opacity-20 rounded"
+                  className={mobileNavLinkClass('/about')}
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   保育方針
                 </Link>
               </li>
-              <li>
+              <li className=''>
                 <Link 
                   href="/fees" 
-                  className="block py-2 px-4 hover:bg-white hover:bg-opacity-20 rounded"
+                  className={mobileNavLinkClass('/fees')}
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   保育料
                 </Link>
               </li>
-              <li>
+              <li className=''>
                 <Link 
                   href="/privacy" 
-                  className="block py-2 px-4 hover:bg-white hover:bg-opacity-20 rounded"
+                  className={mobileNavLinkClass('/privacy')}
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   プライバシーポリシー
                 </Link>
               </li>
-              <li>
+              <li className=''>
                 <Link 
                   href="/menu" 
-                  className="block py-2 px-4 hover:bg-white hover:bg-opacity-20 rounded"
+                  className={mobileNavLinkClass('/menu')}
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   給食
@@ -338,10 +342,10 @@ export default function Header() {
           </li>
 
           {/* Forms */}
-          <li>
+          <li className='text-center'>
             <Link 
               href="/forms" 
-              className="block py-3 px-4 text-lg hover:bg-white hover:bg-opacity-20 rounded"
+              className={mobileNavLinkClass('/forms')}
               onClick={() => setIsMobileMenuOpen(false)}
             >
               書類
@@ -350,12 +354,12 @@ export default function Header() {
 
           {/* Classes Section with Submenu */}
           <li>
-            <div className="py-3 px-4 text-lg font-semibold">クラス</div>
-            <ul className="ml-4 space-y-1">
+            <div className="py-[2rem] text-[1.4rem] w-full hover:bg-primary hover:text-white transition-colors duration-200 text-center">クラス</div>
+            <ul className="w-full text-center bg-dark-1  divide-y divide-[#333]">
               <li>
                 <Link 
                   href="/nyuuji" 
-                  className="block py-2 px-4 hover:bg-white hover:bg-opacity-20 rounded"
+                  className={mobileNavLinkClass('/nyuuji')}
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   乳児
@@ -364,7 +368,7 @@ export default function Header() {
               <li>
                 <Link 
                   href="/youji" 
-                  className="block py-2 px-4 hover:bg-white hover:bg-opacity-20 rounded"
+                  className={mobileNavLinkClass('/youji')}
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   幼児
@@ -373,7 +377,7 @@ export default function Header() {
               <li>
                 <Link 
                   href="/star" 
-                  className="block py-2 px-4 hover:bg-white hover:bg-opacity-20 rounded"
+                  className={mobileNavLinkClass('/star')}
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   国際クラス
@@ -383,10 +387,10 @@ export default function Header() {
           </li>
 
           {/* Activities */}
-          <li>
+          <li className='text-center'>
             <Link 
               href="/activities" 
-              className="block py-3 px-4 text-lg hover:bg-white hover:bg-opacity-20 rounded"
+              className={mobileNavLinkClass('/activities')}
               onClick={() => setIsMobileMenuOpen(false)}
             >
               課外教室

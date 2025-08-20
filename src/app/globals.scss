@@ -84,6 +84,13 @@ body {
     @apply bg-[var(--color-quaternary)];
   }
 
+  .bg-dark-1{
+    @apply bg-[var(--color-dark-1)];
+  }
+  .bg-dark-2{
+    @apply bg-[var(--color-dark-2)];
+  }
+
   .text-primary {
     @apply text-[var(--color-primary)];
   }
@@ -108,6 +115,14 @@ body {
     @apply text-[var(--color-quaternary)];
   }
 
+  .text-dark-1{
+    @apply text-[var(--color-dark-1)];
+  }
+
+  .text-dark-2{
+    @apply text-[var(--color-dark-2)];
+  }
+
   .nav-menu-style {
     @apply px-5 py-3 w-full rounded hover:bg-primary;
   }
@@ -115,6 +130,16 @@ body {
   .nav-menu-link{
     @apply text-[1.4rem] px-[2rem] py-[1.3rem] w-full rounded-[3px] hover:bg-[#32cd32] transition-colors duration-200;
   }
+
+  .mobile-nav-link{
+    @apply block py-[2rem] text-[1.4rem] w-full hover:bg-primary hover:text-white transition-colors duration-200;
+  }
+
+  .mobile-nav-link-active{
+    @apply block py-[2rem] text-[1.4rem] w-full bg-primary text-white transition-colors duration-200;
+  }
+
+  
 
   // Dropdown container
   .dropdown-container {
