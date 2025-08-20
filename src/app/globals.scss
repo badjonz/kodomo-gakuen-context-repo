@@ -1,5 +1,5 @@
 // Import mixins
-@import '../styles/mixins';
+@use '../styles/mixins' as mixins;
 
 // Google Fonts
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
@@ -32,15 +32,15 @@
 html {
   font-size: 62.5%; // 10px base (1rem = 10px)
   
-  @include respond(tab-land) {
+  @include mixins.respond(tab-land) {
     font-size: 56.25%; // 9px base
   }
   
-  @include respond(tab-port) {
+  @include mixins.respond(tab-port) {
     font-size: 50%; // 8px base
   }
   
-  @include respond(big-desktop) {
+  @include mixins.respond(big-desktop) {
     font-size: 75%; // 12px base
   }
 }
@@ -191,15 +191,15 @@ body {
   .responsive-text-lg {
     font-size: 2.4rem;
     
-    @include respond(tab-land) {
+    @include mixins.respond(tab-land) {
       font-size: 2.2rem;
     }
     
-    @include respond(tab-port) {
+    @include mixins.respond(tab-port) {
       font-size: 2rem;
     }
     
-    @include respond(phone) {
+    @include mixins.respond(phone) {
       font-size: 1.8rem;
     }
   }
@@ -207,15 +207,15 @@ body {
   .responsive-text-xl {
     font-size: 3.2rem;
     
-    @include respond(tab-land) {
+    @include mixins.respond(tab-land) {
       font-size: 2.8rem;
     }
     
-    @include respond(tab-port) {
+    @include mixins.respond(tab-port) {
       font-size: 2.4rem;
     }
     
-    @include respond(phone) {
+    @include mixins.respond(phone) {
       font-size: 2rem;
     }
   }
@@ -223,15 +223,15 @@ body {
   .responsive-text-2xl {
     font-size: 4.8rem;
     
-    @include respond(tab-land) {
+    @include mixins.respond(tab-land) {
       font-size: 4.2rem;
     }
     
-    @include respond(tab-port) {
+    @include mixins.respond(tab-port) {
       font-size: 3.6rem;
     }
     
-    @include respond(phone) {
+    @include mixins.respond(phone) {
       font-size: 2.8rem;
     }
   }
