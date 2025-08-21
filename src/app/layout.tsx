@@ -1,5 +1,7 @@
 import type { Metadata } from 'next'
 import './globals.scss'
+import Header from '@/components/layout/Header'
+import Footer from '@/components/layout/Footer'
 
 export const metadata: Metadata = {
   title: 'こども学園[Kodomo Gakuen] - 幼稚園/保育園',
@@ -26,7 +28,11 @@ export default function RootLayout({
         />
       </head>
       <body className="font-kosugi bg-light-2 text-dark-1">
-        {children}
+        <Header />
+        <main>
+          {children}
+        </main>
+        <Footer />
       </body>
     </html>
   )

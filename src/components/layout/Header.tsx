@@ -3,7 +3,7 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { usePathname } from "next/navigation";
 import Link from 'next/link';
-import { motion, useMotionValue, useTransform } from 'framer-motion';
+import { motion, useMotionValue, useTransform, AnimatePresence } from 'framer-motion';
 
 export default function Header() {
   // Get current route pathname for active link styling
@@ -15,6 +15,10 @@ export default function Header() {
   // Reference to hamburger button for click outside detection
   const hamburgerRef = useRef(null);
   
+  // References to submenu toggle divs to prevent menu closing
+  const informationToggleRef = useRef(null);
+  const classesToggleRef = useRef(null);
+  
   // Track if user has scrolled past threshold (100px)
   const [isScrolled, setIsScrolled] = useState(false);
   
@@ -23,6 +27,9 @@ export default function Header() {
   
   // Control mobile menu open/close state
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  
+  // Control mobile submenu states
+  const [activeSubmenu, setActiveSubmenu] = useState<string | null>(null);
 
   // Effect: Monitor scroll position and update header appearance
   useEffect(() => {
@@ -48,11 +55,16 @@ export default function Header() {
       if (event.button !== 0) return;
       
       // Check if click is outside header and hamburger button and menu is open
+      // Also exclude submenu toggle divs from closing the menu
       if (isMobileMenuOpen && 
           headerRef.current && 
           hamburgerRef.current &&
+          informationToggleRef.current &&
+          classesToggleRef.current &&
           !(headerRef.current as HTMLElement).contains(event.target as Node) &&
-          !(hamburgerRef.current as HTMLElement).contains(event.target as Node)) {
+          !(hamburgerRef.current as HTMLElement).contains(event.target as Node) &&
+          !(informationToggleRef.current as HTMLElement).contains(event.target as Node) &&
+          !(classesToggleRef.current as HTMLElement).contains(event.target as Node)) {
         setIsMobileMenuOpen(false);
       }
     };
@@ -84,6 +96,16 @@ export default function Header() {
   // Helper: Generate className for mobile navigation links with active state
   const mobileNavLinkClass = (path: string): string => 
     pathname === path ? 'mobile-nav-link-active' : 'mobile-nav-link';
+
+  const mobileNavSubLinkClass = (path: string): string => 
+    `mobile-nav-sub-link ${
+      pathname === path ? 'mobile-nav-link-active' : 'mobile-nav-sub-link' // Green background for active link
+    }`;
+
+  // Handle mobile submenu toggle
+  const handleSubmenuToggle = (submenuName: string) => {
+    setActiveSubmenu(activeSubmenu === submenuName ? null : submenuName);
+  };
 
    return <div className="flex flex-col">
     {/* Top info bar - changes color on scroll */}
@@ -300,45 +322,61 @@ export default function Header() {
           
           {/* Information Section with Submenu */}
           <li>
-            <div className="py-[2rem] text-[1.4rem] w-full hover:bg-primary hover:text-white transition-colors duration-200 text-center">インフォメーション</div>
-            <ul className="w-full text-center bg-dark-1 divide-y divide-[#333]">
-              <li className=''>
-                <Link 
-                  href="/about" 
-                  className={mobileNavLinkClass('/about')}
-                  onClick={() => setIsMobileMenuOpen(false)}
+            <div 
+              ref={informationToggleRef}
+              className="mobile-nav-link text-center cursor-pointer"
+              onClick={() => handleSubmenuToggle('information')}
+            >
+              インフォメーション
+            </div>
+            <AnimatePresence>
+              {activeSubmenu === 'information' && (
+                <motion.ul 
+                  className="w-full text-center bg-dark-1 overflow-hidden"
+                  initial={{ height: 0, opacity: 0 }}
+                  animate={{ height: 'auto', opacity: 1 }}
+                  exit={{ height: 0, opacity: 0 }}
+                  transition={{ duration: 0.3, ease: 'easeInOut' }}
                 >
-                  保育方針
-                </Link>
-              </li>
-              <li className=''>
-                <Link 
-                  href="/fees" 
-                  className={mobileNavLinkClass('/fees')}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  保育料
-                </Link>
-              </li>
-              <li className=''>
-                <Link 
-                  href="/privacy" 
-                  className={mobileNavLinkClass('/privacy')}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  プライバシーポリシー
-                </Link>
-              </li>
-              <li className=''>
-                <Link 
-                  href="/menu" 
-                  className={mobileNavLinkClass('/menu')}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  給食
-                </Link>
-              </li>
-            </ul>
+                  <li className=''>
+                    <Link 
+                      href="/about" 
+                      className={mobileNavSubLinkClass('/about')}
+                      onClick={() => setIsMobileMenuOpen(false)}
+                    >
+                      保育方針
+                    </Link>
+                  </li>
+                  <li className=''>
+                    <Link 
+                      href="/fees" 
+                      className={mobileNavSubLinkClass('/fees')}
+                      onClick={() => setIsMobileMenuOpen(false)}
+                    >
+                      保育料
+                    </Link>
+                  </li>
+                  <li className=''>
+                    <Link 
+                      href="/privacy" 
+                      className={mobileNavSubLinkClass('/privacy')}
+                      onClick={() => setIsMobileMenuOpen(false)}
+                    >
+                      プライバシーポリシー
+                    </Link>
+                  </li>
+                  <li className=''>
+                    <Link 
+                      href="/menu" 
+                      className={mobileNavSubLinkClass('/menu')}
+                      onClick={() => setIsMobileMenuOpen(false)}
+                    >
+                      給食
+                    </Link>
+                  </li>
+                </motion.ul>
+              )}
+            </AnimatePresence>
           </li>
 
           {/* Forms */}
@@ -354,36 +392,52 @@ export default function Header() {
 
           {/* Classes Section with Submenu */}
           <li>
-            <div className="py-[2rem] text-[1.4rem] w-full hover:bg-primary hover:text-white transition-colors duration-200 text-center">クラス</div>
-            <ul className="w-full text-center bg-dark-1  divide-y divide-[#333]">
-              <li>
-                <Link 
-                  href="/nyuuji" 
-                  className={mobileNavLinkClass('/nyuuji')}
-                  onClick={() => setIsMobileMenuOpen(false)}
+            <div 
+              ref={classesToggleRef}
+              className="mobile-nav-link text-center cursor-pointer"
+              onClick={() => handleSubmenuToggle('classes')}
+            >
+              クラス
+            </div>
+            <AnimatePresence>
+              {activeSubmenu === 'classes' && (
+                <motion.ul 
+                  className="w-full text-center bg-dark-1 overflow-hidden"
+                  initial={{ height: 0, opacity: 0 }}
+                  animate={{ height: 'auto', opacity: 1 }}
+                  exit={{ height: 0, opacity: 0 }}
+                  transition={{ duration: 0.3, ease: 'easeInOut' }}
                 >
-                  乳児
-                </Link>
-              </li>
-              <li>
-                <Link 
-                  href="/youji" 
-                  className={mobileNavLinkClass('/youji')}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  幼児
-                </Link>
-              </li>
-              <li>
-                <Link 
-                  href="/star" 
-                  className={mobileNavLinkClass('/star')}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  国際クラス
-                </Link>
-              </li>
-            </ul>
+                  <li>
+                    <Link 
+                      href="/nyuuji" 
+                      className={mobileNavSubLinkClass('/nyuuji')}
+                      onClick={() => setIsMobileMenuOpen(false)}
+                    >
+                      乳児
+                    </Link>
+                  </li>
+                  <li>
+                    <Link 
+                      href="/youji" 
+                      className={mobileNavSubLinkClass('/youji')}
+                      onClick={() => setIsMobileMenuOpen(false)}
+                    >
+                      幼児
+                    </Link>
+                  </li>
+                  <li>
+                    <Link 
+                      href="/star" 
+                      className={mobileNavSubLinkClass('/star')}
+                      onClick={() => setIsMobileMenuOpen(false)}
+                    >
+                      国際クラス
+                    </Link>
+                  </li>
+                </motion.ul>
+              )}
+            </AnimatePresence>
           </li>
 
           {/* Activities */}

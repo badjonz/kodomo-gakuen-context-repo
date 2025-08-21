@@ -38,7 +38,7 @@ export default function Hero({
     <section
       className={cn(
         'relative flex items-center justify-center text-center text-white overflow-hidden',
-        isHomepage ? 'h-screen' : 'h-[40vh]'
+        isHomepage ? 'h-screen pt-[105px]' : 'h-[40vh] pt-[105px]'
       )}
     >
       {/* Background image */}
