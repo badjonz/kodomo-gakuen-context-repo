@@ -9,6 +9,11 @@ export default function Header() {
   // Get current route pathname for active link styling
   const pathname = usePathname();
   
+  // Normalize pathname by removing trailing slashes (except root "/")
+  const normalizedPathname = pathname.endsWith('/') && pathname.length > 1 
+    ? pathname.slice(0, -1) 
+    : pathname;
+  
   // Reference to header element for click outside detection
   const headerRef = useRef(null);
   
@@ -65,7 +70,7 @@ export default function Header() {
           !(hamburgerRef.current as HTMLElement).contains(event.target as Node) &&
           !(informationToggleRef.current as HTMLElement).contains(event.target as Node) &&
           !(classesToggleRef.current as HTMLElement).contains(event.target as Node)) {
-        setIsMobileMenuOpen(false);
+        closeMobileMenuAndResetSubmenus();
       }
     };
 
@@ -87,24 +92,55 @@ export default function Header() {
     };
   }, [isMobileMenuOpen]);
 
+  // Effect: Reset submenu state when navigating to a new page
+  useEffect(() => {
+    setActiveSubmenu(null); // Close all submenus when route changes
+  }, [pathname]);
+
   // Helper: Generate className for navigation links with active state
   const navLinkClass = (path: string): string => 
     `nav-menu-link ${
-      pathname === path ? 'bg-[#32cd32]' : '' // Green background for active link
+      normalizedPathname === path ? 'nav-menu-link-active' : '' // Use specific active class
     }`;
 
   // Helper: Generate className for mobile navigation links with active state
   const mobileNavLinkClass = (path: string): string => 
-    pathname === path ? 'mobile-nav-link-active' : 'mobile-nav-link';
+    normalizedPathname === path ? 'mobile-nav-link-active' : 'mobile-nav-link';
 
   const mobileNavSubLinkClass = (path: string): string => 
     `mobile-nav-sub-link ${
-      pathname === path ? 'mobile-nav-link-active' : 'mobile-nav-sub-link' // Green background for active link
+      normalizedPathname === path ? 'mobile-nav-sub-link-active' : '' // Use specific active class for mobile sub-links
     }`;
+
+  // Define route groups for dropdown menus
+  const informationRoutes = ['/about', '/fees', '/privacy', '/menu', '/programs', '/enrolment'];
+  const classRoutes = ['/nyuuji', '/youji', '/star'];
+
+  // Helper: Check if a dropdown parent should be active
+  const isDropdownActive = (childRoutes: string[]): boolean => 
+    childRoutes.includes(normalizedPathname);
+
+  // Helper: Generate className for dropdown parents
+  const dropdownParentClass = (childRoutes: string[]): string => 
+    `nav-menu-link ${isDropdownActive(childRoutes) ? 'nav-menu-link-active' : ''}`;
+
+  // Helper: Generate className for dropdown child links
+  const dropdownChildClass = (path: string): string => 
+    `dropdown-link ${normalizedPathname === path ? 'dropdown-link-active' : ''}`;
+
+  // Helper: Generate className for mobile dropdown toggle divs
+  const mobileDropdownToggleClass = (childRoutes: string[]): string => 
+    `mobile-nav-link text-center cursor-pointer ${isDropdownActive(childRoutes) ? 'bg-primary text-white' : ''}`;
 
   // Handle mobile submenu toggle
   const handleSubmenuToggle = (submenuName: string) => {
     setActiveSubmenu(activeSubmenu === submenuName ? null : submenuName);
+  };
+
+  // Helper function to close mobile menu and reset submenu state
+  const closeMobileMenuAndResetSubmenus = () => {
+    setIsMobileMenuOpen(false);
+    setActiveSubmenu(null);
   };
 
    return <div className="flex flex-col">
@@ -186,13 +222,13 @@ export default function Header() {
       >
         {/* Logo - Centered on mobile, left-aligned on desktop */}
         <div className="pl-6 md:pl-0 flex-1 md:flex-none md:text-left text-center">
-          <a href="" className="text-[20px] md:text-[28px] text-white">
+          <Link href="/" className="text-[20px] md:text-[28px] text-white">
             <span className="text-[#32CD32]"></span>こども学園 Kodomo Gakuen
-          </a>
+          </Link>
         </div>
 
         {/* Desktop Navigation Menu - Hidden on mobile */}
-        <ul className="hidden md:flex gap-[5px] text-white order-3">
+        <ul className="hidden md:flex gap-[5px] text-white order-3 items-center">
           {/* Home Link */}
           <li className=''>
             <Link href="/" className={navLinkClass('/')}>
@@ -202,33 +238,43 @@ export default function Header() {
 
           {/* Information Dropdown */}
           <li className="dropdown-container">
-            <Link 
-              href="" 
-              className="nav-menu-link"
+            <div 
+              className={dropdownParentClass(informationRoutes)}
               data-nav="1"
+              style={{ cursor: 'pointer' }}
             >
               インフォメーション
-            </Link>
+            </div>
             {/* Dropdown submenu */}
             <ul className="dropdown-menu">
               <li className="dropdown-item">
-                <Link href="/about" className="dropdown-link">
+                <Link href="/about" className={dropdownChildClass('/about')}>
                   <span>保育方針</span>
                 </Link>
               </li>
               <li className="dropdown-item">
-                <Link href="/fees" className="dropdown-link">
+                <Link href="/fees" className={dropdownChildClass('/fees')}>
                   <span>保育料</span>
                 </Link>
               </li>
               <li className="dropdown-item">
-                <Link href="/privacy" className="dropdown-link">
+                <Link href="/privacy" className={dropdownChildClass('/privacy')}>
                   <span>プライバシーポリシー</span>
                 </Link>
               </li>
               <li className="dropdown-item">
-                <Link href="/menu" className="dropdown-link">
+                <Link href="/menu" className={dropdownChildClass('/menu')}>
                   <span>給食</span>
+                </Link>
+              </li>
+              <li className="dropdown-item">
+                <Link href="/programs" className={dropdownChildClass('/programs')}>
+                  <span>活動内容</span>
+                </Link>
+              </li>
+              <li className="dropdown-item">
+                <Link href="/enrolment" className={dropdownChildClass('/enrolment')}>
+                  <span>入園について</span>
                 </Link>
               </li>
             </ul>
@@ -247,27 +293,27 @@ export default function Header() {
 
           {/* Classes Dropdown */}
           <li className="dropdown-container">
-            <Link 
-              href="" 
-              className="nav-menu-link"
+            <div 
+              className={dropdownParentClass(classRoutes)}
               data-nav="3"
+              style={{ cursor: 'pointer' }}
             >
               クラス
-            </Link>
+            </div>
             {/* Dropdown submenu */}
             <ul className="dropdown-menu">
               <li className="dropdown-item">
-                <Link href="/nyuuji" className="dropdown-link">
+                <Link href="/nyuuji" className={dropdownChildClass('/nyuuji')}>
                   <span>乳児</span>
                 </Link>
               </li>
               <li className="dropdown-item">
-                <Link href="/youji" className="dropdown-link">
+                <Link href="/youji" className={dropdownChildClass('/youji')}>
                   <span>幼児</span>
                 </Link>
               </li>
               <li className="dropdown-item">
-                <Link href="/star" className="dropdown-link">
+                <Link href="/star" className={dropdownChildClass('/star')}>
                   <span>国際クラス</span>
                 </Link>
               </li>
@@ -295,7 +341,7 @@ export default function Header() {
       transition={{ duration: 0.3 }}
       // Only capture clicks when menu is open
       style={{ pointerEvents: isMobileMenuOpen ? 'auto' : 'none' }}
-      onClick={() => setIsMobileMenuOpen(false)} // Close menu on overlay click
+      onClick={closeMobileMenuAndResetSubmenus} // Close menu and reset submenus on overlay click
     />
 
     {/* Mobile Menu Sliding Panel - Slides in from left */}
@@ -308,13 +354,12 @@ export default function Header() {
 
       {/* Mobile Menu Navigation Items */}
       <nav className="pt-16 h-full flex flex-col items-center justify-center">
-        <ul className="space-y-2 text-white w-full">
+        <ul className=" text-white w-full">
           {/* Home */}
           <li className='text-center '>
             <Link 
               href="/" 
               className={mobileNavLinkClass('/') }
-              onClick={() => setIsMobileMenuOpen(false)} // Close menu on link click
             >
               ホーム
             </Link>
@@ -324,7 +369,7 @@ export default function Header() {
           <li>
             <div 
               ref={informationToggleRef}
-              className="mobile-nav-link text-center cursor-pointer"
+              className={mobileDropdownToggleClass(informationRoutes)}
               onClick={() => handleSubmenuToggle('information')}
             >
               インフォメーション
@@ -342,7 +387,6 @@ export default function Header() {
                     <Link 
                       href="/about" 
                       className={mobileNavSubLinkClass('/about')}
-                      onClick={() => setIsMobileMenuOpen(false)}
                     >
                       保育方針
                     </Link>
@@ -351,7 +395,6 @@ export default function Header() {
                     <Link 
                       href="/fees" 
                       className={mobileNavSubLinkClass('/fees')}
-                      onClick={() => setIsMobileMenuOpen(false)}
                     >
                       保育料
                     </Link>
@@ -360,7 +403,6 @@ export default function Header() {
                     <Link 
                       href="/privacy" 
                       className={mobileNavSubLinkClass('/privacy')}
-                      onClick={() => setIsMobileMenuOpen(false)}
                     >
                       プライバシーポリシー
                     </Link>
@@ -369,9 +411,24 @@ export default function Header() {
                     <Link 
                       href="/menu" 
                       className={mobileNavSubLinkClass('/menu')}
-                      onClick={() => setIsMobileMenuOpen(false)}
                     >
                       給食
+                    </Link>
+                  </li>
+                  <li className=''>
+                    <Link 
+                      href="/programs" 
+                      className={mobileNavSubLinkClass('/programs')}
+                    >
+                      活動内容
+                    </Link>
+                  </li>
+                  <li className=''>
+                    <Link 
+                      href="/enrolment" 
+                      className={mobileNavSubLinkClass('/enrolment')}
+                    >
+                      入園について
                     </Link>
                   </li>
                 </motion.ul>
@@ -384,7 +441,6 @@ export default function Header() {
             <Link 
               href="/forms" 
               className={mobileNavLinkClass('/forms')}
-              onClick={() => setIsMobileMenuOpen(false)}
             >
               書類
             </Link>
@@ -394,7 +450,7 @@ export default function Header() {
           <li>
             <div 
               ref={classesToggleRef}
-              className="mobile-nav-link text-center cursor-pointer"
+              className={mobileDropdownToggleClass(classRoutes)}
               onClick={() => handleSubmenuToggle('classes')}
             >
               クラス
@@ -412,7 +468,6 @@ export default function Header() {
                     <Link 
                       href="/nyuuji" 
                       className={mobileNavSubLinkClass('/nyuuji')}
-                      onClick={() => setIsMobileMenuOpen(false)}
                     >
                       乳児
                     </Link>
@@ -421,7 +476,6 @@ export default function Header() {
                     <Link 
                       href="/youji" 
                       className={mobileNavSubLinkClass('/youji')}
-                      onClick={() => setIsMobileMenuOpen(false)}
                     >
                       幼児
                     </Link>
@@ -430,7 +484,6 @@ export default function Header() {
                     <Link 
                       href="/star" 
                       className={mobileNavSubLinkClass('/star')}
-                      onClick={() => setIsMobileMenuOpen(false)}
                     >
                       国際クラス
                     </Link>
@@ -445,7 +498,6 @@ export default function Header() {
             <Link 
               href="/activities" 
               className={mobileNavLinkClass('/activities')}
-              onClick={() => setIsMobileMenuOpen(false)}
             >
               課外教室
             </Link>

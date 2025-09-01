@@ -128,7 +128,17 @@ body {
   }
 
   .nav-menu-link{
-    @apply text-[1.4rem] px-[2rem] py-[1.3rem] w-full rounded-[3px] hover:bg-[#32cd32] transition-colors duration-200;
+    @apply inline-block text-[1.4rem] px-[2rem] py-[1.3rem] w-full rounded-[3px] hover:bg-[#32cd32] transition-colors duration-200;
+  }
+  
+  /* Active nav link styling with higher specificity */
+  .nav-menu-link.nav-menu-link-active {
+    @apply bg-[#32cd32] text-white font-semibold shadow-md border-[#2db82d];
+  }
+  
+  /* Ensure active state overrides hover */
+  .nav-menu-link.nav-menu-link-active:hover {
+    @apply bg-[#2db82d] text-white;
   }
 
   .mobile-nav-link{
@@ -137,9 +147,14 @@ body {
   .mobile-nav-sub-link{
     @apply block py-[2rem] text-[1.4rem] w-full hover:bg-primary hover:text-white transition-colors duration-200 border-b-[1px] border-solid border-[#333];
   }
+  
+  /* Enhanced mobile sub-link active state */
+  .mobile-nav-sub-link.mobile-nav-sub-link-active {
+    @apply bg-primary text-white font-semibold border-b-[1px] border-solid border-[#2db82d] border-l-4 border-l-[#2db82d] shadow-sm;
+  }
 
   .mobile-nav-link-active{
-    @apply block py-[2rem] text-[1.4rem] w-full bg-primary text-white transition-colors duration-200;
+    @apply block py-[2rem] text-[1.4rem] w-full bg-primary text-white font-semibold transition-colors duration-200 border-b-2 border-solid border-[#2db82d] shadow-sm;
   }
 
   
@@ -151,7 +166,7 @@ body {
 
   // Dropdown menu
   .dropdown-menu {
-    @apply absolute left-0 top-[3.1rem] hidden bg-gray-100/95 rounded w-[18rem] z-50 transition-all duration-300 ease-in-out overflow-hidden shadow-lg;
+    @apply absolute left-0 top-[100%] hidden bg-gray-100/95 rounded w-[18rem] z-50 transition-all duration-300 ease-in-out overflow-hidden shadow-lg;
   }
 
   // Show dropdown on hover
@@ -171,6 +186,16 @@ body {
   // Dropdown links
   .dropdown-link {
     @apply flex items-center p-[1.4rem]  w-full justify-center text-quaternary hover:text-white hover:opacity-100 duration-200 text-[1.4rem];
+  }
+  
+  /* Active dropdown link styling with higher specificity */
+  .dropdown-link.dropdown-link-active {
+    @apply bg-[#32cd32] text-white font-semibold shadow-sm;
+  }
+  
+  /* Ensure active state overrides hover for dropdown links */
+  .dropdown-link.dropdown-link-active:hover {
+    @apply bg-[#2db82d] text-white;
   }
 
   // Button styles
@@ -192,6 +217,10 @@ body {
 
   .column{
     @apply w-[70%] my-0 mx-auto md:w-full md:mx-0;
+  }
+
+  .download-icon{
+    @apply w-[2rem] h-[2rem] mr-2 inline-block;
   }
 
   .footer-heading{

@@ -3,14 +3,13 @@
 import React from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import Header from '@/components/layout/Header';
-import Footer from '@/components/layout/Footer';
+import Hero from '@/components/sections/Hero';
 
 export default function About() {
   return (
     <div className="min-h-screen bg-[var(--color-light-2)]">
       {/* Page Banner */}
-      <motion.div 
+      {/* <motion.div 
         className="relative h-[40vh] bg-[#333] flex items-center justify-center before:content-[''] before:absolute before:inset-0 before:bg-[url('/images/page-banner.jpeg')] before:opacity-[45%]"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -34,7 +33,14 @@ export default function About() {
             私たちの保育方針と教育理念
           </motion.p>
         </div>
-      </motion.div>
+      </motion.div> */}
+
+      <Hero
+      title='保育方針'
+      backgroundImage="/images/page-banner.jpeg"
+      isHomepage={false}
+      showButton={false}
+    />
 
       {/* Main Content */}
       <section className="py-[8rem]">
