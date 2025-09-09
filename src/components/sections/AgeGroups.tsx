@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
 import { motion, AnimatePresence } from 'framer-motion'
 import { cn } from '@/utils/cn'
@@ -60,6 +60,8 @@ export default function AgeGroups() {
   const [activeTab, setActiveTab] = useState(1)
   const [mounted, setMounted] = useState(false)
 
+  const ageRef = useRef<HTMLDivElement>(null)
+
   useEffect(() => {
     setMounted(true)
   }, [])
@@ -71,7 +73,14 @@ export default function AgeGroups() {
 
   return (
     <section className="py-16 mb-12">
-      <div className="container px-8">
+      <motion.div 
+        ref={ageRef} 
+        className="container md:px-8 animate-on-scroll" 
+        initial={{ visibility: 'hidden', opacity: 0, y: 200 }} 
+        whileInView={{ visibility: 'visible', opacity: 1, y: 0 }} 
+        transition={{ duration: 0.8, ease: 'easeInOut' }}
+        viewport={{ once: true, amount: 0.1 }}
+      >
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="text-[3.4rem] lg:text-[4.4rem] font-light mb-4">
@@ -81,7 +90,7 @@ export default function AgeGroups() {
         </div>
 
         {/* Tab Container */}
-        <div className="relative w-[90%] mx-auto h-[54rem]">
+        <div className="relative w-full md:w-[90%] mx-auto h-[70rem] md:h-[54rem]">
           {/* Tabs */}
           <div className="flex gap-0 mb-0">
             {ageGroups.map((group) => {
@@ -128,14 +137,14 @@ export default function AgeGroups() {
                   key={group.id}
                   
                   className={cn(
-                    'rounded-lg rounded-tl-none p-[6rem] h-[48rem] absolute top-[5rem]',
+                    'rounded-lg rounded-tl-none p-[3rem] md:p-[6rem] h-[60rem] md:h-[48rem] absolute top-[5rem]',
                     contentColors[group.id as keyof typeof contentColors]
                   )}
                 >
                   <div className="bg-white/70 backdrop-blur-sm rounded-lg p-8 h-full">
-                    <div className="flex items-center justify-between h-full gap-8">
+                    <div className="flex md:flex-row flex-col items-center justify-between h-full gap-8">
                       {/* Image */}
-                      <div className="flex-1">
+                      <div className="flex-1 order-2 md:order-1">
                         <img
                           src={group.image}
                           alt={group.title}
@@ -144,8 +153,8 @@ export default function AgeGroups() {
                       </div>
                       
                       {/* Content */}
-                      <div className="flex-1 flex flex-col justify-center">
-                        <h2 className="text-[3.4rem] font-light text-gray-800 mb-6">
+                      <div className="flex-1 flex flex-col justify-center order-1 md:order-2">
+                        <h2 className="text-[3rem] md:text-[3.4rem] font-light text-gray-800 mb-6">
                           {group.title} － {group.subtitle}
                         </h2>
                         
@@ -171,7 +180,7 @@ export default function AgeGroups() {
             })}
           
         </div>
-      </div>
+      </motion.div>
     </section>
   )
 }

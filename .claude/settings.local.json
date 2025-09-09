@@ -35,7 +35,11 @@
       "mcp__playwright__browser_wait_for",
       "mcp__playwright__browser_evaluate",
       "Read(c:\\Users\\user\\Downloads/**)",
-      "Read(c:\\Users\\user\\Downloads/**)"
+      "Read(c:\\Users\\user\\Downloads/**)",
+      "Read(C:\\Users\\user\\Documents\\Code\\Kodomo Gakuen\\kodomo-gakuen-repo/**)",
+      "Read(C:\\Users\\user\\Documents\\Code\\Kodomo Gakuen\\kodomo-gakuen-repo/**)",
+      "Read(C:\\Users\\user\\Documents\\Code\\Kodomo Gakuen\\kodomo-gakuen-repo\\css/**)",
+      "mcp__playwright__browser_console_messages"
     ],
     "deny": []
   }

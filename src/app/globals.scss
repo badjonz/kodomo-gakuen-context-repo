@@ -212,7 +212,7 @@ body {
   }
 
   .container{
-    @apply max-w-[78vw] mx-auto;
+    @apply max-w-[82vw] md:max-w-[78vw] mx-auto;
   }
 
   .column{
@@ -292,4 +292,17 @@ body {
       font-size: 2.8rem;
     }
   }
+
+  // Animation helper classes to prevent FOUC
+  .animate-on-scroll {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  // Modal overlay backdrop
+  .overlay {
+    @apply fixed inset-0 bg-black/50 z-40;
+  }
+  
+  
 }

@@ -101,7 +101,7 @@ export default function AnnouncementModal({
             initial={{ y: 100 }}
             animate={{ y: 0 }}
             exit={{ y: 100 }}
-            className="fixed bottom-0 left-0 w-full bg-yellow-300 h-16 flex items-center justify-center z-30 cursor-pointer text-quaternary"
+            className="fixed bottom-0 left-0 w-full bg-yellow-300 h-16 flex items-center justify-center z-[60] cursor-pointer text-quaternary"
             onClick={openModal}
           >
             <h2 className="text-xl font-medium">園長からのあいさつ</h2>

@@ -33,7 +33,7 @@ function AboutCard({ title, content, color, delay }: AboutCardProps) {
           setIsVisible(true) // Trigger animation when card comes into view
         }
       },
-      { threshold: 0.1 } // Trigger when 10% of the card is visible
+      { threshold: 0.25 } // Trigger when 25% of the card is visible
     )
 
     if (cardRef.current) {
@@ -198,7 +198,7 @@ export default function AboutInfo() {
               title={item.title}
               content={item.content}
               color={item.color}
-              delay={index * 0.2} // Staggered animation delays (0s, 0.2s, 0.4s)
+              delay={0} // Staggered animation delays (0s, 0.2s, 0.4s)
             />
           ))}
         </div>
