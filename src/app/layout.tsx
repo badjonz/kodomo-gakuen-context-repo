@@ -3,6 +3,8 @@ import './globals.scss'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 import BackToTop from '@/components/ui/BackToTop'
+import { LanguageProvider } from '@/context/LanguageContext'
+import { ErrorBoundary } from '@/components/ui/ErrorBoundary'
 
 export const metadata: Metadata = {
   title: 'こども学園[Kodomo Gakuen] - 幼稚園/保育園',
@@ -29,12 +31,16 @@ export default function RootLayout({
         />
       </head>
       <body className="font-kosugi bg-light-2 text-dark-1">
-        <Header />
-        <main>
-          {children}
-        </main>
-        <Footer />
-        <BackToTop />
+        <LanguageProvider>
+          <ErrorBoundary>
+            <Header />
+            <main>
+              {children}
+            </main>
+            <Footer />
+            <BackToTop />
+          </ErrorBoundary>
+        </LanguageProvider>
       </body>
     </html>
   )

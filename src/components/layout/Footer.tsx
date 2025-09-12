@@ -3,33 +3,64 @@
 import React from 'react'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
+import { useLanguage } from '@/context/LanguageContext'
+import { useSectionContent } from '@/hooks/useContent'
 
 export default function Footer() {
-  const quickLinks = [
-    { label: 'ホーム', href: '/', icon: 'fas fa-home' },
-    { label: '保育方針', href: '/about', icon: 'fas fa-address-card' },
-    { label: 'クラス', href: '/youji', icon: 'fas fa-graduation-cap' },
-    { label: '課外教室', href: '/activities', icon: 'fas fa-soccer-ball-o' },
-  ]
+  const { language } = useLanguage()
+  const { content: footerContent, loading } = useSectionContent('footer')
+
+  // Get quick links from content or fallback
+  const getQuickLinks = () => {
+    if (!footerContent?.quickLinks?.links) {
+      // Fallback quick links
+      return language === 'ja' 
+        ? [
+            { label: 'ホーム', href: '/', icon: 'fas fa-home' },
+            { label: '保育方針', href: '/about', icon: 'fas fa-address-card' },
+            { label: 'クラス', href: '/youji', icon: 'fas fa-graduation-cap' },
+            { label: '課外教室', href: '/activities', icon: 'fas fa-soccer-ball-o' },
+          ]
+        : [
+            { label: 'Home', href: '/', icon: 'fas fa-home' },
+            { label: 'About Us', href: '/about', icon: 'fas fa-address-card' },
+            { label: 'Classes', href: '/youji', icon: 'fas fa-graduation-cap' },
+            { label: 'Activities', href: '/activities', icon: 'fas fa-soccer-ball-o' },
+          ]
+    }
+
+    // Use content from footerContent
+    const links = footerContent.quickLinks.links
+    return [
+      { label: links.home, href: '/', icon: 'fas fa-home' },
+      { label: links.about, href: '/about', icon: 'fas fa-address-card' },
+      { label: links.programs, href: '/youji', icon: 'fas fa-graduation-cap' },
+      { label: links.contact, href: '/activities', icon: 'fas fa-soccer-ball-o' },
+    ]
+  }
 
   const socialLinks = [
-    { label: 'フェイスブック', href: '#', icon: 'fab fa-facebook' },
-    { label: 'ユーチューブ', href: '#', icon: 'fab fa-youtube' },
-    { label: 'ツイッター', href: 'https://twitter.com/kodomogakuen', icon: 'fab fa-twitter' },
-    { label: 'インスタグラム', href: 'https://www.instagram.com/tokyokodomogakuen?igsh=MXR6cHhkMjRheTllcg==', icon: 'fab fa-instagram' },
+    { label: 'Facebook', href: '#', icon: 'fab fa-facebook' },
+    { label: 'Youtube', href: '#', icon: 'fab fa-youtube' },
+    { label: 'Twitter', href: 'https://twitter.com/kodomogakuen', icon: 'fab fa-twitter' },
+    { label: 'Instagram', href: 'https://www.instagram.com/tokyokodomogakuen?igsh=MXR6cHhkMjRheTllcg==', icon: 'fab fa-instagram' },
   ]
+
+  const quickLinks = getQuickLinks()
 
   return (
     <footer id="main-footer" className="home-footer bg-quaternary text-white pt-[2rem]">
       <div className="container footer-container grid grid-cols-1 md:grid-cols-4 gap-[1.5rem]">
         
         {/* Quick Links */}
-        <div className="column">
-          <h3 className='footer-heading'>クイックリンク</h3>
+        <div className="column" key={`${language}-quicklinks`}>
+          <h3 className='footer-heading'>
+            {footerContent?.quickLinks?.title || (language === 'ja' ? 'クイックリンク' : 'Quick Links')}
+          </h3>
           <hr className="footer-hr" />
           <ul className="footer__list">
             {quickLinks.map((link, index) => (
-              <li key={index} className="footer__item">
+              <li key={`${index}-${language}`} className="footer__item">
                 <Link
                   href={link.href}
                   className="footer__link"
@@ -43,8 +74,10 @@ export default function Footer() {
         </div>
 
         {/* Contact Information */}
-        <div className="column">
-          <h3 className='footer-heading'>お問い合わせ</h3>
+        <div className="column" key={`${language}-contact`}>
+          <h3 className='footer-heading'>
+            {footerContent?.contact?.title || (language === 'ja' ? 'お問い合わせ' : 'Contact Information')}
+          </h3>
           <hr className="footer-hr" />
           <ul className="footer__list">
             <li className="footer__item">
@@ -53,7 +86,12 @@ export default function Footer() {
                   <tr>
                     <td className='border-r-[6px] border-transparent align-top'><i className="fas fa-home text-[1.6rem] md:text-[1.4rem] mt-[4px]"></i></td>
                     <td>
-                      <span className='text-[1.6rem] md:text-[1.4rem]'>こども学園、〒207-0031 Tokyo, Higashiyamato, Narahashi, 2 Chome-409</span>
+                      <span className='text-[1.6rem] md:text-[1.4rem]'>
+                        {footerContent?.contact?.address || (language === 'ja' 
+                          ? 'こども学園、〒207-0031 Tokyo, Higashiyamato, Narahashi, 2 Chome-409'
+                          : '2-8-3 Tatsuno, Higashi-Yamato, Tokyo'
+                        )}
+                      </span>
                     </td>
                   </tr>
                 </tbody>
@@ -64,18 +102,16 @@ export default function Footer() {
             <li className="footer__item flex gap-[6px] items-center">
               <i className="fas fa-phone-alt text-[1.6rem] md:text-[1.4rem]"></i>
               <span className="footer__text">
-                <Link href="tel:+810425643549" className="footer__link">
-                  +81 042 564 3549
+                <Link href={`tel:${footerContent?.contact?.phone || '042-590-3715'}`} className="footer__link">
+                  {footerContent?.contact?.phone || '042-590-3715'}
                 </Link>
               </span>
             </li>
             <li className="footer__item flex gap-[1rem] items-center">
-
               <span className="text-[1.6rem] md:text-[1.4rem]">
-
-                <Link href="mailto:info@kodomogakuen.com" className="footer__link">
+                <Link href={`mailto:${footerContent?.contact?.email || 'info@kodomogakuen.com'}`} className="footer__link">
                 <i className="fas fa-envelope mr-[6px]"></i>
-                  info@kodomogakuen.com
+                  {footerContent?.contact?.email || 'info@kodomogakuen.com'}
                 </Link>
               </span>
             </li>
@@ -83,12 +119,14 @@ export default function Footer() {
         </div>
 
         {/* Social Media */}
-        <div className="column">
-          <h3 className='footer-heading'>ソーシャルメディア</h3>
+        <div className="column" key={`${language}-social`}>
+          <h3 className='footer-heading'>
+            {footerContent?.social?.title || (language === 'ja' ? 'ソーシャルメディア' : 'Social Media')}
+          </h3>
           <hr className="footer-hr" />
           <ul className="footer__list">
             {socialLinks.map((link, index) => (
-              <li key={index} className="footer__item">
+              <li key={`${index}-${language}`} className="footer__item">
                 <Link
                   href={link.href}
                   target={link.href.startsWith('http') ? '_blank' : '_self'}
@@ -104,8 +142,10 @@ export default function Footer() {
         </div>
 
         {/* Location */}
-        <div className="column">
-          <h3 className='footer-heading'>位置</h3>
+        <div className="column" key={`${language}-location`}>
+          <h3 className='footer-heading'>
+            {footerContent?.location?.title || (language === 'ja' ? '所在地' : 'Location')}
+          </h3>
           <hr className="footer-hr" />
           <div>
             <iframe

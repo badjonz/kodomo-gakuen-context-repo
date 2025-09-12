@@ -1,0 +1,1296 @@
+{
+  "ja": {
+    "navigation": {
+      "home": "ホーム",
+      "information": "インフォメーション",
+      "informationSubmenu": {
+        "about": "保育方針",
+        "fees": "保育料",
+        "privacy": "プライバシーポリシー",
+        "menu": "給食",
+        "programs": "活動内容",
+        "enrolment": "入園について"
+      },
+      "forms": "書類",
+      "classes": "クラス",
+      "classesSubmenu": {
+        "nyuuji": "乳児",
+        "youji": "幼児",
+        "star": "国際クラス"
+      },
+      "activities": "課外教室"
+    },
+    "header": {
+      "email": "info@kodomogakuen.com",
+      "languageToggle": "English",
+      "siteName": "こども学園 Kodomo Gakuen"
+    },
+    "announcement": {
+      "title": "７月のあいさつ",
+      "content": "春の進級・入園から3ヶ月が経ち、子どもたち一人ひとり、少しずつ落ち着きが感じられるようになってきました。",
+      "readMoreText": "続き",
+      "readMoreLink": "/announcement",
+      "minimizedText": "園長からのあいさつ"
+    },
+    "hero": {
+      "homepage": {
+        "title": "Enjoy Learning With Us",
+        "subtitle": "ふれあい保育・感謝・思いやり",
+        "buttonText": "こども学園での保育活動",
+        "buttonLink": "/about"
+      },
+      "pages": {
+        "about": {
+          "title": "保育方針",
+          "subtitle": "Our Education Philosophy"
+        },
+        "fees": {
+          "title": "保育料",
+          "subtitle": "Tuition and Fees"
+        },
+        "privacy": {
+          "title": "プライバシーポリシー",
+          "subtitle": "Privacy Policy"
+        },
+        "menu": {
+          "title": "給食",
+          "subtitle": "School Lunch Menu"
+        },
+        "programs": {
+          "title": "活動内容",
+          "subtitle": "Educational Programs"
+        },
+        "enrolment": {
+          "title": "入園について",
+          "subtitle": "Enrollment Information"
+        },
+        "forms": {
+          "title": "書類",
+          "subtitle": "Application Forms"
+        },
+        "nyuuji": {
+          "title": "乳児クラス",
+          "subtitle": "Infant Class"
+        },
+        "youji": {
+          "title": "幼児クラス",
+          "subtitle": "Toddler Class"
+        },
+        "star": {
+          "title": "国際クラス",
+          "subtitle": "International Class"
+        },
+        "activities": {
+          "title": "課外教室",
+          "subtitle": "After-school Activities"
+        }
+      }
+    },
+    "ageGroups": {
+      "sectionTitle": "年齢別クラス",
+      "nyuuji": {
+        "name": "乳児クラス",
+        "ageRange": "0歳 - 2歳",
+        "description": "愛情豊かな環境で、個々の発達に合わせたケアを提供します。",
+        "image": "/images/nyuuji-pic.JPG"
+      },
+      "youji": {
+        "name": "幼児クラス",
+        "ageRange": "3歳 - 5歳",
+        "description": "遊びを通じて学び、社会性と創造性を育みます。",
+        "image": "/images/youji-pic.JPG"
+      },
+      "star": {
+        "name": "国際クラス",
+        "ageRange": "3歳 - 5歳",
+        "description": "英語と日本語のバイリンガル教育で国際感覚を養います。",
+        "image": "/images/star-pic.JPG"
+      }
+    },
+    "about": {
+      "sectionTitle": "こども学園について",
+      "description": "こども学園は、子どもたち一人一人の個性を大切にし、健やかな成長をサポートする幼稚園・保育園です。",
+      "philosophy": "ふれあい保育・感謝・思いやりを基本理念とし、愛情豊かな環境の中で子どもたちの可能性を最大限に引き出します。",
+      "page": {
+        "mainContent": {
+          "title": "こども学園",
+          "paragraphs": [
+            "当園は2,000坪の敷地で、園内は森に囲まれ、50坪の恵まれた自然環境にあります。スタッフが一人一人丁寧に、優しく個性を大切にし、気持ちよくお子様のお世話をいたします。提供できるものがたくさんあります。オーストラリア、英国、ケニア、スリランカ、トリノバゴ、米国の市民権を持つ外国人。",
+            "保育期間中、0歳から5歳までのお子様を英語で遊びます。外国籍の子どもたちも多く在籍しており、国際教育にも力を入れています。英語のみで保育を行うインターナショナルクラスもあります。2歳以上、お子様から未就園児までの一時保育「なかよしクラップ」があります。",
+            "課外授業は英会話、体操、ピアノ、バイオリン、キッズダンス、フラダンス、スポーツ、サッカー、空手もあります。"
+          ]
+        },
+        "nurturing": {
+          "title": "はぐくみ",
+          "subtitle": "明るく伸びやかな子どもたちへ。",
+          "content": "親を敬い、誰とでも仲良くなれる子に世の中の優しさを忘れません。やっと大人になった時、目立たない存在でも、なんとなく頼ってた一部の人に、困った時に相談したい、そんな人になるために基材を目指そう。"
+        },
+        "vision": {
+          "title": "ビジョン",
+          "paragraphs": [
+            "幼児は小さな植物がついに芽を出したようなものです。つぼみが大きくなるご不明な点がございましたら、お気軽にお問い合わせください。ご不明な点がございましたら、お気軽にお問い合わせください。良い家庭生活としっかりとした幼児教育が必要です。",
+            "単語、数字、学校で教えること、または行き過ぎたことを強制することはできません。やりがいのある人格を持った良い人の芽を育てることが重要です。あなたはそれを行うことができます。",
+            "子どもはどこまでも子どもらしく、伸びやかで明るく育つことが大切。目先のことだけにとらわれず、将来的に社会に良い影響を与えることができればと思っています。",
+            "やりがいのある人格を持った良い人の芽を育てることが重要です。あなたはそれを行うことができます。"
+          ]
+        },
+        "callToAction": {
+          "title": "一緒に子どもたちの未来を育みませんか？",
+          "description": "ご質問やご見学のご希望がございましたら、お気軽にお問い合わせください。",
+          "buttonText": "お問い合わせ"
+        }
+      }
+    },
+    "fees": {
+      "sectionTitle": "保育料について",
+      "description": "保育料の納付方法と内容について詳しくご説明します。",
+      "page": {
+        "paymentSection": {
+          "title": "保育料の納付について",
+          "mainText": "保育料につきましては、毎月「ゆうちょ銀行（郵便局）」の保護者様口座より自動引き落としにさせていただきます。",
+          "paymentDetails": [
+            "引き落とし日は、毎月１０日に設定させていただきましたので、その日までに必ずご入金下さいますようお願い致します。１０日に引き落とせない場合は、その月の２０日に再度引き落としとなります。",
+            "ご兄弟で在園されます方は、お二人分の合算額をご入金下さいますようお願いします。",
+            "保育料は、毎月１０日までに必ずお納め下さいますようお願いします。",
+            "雑費袋は、バス通園の方はバスに乗車しております当番の先生にお渡し下さい。"
+          ],
+          "busNote": "バス利用されない方は、お手数ですが、事務所へお持ち下さい。",
+          "allParents": {
+            "title": "全ての保護者の皆様へ",
+            "points": [
+              "保育料は、出欠に関わらず在籍中は納入していただく事になっておりますので、何卒ご了承下さいますようお願い申し上げます。（保育料は毎月園を運営していく関係上、給食費・バス代金の方も欠席の日数に関係なく所定の金額を納めていただきます。）。",
+              "午前保育時も、全園児におやつをお出し致します。また、乳児のたまご組・ひよこ組は一年を通して１０時００分のおやつがでます。",
+              "今年度は、４月１４日（木）より給食が始まります。その間にもおやつ・果物・飲み物など園に慣れてくださるまでお出し致しますので誠に申し訳ございませんが、給食費よりまかないますので、４月分も給食費を含めた保育料をお納め下さいますようお願い致します。",
+              "保育料の金額は「保育料決定通知」を配布しますので、該当される金額を保育料納付期日までにご入金または、お納め下さいますようお願い申し上げます。"
+            ]
+          },
+          "multiChildDiscount": {
+            "title": "保育料多子軽減制度について",
+            "content": "令和元年１０月より在園児にきょうだいがいる世帯については生計を一緒にする兄姉から数え第２子の保育料は半額、第３子以降の保育料は無料になります。（延長保育はのぞきます）幼児保育・保育の無償化の対象とならない０～２歳児クラスは、ご家庭の状況にに応じて保育料が軽減されます。"
+          },
+          "certificationChange": {
+            "title": "認定変更について",
+            "content": "年度途中でお引越しや認定変更された場合は園まで必ずご連絡下さい。"
+          }
+        },
+        "contentSection": {
+          "title": "保育料の内容について",
+          "introText": "「子ども・子育て支援新制度」がスタートし、当園もお陰様で認定こども園を取得したため、保護者様の保育料は各ご家庭の所得に応じ、市町村が定める事となりました。（年少以上は無償化）その市役所が定めた保育料に毎月上乗せ徴収を加算させていただきます。",
+          "additionalFees": {
+            "title": "上乗せ徴収項目",
+            "infantFee": "乳児・年少児加算・・・0歳児は5000円　１歳児は4000円　２歳児は3000円　３歳児は2000円です。クラス又は学年ごとに保育助手が手伝いに入るための人件費になりますのでご理解下さい。",
+            "facilityFee": {
+              "title": "施設維持費・・・",
+              "content": "施設の修繕費及びメンテナンス・園庭補修費にあてる費用になります。全園児から徴収させていただきます。月額２０００円です。"
+            },
+            "mealFee": {
+              "title": "給食費・・・",
+              "type1": "１号認定の方は、月額６０００円を徴収させていただきます。",
+              "type2": "２号認定の方は月額７５００円を徴収させて頂きます。",
+              "type3": "３号認定該当者は市役所で示した保育料に含まれているため徴収はありません。"
+            },
+            "reductionNote": "※減額徴収について・・・１号認定の方は、８月分のみ給食費を２０００円の減額とさせていただきます。これは８月２５日から始まる夏期保育中の給食費になります。夏期保育に欠席された場合もこの加算は徴収させて頂きますのでご理解下さい。また、８月中に通常保育以外（夏休み）での保育をご利用された場合には、２５００円の利用料金に給食費３００円を加算させていただきます。給食費６０００円を２０００円へ減額し、差額の４０００円は１２月にご請求します暖房費に充当致します。２号・３号認定の方で８月に夏期保育以外で保育を利用されない場合、減額徴収に応じますので７月１５日（金）の１学期終業式までに事務所までお申込み下さい。スタークラスの英語指導料・・・毎月２５０００円の英語指導料を加算させて頂きます。",
+            "busFee": "送迎バス利用料・・・・・送迎バスをご利用される方は、１ヶ月５０００円を加算させて頂きます。朝はバスを利用し、帰りはお迎えの方。帰りのみバス利用される方は、片道料金の２５００円になります。基本的にバス利用されない方が、時々利用される場合にはバス運行のルート上に停車できる方のみ対応をいたしますので、ご相談ください。１乗車３００円をご請求させていただきます。バス運行のルート上にない方はご利用できませんのでご了解ください。"
+          },
+          "busRules": [
+            "１号認定の方は、幼稚園としての保育利用のため、夏・冬・春休み期間中バスの利用はできません。",
+            "２号・３号認定の方は通常バス利用の方のみ「夏・冬・春期間特別バスコース」を設定いたします。",
+            "送迎バス利用料金は、バスのガソリン代・車検・点検・運転業務の人件費等、年間にかかる費用を１２カ月で算出した金額ですので、ご利用される、されない月に関わらずお納め下さい。",
+            "各保育室にはエアコンを設置しています。冷暖房費を１ヶ月１０００円徴収させて頂きます。夏は冷房費を７月から１０月分の合計４０００円を７月に雑費袋でお納めください。冬は暖房費を１２月から３月分の合計４０００円を１２月に雑費袋でご請求させて頂きます。よろしくお願い申し上げます。"
+          ]
+        }
+      }
+    },
+    "privacy": {
+      "sectionTitle": "プライバシーポリシーについて",
+      "description": "個人情報の保護に関する方針について詳しくご説明します。",
+      "page": {
+        "introduction": "認定こども園こども学園（以下当園と言います）では、個人情報の正確と重要性を十分認識し、園児ならびに保護者・家庭に関わる個人情報の取り扱いについては、関係法令及び厚生労働省が定めたガイドラインを遵守するとともに、個人情報の適切な保護に万全を尽くし、保護者のみならず地域から信頼される認定こども園を目指します。",
+        "sections": [
+          {
+            "title": "個人情報の取得、及び、利用目的",
+            "items": [
+              "当園では、お問い合わせ頂きました回答を行うために必要な範囲で保護者様の個人情報をご提供いただいております。保護者様ご自身の判断により個人情報のご提供を拒否することができますが、この場合個人情報が必要不可欠なサービスがご利用できなくなります。",
+              "当園では、保育情報公開のために『ホームページ』を開設し公開しております。それには園児等の氏名・生年月日や住所等の個人情報は記載しませんが、保育中の写真を使用します。しかし、事前に保護者から写真使用拒否等の申し出があった場合には配慮いたします。",
+              "個人情報は、その使用目的の範囲内で適切に利用し、外部に提供する場合は、本人の同意を得ることとします。"
+            ]
+          },
+          {
+            "title": "個人情報の管理、及び、第三者開示",
+            "items": [
+              "保護者様から取得しました個人情報については、情報の管理責任者および各ウェブサイトの管理責任者が厳重に管理しており、漏洩、流用、改ざん等の防止に努めます。",
+              "当園では、保育情報公開のために『ホームページ』を開設し公開しております。それには園児等の氏名・生年月日や住所等の個人情報は記載しませんが、保育中の写真を使用します。しかし、事前に保護者から写真使用拒否等の申し出があった場合には配慮いたします。",
+              "当園が収集した個人情報を無関係な第三者に提供することはありません。但し、個人情報保護の体制を整備した協力企業との間で厳格な個人情報保護の契約を結び、利用者様の情報を処理するためにその情報を預託することがあります。また、警察、児童相談所、行政、税務署、弁護士会、消費者センター及びこれに準する機関より個人情報の照会があったときは、当園が適法・適正であると判断した場合に限り、これらの機関にこれらの情報を開示することをご了承ください。"
+            ]
+          },
+          {
+            "title": "個人情報の開示・訂正・利用停止",
+            "items": [
+              "当園は、本人から個人情報について開示、訂正、利用停止の請求があったときは、内容を確認し、速やかに対応します。希望される場合は、【コドモン】アプリ経由または当園までご連絡ください。ご連絡が保護者様ご本人からのものであることが確認でき次第対応させていただきます。"
+            ]
+          },
+          {
+            "title": "個人情報に関するお問い合わせ",
+            "items": [
+              "当園は、保護者様の個人情報等の取り扱いにつき、十分なご理解をいただくことは大変重要であると考えております。本プライバシー・ポリシーについてのご意見、ご質問がございましたら【コドモン】アプリ経由または園までご連絡くださいますようお願いいたします。"
+            ]
+          }
+        ]
+      }
+    },
+    "menu": {
+      "sectionTitle": "給食について",
+      "description": "栄養バランスを考えた美味しい給食で、子どもたちの健やかな成長をサポートします。",
+      "page": {
+        "introduction": "こども学園では、栄養士が考えた栄養バランスのとれた給食を提供しています。地元の新鮮な食材を使用し、子どもたちの健康と成長を第一に考えた献立作りを心がけています。",
+        "menuImage": {
+          "src": "/images/lunch-menu.jpg",
+          "alt": "給食メニュー",
+          "title": "今月の給食メニュー"
+        },
+        "features": [
+          "栄養士による栄養バランスの考慮された献立",
+          "地元産の新鮮で安全な食材の使用",
+          "アレルギー対応食の提供",
+          "季節の食材を活かした献立",
+          "子どもたちの発達段階に合わせた食事形態"
+        ],
+        "allergyNotice": "食物アレルギーをお持ちのお子様には、個別に対応いたします。事前にご相談ください。"
+      }
+    },
+    "programs": {
+      "sectionTitle": "活動内容について",
+      "description": "様々な教育プログラムと地域支援活動を通じて、子どもたちの健全な成長を支援しています。",
+      "page": {
+        "introduction": "こども学園では、子どもたちの多様な学びと成長を支援するため、様々な教育プログラムや地域支援活動を実施しています。各種活動の詳細や関連資料をご覧いただけます。",
+        "enrollmentSection": {
+          "title": "入園案内",
+          "documents": [
+            {
+              "title": "令和８年度 入園説明会",
+              "href": "/documents/informationposter.pdf",
+              "downloadName": "令和８年度 入園説明会",
+              "description": "来年度の入園に関する説明会の資料です。"
+            }
+          ]
+        },
+        "tokyoSukuwakuSection": {
+          "title": "とうきょうすくわくプログラム地域支援",
+          "description": "東京都の地域子育て支援事業として、様々なプログラムを実施しています。",
+          "documents": [
+            {
+              "title": "実施報告書食育",
+              "href": "/documents/実施報告書　食育.pdf",
+              "downloadName": "実施報告書　食育",
+              "description": "食育プログラムの実施報告書です。"
+            },
+            {
+              "title": "なかよしひろば",
+              "href": "/documents/オープンプレスクール.pdf",
+              "downloadName": "オープンプレスクール",
+              "description": "オープンプレスクール「なかよしひろば」の資料です。"
+            }
+          ]
+        }
+      }
+    },
+    "enrolment": {
+      "sectionTitle": "入園について",
+      "description": "入園に関する情報、定員や空き状況、願書受付などについてご案内いたします。",
+      "page": {
+        "introduction": "こども学園への入園をお考えの保護者の皆様に、入園に必要な情報をご提供いたします。定員、空き状況、願書受付期間などをご確認ください。",
+        "capacityTable": {
+          "title": "令和7年度 利用定員",
+          "headers": ["", "0歳児", "1歳児", "2歳児", "3歳児", "4歳児", "5歳児"],
+          "rows": [
+            {
+              "certification": "1号認定",
+              "ages": ["-", "-", "-", "13名", "14名", "-"]
+            },
+            {
+              "certification": "2号認定", 
+              "ages": ["-", "-", "-", "29名", "30名", "30名"]
+            },
+            {
+              "certification": "3号認定",
+              "ages": ["5名", "14名", "22名", "-", "-", "-"]
+            }
+          ]
+        },
+        "availabilityTable": {
+          "title": "令和7年度 空き状況",
+          "legend": "（◎…十分あり 〇…若干あり △…ほぼ満員 ✕…満員）",
+          "lastUpdated": "※令和7年８月１日更新",
+          "headers": ["", "0歳児", "1歳児", "2歳児", "3歳児", "4歳児", "5歳児"],
+          "rows": [
+            {
+              "certification": "1号認定",
+              "ages": ["-", "-", "-", "△", "△", "×"]
+            },
+            {
+              "certification": "2号認定",
+              "ages": ["-", "-", "-", "×", "◎", "-"]
+            },
+            {
+              "certification": "3号認定", 
+              "ages": ["×", "△", "◎", "-", "-", "-"]
+            }
+          ]
+        },
+        "applicationInfo": {
+          "title": "令和8年度願書受け付け 令和7年9月1日 (月) 開始",
+          "infoSessions": {
+            "description": "入園説明会 (予約不要) こども学園ホールにて １０：００開始",
+            "dates": "9月 6日 (土) １０月１８日 (土)"
+          },
+          "downloadLink": {
+            "href": "/documents/informationposter.pdf",
+            "downloadName": "令和８年度 入園説明会",
+            "buttonText": "チラシをダウンロード"
+          }
+        },
+        "intakeTable": {
+          "title": "令和8年度 4月受け入れ人数",
+          "lastUpdated": "※令和7年８月１日更新",
+          "headers": ["", "0歳児", "1歳児", "2歳児", "3歳児", "4歳児", "5歳児"],
+          "rows": [
+            {
+              "certification": "1号認定",
+              "ages": ["-", "-", "-", "13名", "8名", "6名"]
+            },
+            {
+              "certification": "2号認定",
+              "ages": ["-", "-", "-", "16名", "8名", "12名"]
+            },
+            {
+              "certification": "3号認定",
+              "ages": ["3名", "9名", "10名", "-", "-", "-"]
+            }
+          ]
+        },
+        "internationalClassTable": {
+          "title": "令和8年度 国際クラス 4月受け入れ人数",
+          "lastUpdated": "※令和7年８月１日更新",
+          "headers": ["0歳児 1歳児 2歳児", "3歳児", "4歳児", "5歳児"],
+          "description": "号認定限定\nありません\n3歳児以上",
+          "numbers": ["8名", "1名", "3名"]
+        }
+      }
+    },
+    "nyuuji": {
+      "sectionTitle": "乳児クラス",
+      "description": "0歳から2歳までのお子様を対象とした愛情あふれる保育を行います。",
+      "page": {
+        "introduction": {
+          "title": "乳児クラス",
+          "subtitle": "0歳から2歳までのお子様",
+          "description": "たまごクラスとひよこクラスで、一人ひとりの発達に合わせた丁寧な保育を行います。"
+        },
+        "classes": [
+          {
+            "name": "たまごクラス",
+            "titleParts": ["た", "ま", "ご"],
+            "colorClass": "text-secondary",
+            "bgColorClass": "bg-secondary",
+            "description": "四季折々の自然を感じられる中でのびのびと駆け回り笑顔のあふれる保育をしています。",
+            "image": "/images/tamago.JPG",
+            "alt": "たまごクラスの子どもたち"
+          },
+          {
+            "name": "ひよこクラス", 
+            "titleParts": ["ひ", "よ", "こ"],
+            "colorClass": "text-tertiary",
+            "bgColorClass": "bg-tertiary",
+            "description": "四季折々の自然を感じられる中でのびのびと駆け回り笑顔のあふれる保育をしています。",
+            "image": "/images/hiyoko.JPG",
+            "alt": "ひよこクラスの子どもたち"
+          }
+        ]
+      }
+    },
+    "youji": {
+      "sectionTitle": "幼児クラス",
+      "description": "3歳から5歳までのお子様を対象とした発達段階に応じた教育を行います。",
+      "page": {
+        "introduction": {
+          "title": "幼児クラス",
+          "subtitle": "3歳から5歳までのお子様",
+          "description": "年少、年中、年長クラスで、社会性と創造性を育む教育を行います。"
+        },
+        "classes": [
+          {
+            "name": "年少クラス",
+            "titleParts": ["年", "少"],
+            "colorClass": "text-primary",
+            "bgColorClass": "bg-primary",
+            "description": "集団生活の基礎を学び、友だちとの関わりを通じて社会性を育みます。",
+            "image": "/images/nensho-pic.JPG",
+            "alt": "年少クラスの子どもたち"
+          },
+          {
+            "name": "年中クラス",
+            "titleParts": ["年", "中"], 
+            "colorClass": "text-secondary",
+            "bgColorClass": "bg-secondary",
+            "description": "様々な活動を通じて創造性と表現力を伸ばし、協調性を身につけます。",
+            "image": "/images/nenchu-pic.JPG",
+            "alt": "年中クラスの子どもたち"
+          },
+          {
+            "name": "年長クラス",
+            "titleParts": ["年", "長"],
+            "colorClass": "text-tertiary", 
+            "bgColorClass": "bg-tertiary",
+            "description": "就学に向けて学習習慣を身につけ、リーダーシップを発揮できる力を育てます。",
+            "image": "/images/nencho-pic.JPG",
+            "alt": "年長クラスの子どもたち"
+          }
+        ]
+      }
+    },
+    "star": {
+      "sectionTitle": "国際クラス（スタープログラム）",
+      "description": "英語と日本語のバイリンガル教育で国際感覚を育みます。",
+      "page": {
+        "introduction": {
+          "title": "国際クラス",
+          "subtitle": "スタープログラム",
+          "description": "英語環境での保育を通じて、自然に英語を身につけ、国際的な視野を育てます。"
+        },
+        "information": [
+          {
+            "text": "当園は、オーストラリア・英国・米国・トリニダードトバゴ・スリランカ・ケニアの国籍を持つ外国人を正規職員として迎え入れ、保育時間内に全学年「英語遊び」を行っています。英語だけで保育するインターナショナルクラスもあります。３歳児から５歳児（年少児・年中児・年長児）までの縦割り保育スタイルで、「スタークラス」と呼んでいます。２０年以上保育園で経験ある外国職員主任を中心とし、担任と相談をしながらスタークラスのカリキュラム作成等を行っています。",
+            "image": "/images/star-pic-1.jpg",
+            "alt": "スタークラスの活動風景"
+          },
+          {
+            "text": "スタークラスの目標言葉は「Reach for the Stars」＝「高望みする」という意味です。スタークラスの子ども達はお互いに、どんな事にでも一生懸命頑張れる様に、一人一人に声をかけながら応援しています。楽しく遊びながら英語能力を強化し、お子様の成長を見守っています。毎日「行きたい！」と思ってもらえるスタークラスにする様な保育を行っています。",
+            "text2": "ご父母の皆様の宝物であるお子様に英語を教えていますが、英語はゴールではなく、お子様の世界を広げるツールとして役立てる手段の一つと考えています。毎日英語のシャワーを浴びながら、沢山の楽しい経験を通して社会的な成長をする中で、英語能力の向上はもちろん、自分自身で英語を使ってみたいという気持ちも高まります。"
+          },
+          {
+            "text": "スタークラスは一般のクラスと違い、異年齢児（年長児・年中児・年少児）での縦割り保育となります。縦割り保育の良い点として、進級児にリードを頼みながら、下級生の身の回りのお世話などの補助やお手伝いを行う事により、異年齢児同士での気遣いや、理解力の向上につながっているところです。保育中は英語で説明をした後に必ず日本語での説明も行い、理解出来ているかを確認し、覚えた単語やフレーズは一緒に英語で何度もリピートをしています。レベルに合わせられる教育も出来るように、毎週学年毎に分けてお勉強を行っています。",
+            "image": "/images/star-pic-2.jpg",
+            "alt": "スタークラスの縦割り保育"
+          },
+          {
+            "text": "年長児は下のお友達を手伝う中で、自分の周りのお友達に対する気遣いが出来るようになり、心の成長にも繋がります。進級した年長さんは新入園児のお友達のヘルパーをしてくれています。最初は少し難しいですが、続けるうちにみんな慣れ、担任の声掛けが無くても進んで行ってくれるようになります。年少から年中へ進級し、前年度沢山お手伝をしてもらったお友達も、年中になると自然と下級生を手伝う姿が見られるスタークラスです。",
+            "text2": "お子様が英語に興味を持ち、英語能力を付けたい・伸ばしたいとお考えであれば、スタークラスの保育スタイルはベストだと思います。ご見学や詳しい説明等ご希望がありましたら、ご遠慮なく電話かメールでお問い合わせください。途中入園も可能です。"
+          }
+        ],
+        "teachers": [
+          {
+            "name": "ヘシャーニ先生",
+            "englishName": "Ms. Heshani",
+            "image": "/images/heshani.jpg",
+            "description": [
+              "スリランカ出身のヘシャーニ先生（Ms. Heshani）は、東京外国語大学で国際業務の修士号を取得し、語学堪能な真面目で穏やかな先生です。",
+              "和やか雰囲気の中で、単語を聴覚と視覚の両面から分かりやすく教え、授業を行っています。",
+              "社会科学と文学に長けており、何にでも挑戦をするヘシャーニ先生は、スタークラスのお友達の想像力と好奇心を引き出し、高めています。",
+              "英語教師や研究者としてのこれまでの様々な功績や経験が、スタークラスの向上につながっています。"
+            ]
+          },
+          {
+            "name": "ジョン先生",
+            "englishName": "Mr. Jon",
+            "image": "/images/jon.jpg",
+            "description": [
+              "トリニダード・トバゴ出身のジョン先生（Mr. Jon）はITに長けていて、音楽が大好きなとても明るく元気な先生です。",
+              "毎日楽しみながら遊びを通して学ぶレッスンを行うので、スタークラスのお友達は頭と身体でどんどん単語やフレーズを覚えています。",
+              "TEFLを取得しており、前職でのインターナショナルのプリスクールでの豊富な経験も持っている先生です。"
+            ]
+          }
+        ],
+        "curriculum": [
+          {
+            "title": "Language Arts (言葉遊び)",
+            "description": "月のテーマや季節の行事（こどもの日等）により新しい言葉や表現を紹介し、会話の練習を行います。"
+          },
+          {
+            "title": "Active Listening（聴覚練習）",
+            "description": "動画や音楽、歌を使い、リスニングの力を付ける練習を行います。"
+          },
+          {
+            "title": "Craft（製作）",
+            "description": "紙を切る、折り紙、のりで貼る、塗り絵等で細かい作業をし、精巧な手先の運動能力を成長させています。絵画は思いでファイルで保管をし、年度末にお持ち帰りとなりますので、お子様の成長が見られます。季節の行事の際にも製作を行います。"
+          },
+          {
+            "title": "Gross Motor Skills, PE: 総運動技能と体育あそび",
+            "description": "年齢に合わせて、バランスと体力を向上させる運動を行います。年間行事にも体育遊びが組み込まれています。"
+          },
+          {
+            "title": "Music（音楽遊び）",
+            "description": "動きと指示に会合わせられる様に、カスタネットなどの楽器や踊りを用いながら、リズム感覚を培います。年長児はピアニカも練習します。"
+          },
+          {
+            "title": "Numeracy（数字遊び）",
+            "description": "パターン認識と再生からスタートし、数字の意味・数を視覚と聴覚の両面から理解出来る様な授業を行います。　年長児は時計に興味や関心を示し、時刻を少しずつ理解し始めます。簡単な算数も紹介します。"
+          },
+          {
+            "title": "Letters and their Sounds（文字遊び）",
+            "description": "「Jolly Phonics」を用い、歌とジェスチャーを使いながら英語のアルファベットに興味を持つことにより、英語の文字の音を覚えやすくなります。　少しずつ紹介しながら、英字の大文字と小文字を習い、アルファベットの音と書き方も少しづつ練習します。",
+            "special": "特別な行事 毎月習っているテーマに応じ、スタークラスでは楽しく特別な行事を行っています。 クッキングクラス、ハロウィンパーティー、クリスマスパーティー等を通し、海外での習慣やや文化の違いを紹介しながら英語への興味を高めるとともに、能力を伸ばします。"
+          }
+        ]
+      }
+    },
+    "forms": {
+      "sectionTitle": "書類",
+      "description": "健康管理票や土曜保育申込などの必要な書類をダウンロードできます。",
+      "page": {
+        "introduction": "お子様の健康管理や特別な保育サービスをご利用いただくために必要な書類をご用意しています。下記よりダウンロードしてご利用ください。",
+        "healthManagementSection": {
+          "titlePart1": "健康管",
+          "titlePart2": "理票",
+          "subtitle": "お子様の健康管理に関する書類",
+          "documents": [
+            {
+              "title": "登園届",
+              "fileName": "toentodoke.pdf",
+              "downloadName": "登園届.pdf",
+              "description": "体調不良等で休園後、登園する際に提出していただく書類です。"
+            },
+            {
+              "title": "意見書",
+              "fileName": "ikensho.pdf", 
+              "downloadName": "意見書.pdf",
+              "description": "医師による意見書が必要な感染症等の際に使用します。"
+            },
+            {
+              "title": "与薬連絡票",
+              "fileName": "yoyaku.pdf",
+              "downloadName": "与薬連絡票.pdf",
+              "description": "園で薬を服用させる場合に必要な連絡票です。"
+            },
+            {
+              "title": "登園届（インフルエンザ用）",
+              "fileName": "infurutouenntodoke.pdf",
+              "downloadName": "登園届(インフルエンザ用).pdf",
+              "description": "インフルエンザ等で休園後の登園時に使用する専用書類です。"
+            }
+          ]
+        },
+        "saturdayCareSection": {
+          "titlePart1": "土曜保",
+          "titlePart2": "育利用",
+          "subtitle": "土曜保育をご利用される方の申込書類",
+          "documents": [
+            {
+              "title": "土曜保育利用申込書",
+              "fileName": "saturdayuse.pdf",
+              "downloadName": "土曜保育利用申込書.pdf",
+              "description": "土曜保育をご希望の方が提出していただく申込書です。"
+            },
+            {
+              "title": "土曜保育勤務証明書",
+              "fileName": "saturdaywork.pdf",
+              "downloadName": "土曜保育勤務証明書.pdf",
+              "description": "土曜保育利用のため、保護者の勤務状況を証明する書類です。"
+            }
+          ]
+        }
+      }
+    },
+    "activities": {
+      "sectionTitle": "課外教室",
+      "description": "園児から大人まで、英会話を中心とした課外教室を開催しています。",
+      "page": {
+        "introduction": "英語クラブを中心とした課外教室で、楽しく学びながら国際感覚を身につけていただけます。",
+        "mainTitle": "英語クラブ",
+        "englishClassSection": {
+          "title": "英会話教室のご案内",
+          "description": [
+            "「日本人は読めるが話せない」「中学校、高校で6年間も英語を勉強しているのに会話が出来ない」とよく言われます。",
+            "私たちは、お子様に歌やゲーム・お遊びを通して楽しく、ごく自然に英会話を習得して頂こうと英語クラブをスタートします。",
+            "目的は、「外国の文化や習慣を外国人の講師から学ぶ事」「両親とは違う肌の人が存在することを知る事」これが子供達にとっての国際化の第一歩になると考えています。単に英会話を学ぶことでなく、講師とのふれあいを通して各国の習慣や文化の違いを知り、子供達の心を広げ、英会話に対する興味と面白さを体験し、そして国際化に対応できる「心の基礎づくり」を目指しています。"
+          ]
+        },
+        "adultClassSection": {
+          "title": "大人クラスについて",
+          "description": "英会話を学習したことがある方で、ゆっくりならネイティブ・スピーカーの話すことが理解できるが、話すことに困難を感じている方が対象です。日常生活や、また海外旅行で役立つ実用的な英語を使う会話を勉強します。英会話練習を通して話す機会を多く持つことにより恥ずかしさや怖いという気持ちを解消していきます。単に言葉の勉強だけでなく、英語圏と日本との文化の違い等についても勉強します。ネイティブ英語を話せる講師が丁寧に、楽しく授業を進めていきます。ゼロからでもOKです！",
+          "image": "/images/english-staff.jpg",
+          "imageAlt": "英語クラブの様子"
+        },
+        "downloadSection": {
+          "title": "R7 Flier",
+          "description": "英語クラブの詳細情報をご覧いただけます",
+          "fileName": "R7-Flier.pdf",
+          "downloadText": "ダウンロード"
+        }
+      }
+    },
+    "blog": {
+      "sectionTitle": "お知らせ・ブログ",
+      "viewAllText": "すべて見る"
+    },
+    "footer": {
+      "quickLinks": {
+        "title": "クイックリンク",
+        "links": {
+          "home": "ホーム",
+          "about": "保育方針",
+          "programs": "活動内容",
+          "contact": "お問い合わせ"
+        }
+      },
+      "contact": {
+        "title": "お問い合わせ",
+        "phone": "042-590-3715",
+        "email": "info@kodomogakuen.com",
+        "address": "東京都東大和市立野2-8-3"
+      },
+      "social": {
+        "title": "ソーシャルメディア"
+      },
+      "location": {
+        "title": "所在地"
+      }
+    }
+  },
+  "en": {
+    "navigation": {
+      "home": "Home",
+      "information": "Information",
+      "informationSubmenu": {
+        "about": "Education Policy",
+        "fees": "Tuition Fees",
+        "privacy": "Privacy Policy",
+        "menu": "School Lunch",
+        "programs": "Activities",
+        "enrolment": "Enrollment"
+      },
+      "forms": "Forms",
+      "classes": "Classes",
+      "classesSubmenu": {
+        "nyuuji": "Infants",
+        "youji": "Toddlers",
+        "star": "International Class"
+      },
+      "activities": "After-school Activities"
+    },
+    "header": {
+      "email": "info@kodomogakuen.com",
+      "languageToggle": "日本語",
+      "siteName": "Kodomo Gakuen こども学園"
+    },
+    "announcement": {
+      "title": "July Greetings",
+      "content": "Three months have passed since the spring enrollment and promotion period, and each child is gradually finding their rhythm and settling in comfortably.",
+      "readMoreText": "Read more",
+      "readMoreLink": "/announcement",
+      "minimizedText": "Message from the Principal"
+    },
+    "hero": {
+      "homepage": {
+        "title": "Enjoy Learning With Us",
+        "subtitle": "Interactive Care・Gratitude・Compassion",
+        "buttonText": "Learn About Our Programs",
+        "buttonLink": "/about"
+      },
+      "pages": {
+        "about": {
+          "title": "Education Policy",
+          "subtitle": "保育方針"
+        },
+        "fees": {
+          "title": "Tuition and Fees",
+          "subtitle": "保育料"
+        },
+        "privacy": {
+          "title": "Privacy Policy",
+          "subtitle": "プライバシーポリシー"
+        },
+        "menu": {
+          "title": "School Lunch Menu",
+          "subtitle": "給食"
+        },
+        "programs": {
+          "title": "Educational Programs",
+          "subtitle": "活動内容"
+        },
+        "enrolment": {
+          "title": "Enrollment Information",
+          "subtitle": "入園について"
+        },
+        "forms": {
+          "title": "Application Forms",
+          "subtitle": "書類"
+        },
+        "nyuuji": {
+          "title": "Infant Class",
+          "subtitle": "乳児クラス"
+        },
+        "youji": {
+          "title": "Toddler Class",
+          "subtitle": "幼児クラス"
+        },
+        "star": {
+          "title": "International Class",
+          "subtitle": "国際クラス"
+        },
+        "activities": {
+          "title": "After-school Activities",
+          "subtitle": "課外教室"
+        }
+      }
+    },
+    "ageGroups": {
+      "sectionTitle": "Age-Based Classes",
+      "nyuuji": {
+        "name": "Infant Class",
+        "ageRange": "0-2 years old",
+        "description": "Providing individualized care in a loving environment suited to each child's development.",
+        "image": "/images/nyuuji-pic.JPG"
+      },
+      "youji": {
+        "name": "Toddler Class",
+        "ageRange": "3-5 years old",
+        "description": "Learning through play, fostering social skills and creativity.",
+        "image": "/images/youji-pic.JPG"
+      },
+      "star": {
+        "name": "International Class",
+        "ageRange": "3-5 years old",
+        "description": "Bilingual education in English and Japanese to develop international perspective.",
+        "image": "/images/star-pic.JPG"
+      }
+    },
+    "about": {
+      "sectionTitle": "About Kodomo Gakuen",
+      "description": "Kodomo Gakuen is a preschool and daycare that values each child's individuality and supports their healthy development.",
+      "philosophy": "Based on the principles of interactive care, gratitude, and compassion, we maximize children's potential in a loving environment.",
+      "page": {
+        "mainContent": {
+          "title": "Kodomo Gakuen",
+          "paragraphs": [
+            "Our school is located on a 2,000 tsubo (6,600 sqm) property surrounded by forest, providing a blessed natural environment. Our staff carefully and gently care for each child, valuing their individuality and ensuring their comfortable well-being. We have much to offer, with staff from Australia, UK, Kenya, Sri Lanka, Trinidad and Tobago, and the United States.",
+            "During care hours, children from 0 to 5 years old play and learn in English. Many children of foreign nationality are enrolled, and we put great emphasis on international education. We also have an international class conducted entirely in English. For children aged 2 and up, we offer temporary childcare called 'Nakayoshi Clap' for non-enrolled children.",
+            "After-school activities include English conversation, gymnastics, piano, violin, kids dance, hula dance, sports, soccer, and karate."
+          ]
+        },
+        "nurturing": {
+          "title": "Nurturing",
+          "subtitle": "For bright and spirited children.",
+          "content": "We aim to raise children who respect their parents and can get along with anyone, never forgetting the kindness of the world. When they finally become adults, even if they are not prominent figures, we want them to be the kind of people others instinctively rely on and turn to when in trouble."
+        },
+        "vision": {
+          "title": "Vision",
+          "paragraphs": [
+            "Young children are like small plants that have finally sprouted. For buds to grow properly, good family life and solid early childhood education are necessary.",
+            "We cannot force words, numbers, or excessive academic learning. What's important is nurturing the seeds of good character that will make them worthwhile individuals.",
+            "It's essential for children to remain childlike, growing up bright and spirited. We don't focus only on immediate concerns, but hope they can have a positive impact on society in the future.",
+            "What's important is nurturing the seeds of good character that will make them worthwhile individuals. This is something we can achieve together."
+          ]
+        },
+        "callToAction": {
+          "title": "Join Us in Nurturing Children's Future",
+          "description": "If you have any questions or would like to visit our school, please feel free to contact us.",
+          "buttonText": "Contact Us"
+        }
+      }
+    },
+    "fees": {
+      "sectionTitle": "About Tuition Fees",
+      "description": "Detailed information about tuition fee payment methods and content.",
+      "page": {
+        "paymentSection": {
+          "title": "Tuition Fee Payment",
+          "mainText": "Tuition fees will be automatically deducted from the parent/guardian's Japan Post Bank (post office) account every month.",
+          "paymentDetails": [
+            "The deduction date is set for the 10th of each month, so please ensure sufficient funds are available by that date. If the deduction fails on the 10th, it will be attempted again on the 20th of the same month.",
+            "For families with multiple children enrolled, please deposit the combined amount for both children.",
+            "Please ensure tuition fees are paid by the 10th of each month without fail.",
+            "For bus users, please give the miscellaneous fee bag to the teacher on duty on the bus."
+          ],
+          "busNote": "For those who do not use the bus, please bring it to the office.",
+          "allParents": {
+            "title": "To All Parents",
+            "points": [
+              "Tuition fees must be paid while enrolled regardless of attendance, so please understand this policy. (Since tuition fees are required monthly for school operations, meal fees and bus fees must also be paid at the specified amount regardless of absence days.)",
+              "Snacks will be provided to all children during morning sessions. Additionally, infant Tamago and Hiyoko classes receive 10:00 AM snacks throughout the year.",
+              "This academic year, school meals begin Thursday, April 14th. Until then, we will provide snacks, fruits, and drinks to help children adjust to the school, so we apologize but meal costs will be covered by lunch fees, so please pay tuition fees including lunch fees for April.",
+              "The tuition fee amount will be distributed in the 'Tuition Fee Decision Notice,' so please deposit or pay the applicable amount by the tuition fee payment deadline."
+            ]
+          },
+          "multiChildDiscount": {
+            "title": "Multi-Child Tuition Reduction System",
+            "content": "From October 2019, for households with siblings enrolled, the second child's tuition fees are reduced by half, and the third child and beyond receive free tuition (excluding extended care). For 0-2 year old classes not eligible for early childhood education and care free services, tuition fees are reduced according to family circumstances."
+          },
+          "certificationChange": {
+            "title": "About Certification Changes",
+            "content": "If you move or have certification changes during the academic year, please be sure to contact the school."
+          }
+        },
+        "contentSection": {
+          "title": "About Tuition Fee Content",
+          "introText": "With the start of the 'Child and Childcare Support New System,' our school has fortunately obtained certified children's center status, so parents' tuition fees are determined by municipalities according to each household's income. (Free for ages 3 and above) Monthly additional charges are added to the tuition fees set by the city office.",
+          "additionalFees": {
+            "title": "Additional Charge Items",
+            "infantFee": "Infant/Toddler Additional Fee... 0-year-olds: 5,000 yen, 1-year-olds: 4,000 yen, 2-year-olds: 3,000 yen, 3-year-olds: 2,000 yen. This is for personnel costs as childcare assistants help in each class or grade level, so please understand.",
+            "facilityFee": {
+              "title": "Facility Maintenance Fee...",
+              "content": "This fee is used for facility repairs, maintenance, and playground maintenance costs. It is collected from all enrolled children at 2,000 yen per month."
+            },
+            "mealFee": {
+              "title": "Meal Fee...",
+              "type1": "Type 1 certified children pay 6,000 yen monthly.",
+              "type2": "Type 2 certified children pay 7,500 yen monthly.",
+              "type3": "Type 3 certified children have meals included in the tuition fee set by the city office, so no additional charge applies."
+            },
+            "reductionNote": "※About Reduced Collection... Type 1 certified families receive a reduction of meal fees to 2,000 yen for August only. This covers meal costs during summer session starting August 25th. This additional charge applies even if absent during summer session. Also, if using care other than regular care (summer vacation) during August, a usage fee of 2,500 yen plus meal fee of 300 yen will be added. The meal fee is reduced from 6,000 yen to 2,000 yen, and the 4,000 yen difference goes toward heating costs billed in December. Star Class English instruction fee... Monthly English instruction fee of 25,000 yen is added.",
+            "busFee": "Bus Transportation Fee... Families using the transportation bus pay an additional 5,000 yen monthly. For those using the bus only in the morning with pickup in the afternoon, or only afternoon bus service, the one-way rate is 2,500 yen. For families who don't regularly use the bus but occasionally need it, we can accommodate only those whose stops are on the bus route, so please consult with us. We charge 300 yen per ride. Those whose stops are not on the bus route cannot use this service."
+          },
+          "busRules": [
+            "Type 1 certified families cannot use the bus during summer, winter, and spring vacation periods as this is kindergarten-type care.",
+            "Type 2 and 3 certified families who regularly use the bus will have 'Special Summer/Winter/Spring Period Bus Courses' set up.",
+            "Bus transportation fees are calculated by dividing annual costs (gas, vehicle inspection, maintenance, driver personnel costs, etc.) by 12 months, so payment is required regardless of usage frequency.",
+            "Air conditioning is installed in all classrooms. Air conditioning fees of 1,000 yen monthly are collected. Summer cooling costs totaling 4,000 yen (July-October) are collected in July via miscellaneous fee bag. Winter heating costs totaling 4,000 yen (December-March) are billed in December via miscellaneous fee bag. Thank you for your understanding."
+          ]
+        }
+      }
+    },
+    "privacy": {
+      "sectionTitle": "About Privacy Policy",
+      "description": "Detailed information about our policies regarding the protection of personal information.",
+      "page": {
+        "introduction": "Kodomo Gakuen Certified Children's Center (hereinafter referred to as 'our center') fully recognizes the accuracy and importance of personal information, and regarding the handling of personal information related to children and parents/families, we comply with relevant laws and guidelines established by the Ministry of Health, Labour and Welfare, do our utmost to appropriately protect personal information, and aim to be a certified children's center trusted not only by parents but also by the local community.",
+        "sections": [
+          {
+            "title": "Collection and Use of Personal Information",
+            "items": [
+              "Our center receives personal information from parents within the scope necessary to provide responses to inquiries. Parents may refuse to provide personal information at their own discretion, but in this case, services that require personal information as essential may become unavailable.",
+              "Our center has established and published a 'website' for disclosing childcare information. This does not include personal information such as children's names, birth dates, or addresses, but uses photos taken during childcare. However, we will take consideration if parents request in advance to refuse photo usage.",
+              "Personal information will be used appropriately within the scope of its intended purpose, and when providing it to external parties, we will obtain consent from the individual."
+            ]
+          },
+          {
+            "title": "Management of Personal Information and Third-party Disclosure",
+            "items": [
+              "Personal information obtained from parents is strictly managed by information management supervisors and website management supervisors, and we strive to prevent leakage, misuse, and alteration.",
+              "Our center has established and published a 'website' for disclosing childcare information. This does not include personal information such as children's names, birth dates, or addresses, but uses photos taken during childcare. However, we will take consideration if parents request in advance to refuse photo usage.",
+              "Our center will not provide collected personal information to unrelated third parties. However, we may entrust such information to partner companies that have established personal information protection systems and have entered into strict personal information protection contracts for processing user information. Also, when inquiries about personal information are made by police, child consultation centers, government agencies, tax offices, bar associations, consumer centers, or equivalent institutions, we will disclose such information to these institutions only when our center deems it lawful and appropriate."
+            ]
+          },
+          {
+            "title": "Disclosure, Correction, and Suspension of Use of Personal Information",
+            "items": [
+              "When individuals request disclosure, correction, or suspension of use regarding their personal information, our center will verify the content and respond promptly. If you wish to do so, please contact us via the [CoDMON] app or directly to our center. We will respond as soon as we can confirm that the contact is from the parent themselves."
+            ]
+          },
+          {
+            "title": "Inquiries Regarding Personal Information",
+            "items": [
+              "Our center considers it very important to gain sufficient understanding from parents regarding the handling of their personal information. If you have any opinions or questions about this Privacy Policy, please contact us via the [CoDMON] app or directly to our center."
+            ]
+          }
+        ]
+      }
+    },
+    "menu": {
+      "sectionTitle": "About School Lunch",
+      "description": "Nutritiously balanced and delicious meals to support children's healthy growth.",
+      "page": {
+        "introduction": "At Kodomo Gakuen, we provide nutritionally balanced meals designed by our dietitian. We use fresh, local ingredients and prioritize children's health and growth in our meal planning.",
+        "menuImage": {
+          "src": "/images/lunch-menu.jpg",
+          "alt": "Lunch Menu",
+          "title": "This Month's Lunch Menu"
+        },
+        "features": [
+          "Nutritionally balanced menus designed by dietitian",
+          "Use of fresh, safe local ingredients",
+          "Allergy-accommodating meals available",
+          "Seasonal ingredients incorporated into menus",
+          "Meal formats adapted to children's developmental stages"
+        ],
+        "allergyNotice": "For children with food allergies, we provide individualized accommodations. Please consult with us in advance."
+      }
+    },
+    "programs": {
+      "sectionTitle": "About Educational Programs",
+      "description": "Supporting children's healthy growth through various educational programs and community support activities.",
+      "page": {
+        "introduction": "At Kodomo Gakuen, we implement various educational programs and community support activities to support children's diverse learning and growth. You can view details of our activities and related materials.",
+        "enrollmentSection": {
+          "title": "Enrollment Information",
+          "documents": [
+            {
+              "title": "2026 Academic Year Enrollment Information Session",
+              "href": "/documents/informationposter.pdf",
+              "downloadName": "2026 Academic Year Enrollment Information Session",
+              "description": "Materials for the enrollment information session for the next academic year."
+            }
+          ]
+        },
+        "tokyoSukuwakuSection": {
+          "title": "Tokyo Sukuwaku Program Community Support",
+          "description": "As part of Tokyo Metropolitan Government's regional childcare support programs, we implement various activities.",
+          "documents": [
+            {
+              "title": "Food Education Implementation Report",
+              "href": "/documents/実施報告書　食育.pdf",
+              "downloadName": "Food Education Implementation Report",
+              "description": "Implementation report for our food education program."
+            },
+            {
+              "title": "Nakayoshi Hiroba",
+              "href": "/documents/オープンプレスクール.pdf",
+              "downloadName": "Open Preschool",
+              "description": "Materials for our open preschool program 'Nakayoshi Hiroba'."
+            }
+          ]
+        }
+      }
+    },
+    "enrolment": {
+      "sectionTitle": "About Enrollment",
+      "description": "Information about enrollment including capacity, availability, and application periods.",
+      "page": {
+        "introduction": "For parents considering enrollment at Kodomo Gakuen, here is the necessary information including capacity, availability, and application periods.",
+        "capacityTable": {
+          "title": "2025 Academic Year Capacity",
+          "headers": ["", "0-year-olds", "1-year-olds", "2-year-olds", "3-year-olds", "4-year-olds", "5-year-olds"],
+          "rows": [
+            {
+              "certification": "Type 1 Certification",
+              "ages": ["-", "-", "-", "13 children", "14 children", "-"]
+            },
+            {
+              "certification": "Type 2 Certification",
+              "ages": ["-", "-", "-", "29 children", "30 children", "30 children"]
+            },
+            {
+              "certification": "Type 3 Certification",
+              "ages": ["5 children", "14 children", "22 children", "-", "-", "-"]
+            }
+          ]
+        },
+        "availabilityTable": {
+          "title": "2025 Academic Year Availability Status",
+          "legend": "(◎ = Many Available, ○ = Some Available, △ = Nearly Full, × = Full)",
+          "lastUpdated": "*Updated August 1, 2025",
+          "headers": ["", "0-year-olds", "1-year-olds", "2-year-olds", "3-year-olds", "4-year-olds", "5-year-olds"],
+          "rows": [
+            {
+              "certification": "Type 1 Certification",
+              "ages": ["-", "-", "-", "△", "△", "×"]
+            },
+            {
+              "certification": "Type 2 Certification",
+              "ages": ["-", "-", "-", "×", "◎", "-"]
+            },
+            {
+              "certification": "Type 3 Certification",
+              "ages": ["×", "△", "◎", "-", "-", "-"]
+            }
+          ]
+        },
+        "applicationInfo": {
+          "title": "2026 Academic Year Application Acceptance Begins Monday, September 1, 2025",
+          "infoSessions": {
+            "description": "Information Sessions (No reservation required) at Kodomo Gakuen Hall starting at 10:00 AM",
+            "dates": "Saturday, September 6th and Saturday, October 18th"
+          },
+          "downloadLink": {
+            "href": "/documents/informationposter.pdf", 
+            "downloadName": "2026 Academic Year Enrollment Information Session",
+            "buttonText": "Download Flyer"
+          }
+        },
+        "intakeTable": {
+          "title": "2026 Academic Year April Intake Numbers",
+          "lastUpdated": "*Updated August 1, 2025",
+          "headers": ["", "0-year-olds", "1-year-olds", "2-year-olds", "3-year-olds", "4-year-olds", "5-year-olds"],
+          "rows": [
+            {
+              "certification": "Type 1 Certification",
+              "ages": ["-", "-", "-", "13 children", "8 children", "6 children"]
+            },
+            {
+              "certification": "Type 2 Certification",
+              "ages": ["-", "-", "-", "16 children", "8 children", "12 children"]
+            },
+            {
+              "certification": "Type 3 Certification",
+              "ages": ["3 children", "9 children", "10 children", "-", "-", "-"]
+            }
+          ]
+        },
+        "internationalClassTable": {
+          "title": "2026 Academic Year International Class April Intake Numbers",
+          "lastUpdated": "*Updated August 1, 2025",
+          "headers": ["0-year-olds 1-year-olds 2-year-olds", "3-year-olds", "4-year-olds", "5-year-olds"],
+          "description": "Certification type specific\nNot available\n3 years and up only",
+          "numbers": ["8 children", "1 child", "3 children"]
+        }
+      }
+    },
+    "nyuuji": {
+      "sectionTitle": "Infant Classes",
+      "description": "Loving care for children from 0 to 2 years old, tailored to each child's development.",
+      "page": {
+        "introduction": {
+          "title": "Infant Classes",
+          "subtitle": "Ages 0-2 years old",
+          "description": "Tamago and Hiyoko classes provide individualized care suited to each child's developmental stage."
+        },
+        "classes": [
+          {
+            "name": "Tamago Class",
+            "titleParts": ["Ta", "ma", "go"],
+            "colorClass": "text-secondary",
+            "bgColorClass": "bg-secondary", 
+            "description": "Childcare that allows children to run around freely in nature throughout the four seasons, filled with smiles.",
+            "image": "/images/tamago.JPG",
+            "alt": "Tamago Class Children"
+          },
+          {
+            "name": "Hiyoko Class",
+            "titleParts": ["Hi", "yo", "ko"],
+            "colorClass": "text-tertiary",
+            "bgColorClass": "bg-tertiary",
+            "description": "Childcare that allows children to run around freely in nature throughout the four seasons, filled with smiles.",
+            "image": "/images/hiyoko.JPG", 
+            "alt": "Hiyoko Class Children"
+          }
+        ]
+      }
+    },
+    "youji": {
+      "sectionTitle": "Toddler Classes",
+      "description": "Developmental education for children from 3 to 5 years old, adapted to each age stage.",
+      "page": {
+        "introduction": {
+          "title": "Toddler Classes",
+          "subtitle": "Ages 3-5 years old",
+          "description": "Junior, middle, and senior classes that foster social skills and creativity through education."
+        },
+        "classes": [
+          {
+            "name": "Junior Class",
+            "titleParts": ["Ju", "nior"],
+            "colorClass": "text-primary",
+            "bgColorClass": "bg-primary",
+            "description": "Learning the basics of group life and developing social skills through interaction with friends.",
+            "image": "/images/nensho-pic.JPG",
+            "alt": "Junior Class Children"
+          },
+          {
+            "name": "Middle Class", 
+            "titleParts": ["Mid", "dle"],
+            "colorClass": "text-secondary",
+            "bgColorClass": "bg-secondary",
+            "description": "Developing creativity and expression through various activities, while learning cooperation.",
+            "image": "/images/nenchu-pic.JPG",
+            "alt": "Middle Class Children"
+          },
+          {
+            "name": "Senior Class",
+            "titleParts": ["Se", "nior"],
+            "colorClass": "text-tertiary",
+            "bgColorClass": "bg-tertiary", 
+            "description": "Preparing for elementary school by developing study habits and leadership skills.",
+            "image": "/images/nencho-pic.JPG",
+            "alt": "Senior Class Children"
+          }
+        ]
+      }
+    },
+    "star": {
+      "sectionTitle": "International Class (Star Program)",
+      "description": "Fostering international awareness through bilingual education in English and Japanese.",
+      "page": {
+        "introduction": {
+          "title": "International Class",
+          "subtitle": "Star Program", 
+          "description": "Children naturally acquire English and develop an international perspective through English-environment childcare."
+        },
+        "information": [
+          {
+            "text": "Our school welcomes foreign staff from Australia, UK, USA, Trinidad and Tobago, Sri Lanka, and Kenya as regular employees, providing 'English play' during childcare hours for all grade levels. We also have an international class conducted entirely in English. We call it the 'Star Class' with mixed-age childcare for 3 to 5-year-olds (junior, middle, and senior classes). Led by a foreign staff supervisor with over 20 years of kindergarten experience, we create the Star Class curriculum in consultation with homeroom teachers.",
+            "image": "/images/star-pic-1.jpg",
+            "alt": "Star Class Activities"
+          },
+          {
+            "text": "The Star Class motto is 'Reach for the Stars,' meaning 'aim high.' Star Class children encourage each other to work hard at everything, with individual support and encouragement. We enhance English abilities through fun play while watching over each child's growth. We provide childcare that makes children want to say 'I want to go!' every day.",
+            "text2": "While we teach English to your precious children, we consider English not as a goal but as one tool to broaden your child's world. Through daily English immersion and many fun experiences that promote social growth, not only do English abilities improve, but children also develop a desire to use English themselves."
+          },
+          {
+            "text": "Unlike regular classes, Star Class uses mixed-age childcare with different age groups (senior, middle, and junior children). The advantage of mixed-age childcare is that older children lead while helping younger children with daily care, assistance, and support, which improves mutual consideration and understanding among different age groups. During childcare, we always provide Japanese explanations after English ones, checking understanding and repeatedly practicing new vocabulary and phrases together in English. To provide age-appropriate education, we conduct weekly study sessions divided by grade level.",
+            "image": "/images/star-pic-2.jpg",
+            "alt": "Star Class Mixed-Age Childcare"
+          },
+          {
+            "text": "Through helping younger friends, senior children learn to care for those around them, contributing to emotional growth. Advanced seniors help new students as helpers. While initially challenging, everyone gradually becomes accustomed and begins taking initiative without teacher prompts. Children who received lots of help when advancing from junior to middle class naturally help younger children when they become middle-class students in the Star Class.",
+            "text2": "If your child is interested in English and you want to develop or enhance their English abilities, we believe the Star Class childcare style is ideal. If you would like a tour or detailed explanation, please don't hesitate to contact us by phone or email. Mid-year enrollment is also possible."
+          }
+        ],
+        "teachers": [
+          {
+            "name": "Ms. Heshani",
+            "englishName": "Ms. Heshani",
+            "image": "/images/heshani.jpg",
+            "description": [
+              "Ms. Heshani from Sri Lanka obtained a master's degree in international affairs from Tokyo University of Foreign Studies and is a linguistically talented, serious, and gentle teacher.",
+              "She teaches vocabulary in a clear and understandable way through both auditory and visual approaches in a harmonious atmosphere.",
+              "Skilled in social sciences and literature, Ms. Heshani challenges everything and draws out and enhances the imagination and curiosity of Star Class friends.",
+              "Her various achievements and experience as an English teacher and researcher contribute to the improvement of the Star Class."
+            ]
+          },
+          {
+            "name": "Mr. Jon",
+            "englishName": "Mr. Jon",
+            "image": "/images/jon.jpg",
+            "description": [
+              "Mr. Jon from Trinidad and Tobago is skilled in IT, loves music, and is a very bright and energetic teacher.",
+              "Through daily fun learning lessons through play, Star Class friends steadily memorize vocabulary and phrases with both their heads and bodies.",
+              "He holds TEFL certification and has extensive experience from his previous work at an international preschool."
+            ]
+          }
+        ],
+        "curriculum": [
+          {
+            "title": "Language Arts",
+            "description": "We introduce new words and expressions based on monthly themes and seasonal events (such as Children's Day) and practice conversation."
+          },
+          {
+            "title": "Active Listening",
+            "description": "We practice building listening skills using videos, music, and songs."
+          },
+          {
+            "title": "Craft",
+            "description": "Through detailed work like cutting paper, origami, gluing, and coloring, we develop fine motor skills. Artwork is kept in memory files and taken home at year-end, allowing you to see your child's growth. We also do crafts for seasonal events."
+          },
+          {
+            "title": "Gross Motor Skills & PE",
+            "description": "We conduct age-appropriate exercises to improve balance and physical strength. Physical play is also incorporated into annual events."
+          },
+          {
+            "title": "Music",
+            "description": "We develop rhythm using instruments like castanets and dancing to match movements and instructions. Senior children also practice pianica."
+          },
+          {
+            "title": "Numeracy",
+            "description": "Starting with pattern recognition and reproduction, we conduct lessons to understand numbers and their meaning through both visual and auditory approaches. Senior children show interest in clocks, gradually understanding time, and we introduce simple arithmetic."
+          },
+          {
+            "title": "Letters and their Sounds",
+            "description": "Using 'Jolly Phonics' with songs and gestures to create interest in the English alphabet, making it easier to remember English letter sounds. We gradually introduce uppercase and lowercase letters and practice alphabet sounds and writing little by little.",
+            "special": "Special Events: According to monthly learning themes, the Star Class holds fun special events. Through cooking classes, Halloween parties, Christmas parties, etc., we introduce overseas customs and cultural differences while heightening interest in English and developing abilities."
+          }
+        ]
+      }
+    },
+    "forms": {
+      "sectionTitle": "Application Forms",
+      "description": "Download necessary documents for health management and Saturday care services.",
+      "page": {
+        "introduction": "We have prepared the necessary documents for your child's health management and special childcare services. Please download and use them from the links below.",
+        "healthManagementSection": {
+          "titlePart1": "Health",
+          "titlePart2": "Forms",
+          "subtitle": "Documents related to your child's health management",
+          "documents": [
+            {
+              "title": "School Attendance Report",
+              "fileName": "toentodoke.pdf",
+              "downloadName": "School_Attendance_Report.pdf",
+              "description": "Form to be submitted when returning to school after being absent due to illness."
+            },
+            {
+              "title": "Medical Opinion Form",
+              "fileName": "ikensho.pdf", 
+              "downloadName": "Medical_Opinion_Form.pdf",
+              "description": "Used for infectious diseases that require a medical opinion."
+            },
+            {
+              "title": "Medication Administration Form",
+              "fileName": "yoyaku.pdf",
+              "downloadName": "Medication_Administration_Form.pdf",
+              "description": "Required contact form when medication needs to be administered at school."
+            },
+            {
+              "title": "School Attendance Report (Influenza)",
+              "fileName": "infurutouenntodoke.pdf",
+              "downloadName": "School_Attendance_Report_Influenza.pdf",
+              "description": "Special form used when returning to school after influenza absence."
+            }
+          ]
+        },
+        "saturdayCareSection": {
+          "titlePart1": "Saturday",
+          "titlePart2": "Care",
+          "subtitle": "Application documents for Saturday care services",
+          "documents": [
+            {
+              "title": "Saturday Care Application",
+              "fileName": "saturdayuse.pdf",
+              "downloadName": "Saturday_Care_Application.pdf",
+              "description": "Application form for parents wishing to use Saturday care services."
+            },
+            {
+              "title": "Saturday Care Employment Certificate",
+              "fileName": "saturdaywork.pdf",
+              "downloadName": "Saturday_Care_Employment_Certificate.pdf",
+              "description": "Document certifying parents' employment status for Saturday care use."
+            }
+          ]
+        }
+      }
+    },
+    "activities": {
+      "sectionTitle": "After-school Activities",
+      "description": "We offer after-school activities centered on English conversation for children through adults.",
+      "page": {
+        "introduction": "Our after-school activities, centered on English Club, help participants develop international awareness while learning in a fun environment.",
+        "mainTitle": "English Club",
+        "englishClassSection": {
+          "title": "English Conversation Class Information",
+          "description": [
+            "It's often said that 'Japanese people can read but can't speak' and 'even after studying English for 6 years in junior high and high school, they can't have conversations.'",
+            "We started the English Club to help children naturally and enjoyably acquire English conversation skills through songs, games, and play.",
+            "Our purpose is 'to learn about foreign cultures and customs from foreign instructors' and 'to know that people with different skin colors than their parents exist.' We believe this is the first step toward internationalization for children. Rather than simply learning English conversation, we aim to expand children's hearts through interaction with instructors, learning about different customs and cultures of various countries, experiencing the interest and fun of English conversation, and building a 'foundation of the heart' that can respond to internationalization."
+          ]
+        },
+        "adultClassSection": {
+          "title": "About Adult Classes",
+          "description": "This is for those who have studied English conversation and can understand native speakers when they speak slowly, but feel difficulty in speaking. We study practical English conversation useful in daily life and overseas travel. Through English conversation practice, we provide many opportunities to speak, eliminating feelings of embarrassment and fear. We study not only language but also cultural differences between English-speaking countries and Japan. Native English-speaking instructors will conduct lessons carefully and enjoyably. Starting from zero is OK!",
+          "image": "/images/english-staff.jpg",
+          "imageAlt": "English Club Activities"
+        },
+        "downloadSection": {
+          "title": "R7 Flier",
+          "description": "View detailed information about the English Club",
+          "fileName": "R7-Flier.pdf",
+          "downloadText": "Download"
+        }
+      }
+    },
+    "blog": {
+      "sectionTitle": "News & Blog",
+      "viewAllText": "View All"
+    },
+    "footer": {
+      "quickLinks": {
+        "title": "Quick Links",
+        "links": {
+          "home": "Home",
+          "about": "About Us",
+          "programs": "Programs",
+          "contact": "Contact"
+        }
+      },
+      "contact": {
+        "title": "Contact Information",
+        "phone": "042-590-3715",
+        "email": "info@kodomogakuen.com",
+        "address": "2-8-3 Tatsuno, Higashi-Yamato, Tokyo"
+      },
+      "social": {
+        "title": "Social Media"
+      },
+      "location": {
+        "title": "Location"
+      }
+    }
+  }
+}

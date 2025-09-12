@@ -4,6 +4,8 @@ import React, { useRef, useEffect, useState } from 'react'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { cn } from '@/utils/cn'
+import { useLanguage } from '@/context/LanguageContext'
+import { useSectionContent } from '@/hooks/useContent'
 
 /**
  * Props interface for individual AboutCard component
@@ -14,13 +16,14 @@ interface AboutCardProps {
   content: string  // Main description text content
   color: string    // Theme color identifier for styling
   delay: number    // Animation delay for staggered entrance effects
+  language: string // Current language for key prop
 }
 /**
  * Individual AboutCard Component
  * Renders an animated card with intersection observer for scroll-triggered animations
  * Features truncated text, themed colors, and hover effects
  */
-function AboutCard({ title, content, color, delay }: AboutCardProps) {
+function AboutCard({ title, content, color, delay, language }: AboutCardProps) {
   // State to track if the card is visible in viewport
   const [isVisible, setIsVisible] = useState(false)
   // Reference to the card element for intersection observer
@@ -116,6 +119,7 @@ const getAnimatePosition = (colorName: string, isVisible: boolean) => {
   initial={getInitialPosition(color)}
   animate={getAnimatePosition(color, isVisible)}
   transition={{ duration: .5, delay }}
+  key={`${color}-${language}`}
   className={cn(
     'py-[5rem] px-[3rem] rounded-lg shadow-lg hover:shadow-xl shadow-[3px_3px_5px_1px_rgba(0,0,0,0.3)] transition-shadow duration-300',
     getColorClasses(color)
@@ -157,34 +161,67 @@ const getAnimatePosition = (colorName: string, isVisible: boolean) => {
  * - ビジョン (Vision & Goals)
  */
 export default function AboutInfo() {
-  // About section data configuration - Content and styling for each card
-  const aboutData = [
-    {
-      title: 'こども学園',
-      content: '当園は2,000坪の敷地で、園内は森に囲まれ、50坪の恵まれた自然環境にあります スタッフが一人一人丁寧に、優しく個性を大切にし、気持ちよくお子様のお世話をいたします 提供できるものがたくさんあります。オーストラリア、英国、ケニア、スリランカ、トリノバゴ、米国の市民権を持つ外国人。',
-      color: 'school'
-    },
-    {
-      title: 'はぐくみ',
-      content: '明るく伸びやかな子どもたちへ。親を敬い、誰とでも仲良くなれる子に世の中の優しさを忘れません。やっと大人になった時 目立たない存在でも なんとなく頼ってた 一部の人に、困ったときに相談したい人、そんな人になるために基材を目指そう。',
-      color: 'nurture'
-    },
-    {
-      title: 'ビジョン',
-      content: '幼児は小さな植物がついに芽を出したようなものです。つぼみが大きくなる ご不明な点がございましたら、お気軽にお問い合わせください。ご不明な点がございましたら、お気軽にお問い合わせください。',
-      color: 'vision'
+  const { language } = useLanguage()
+  const { content: aboutContent, loading } = useSectionContent('about')
+
+  // Create card data using content or fallback
+  const getAboutData = () => {
+    if (!aboutContent) {
+      // Fallback data
+      return [
+        {
+          title: 'こども学園',
+          content: '当園は愛情豊かな環境で、子どもたち一人一人の個性を大切にしています。',
+          color: 'school'
+        },
+        {
+          title: 'はぐくみ',
+          content: 'ふれあい保育・感謝・思いやりを基本理念として、子どもたちの成長をサポートします。',
+          color: 'nurture'
+        },
+        {
+          title: 'ビジョン',
+          content: '子どもたちの可能性を最大限に引き出し、健やかな成長を見守ります。',
+          color: 'vision'
+        }
+      ]
     }
-  ]
+
+    // Use dynamic content - simplified version using description and philosophy
+    return [
+      {
+        title: aboutContent.sectionTitle || (language === 'ja' ? 'こども学園について' : 'About Kodomo Gakuen'),
+        content: aboutContent.description || '',
+        color: 'school'
+      },
+      {
+        title: language === 'ja' ? 'はぐくみ' : 'Nurturing',
+        content: aboutContent.philosophy || '',
+        color: 'nurture'
+      },
+      {
+        title: language === 'ja' ? 'ビジョン' : 'Vision',
+        content: aboutContent.description || '', // Re-use description for now
+        color: 'vision'
+      }
+    ]
+  }
+
+  const aboutData = getAboutData()
 
   return (
     <section id="about-info" className="py-20 pb-[10rem] bg-light-2">
       {/* Container for centered content with responsive padding */}
       <div className="container mx-auto px-6 overflow-hidden pb-[4rem]">
         {/* Section Header - Centered title with decorative underline */}
-        <header className="text-center mb-16">
+        <header className="text-center mb-16" key={`${language}-header`}>
           {/* Main Section Title - Large Japanese text with colored accent */}
           <h2 className="text-5xl md:text-6xl font-bold font-kosugi text-dark-1 mb-6">
-            なんで<span className="text-tertiary">こども</span>がくえん？
+            {language === 'ja' ? (
+              <>なんで<span className="text-tertiary">こども</span>がくえん？</>
+            ) : (
+              <>Why <span className="text-tertiary">Kodomo</span> Gakuen?</>
+            )}
           </h2>
           {/* Decorative underline - Small accent bar below title */}
           <div className="w-24 h-1 bg-tertiary mx-auto rounded-full"></div>
@@ -194,11 +231,12 @@ export default function AboutInfo() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {aboutData.map((item, index) => (
             <AboutCard
-              key={index}
+              key={`${index}-${language}`}
               title={item.title}
               content={item.content}
               color={item.color}
               delay={0} // Staggered animation delays (0s, 0.2s, 0.4s)
+              language={language}
             />
           ))}
         </div>

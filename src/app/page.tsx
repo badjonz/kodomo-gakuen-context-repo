@@ -10,7 +10,6 @@ export default function HomePage() {
       <AnnouncementModal />
       <Hero
         isHomepage={true}
-        subtitle="ふれあい保育・感謝・思いやり"
         showButton={true}
         backgroundImage="/images/hero-image.jpg"
       />

@@ -39,7 +39,11 @@
       "Read(C:\\Users\\user\\Documents\\Code\\Kodomo Gakuen\\kodomo-gakuen-repo/**)",
       "Read(C:\\Users\\user\\Documents\\Code\\Kodomo Gakuen\\kodomo-gakuen-repo/**)",
       "Read(C:\\Users\\user\\Documents\\Code\\Kodomo Gakuen\\kodomo-gakuen-repo\\css/**)",
-      "mcp__playwright__browser_console_messages"
+      "mcp__playwright__browser_console_messages",
+      "Bash(Get-Process node -ErrorAction SilentlyContinue)",
+      "Bash(Stop-Process -Force)",
+      "Bash(netstat:*)",
+      "Bash(cmd //c:*)"
     ],
     "deny": []
   }

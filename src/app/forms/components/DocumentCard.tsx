@@ -5,10 +5,12 @@ interface DocumentCardProps {
   title: string
   fileName: string
   downloadName: string
+  description?: string
+  language: 'ja' | 'en'
   className?: string
 }
 
-export function DocumentCard({ title, fileName, downloadName, className }: DocumentCardProps) {
+export function DocumentCard({ title, fileName, downloadName, description, language, className }: DocumentCardProps) {
   return (
     <div className={cn(
       "bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300",
@@ -25,11 +27,18 @@ export function DocumentCard({ title, fileName, downloadName, className }: Docum
             className="object-contain"
           />
         </div>
-        <div>
+        <div className="flex-1">
           <h3 className="text-[1.4rem] font-semibold text-gray-900 mb-1">
             {title}
           </h3>
-          <p className="text-[1.4rem] text-gray-500">PDF形式</p>
+          {description && (
+            <p className="text-[1.2rem] text-gray-600 mb-2 leading-relaxed">
+              {description}
+            </p>
+          )}
+          <p className="text-[1.2rem] text-gray-500">
+            {language === 'ja' ? 'PDF形式' : 'PDF Format'}
+          </p>
         </div>
       </div>
       
@@ -52,7 +61,7 @@ export function DocumentCard({ title, fileName, downloadName, className }: Docum
               d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" 
             />
           </svg>
-          ダウンロード
+          {language === 'ja' ? 'ダウンロード' : 'Download'}
         </a>
       </div>
     </div>

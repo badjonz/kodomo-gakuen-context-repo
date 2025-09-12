@@ -4,8 +4,15 @@ import React, { useRef, useState, useEffect } from 'react';
 import { usePathname } from "next/navigation";
 import Link from 'next/link';
 import { motion, useMotionValue, useTransform, AnimatePresence } from 'framer-motion';
+import { useLanguage } from '@/context/LanguageContext';
+import { useSectionContent } from '@/hooks/useContent';
 
 export default function Header() {
+  // Language context integration
+  const { language, toggleLanguage } = useLanguage();
+  const { content: navigationContent } = useSectionContent('navigation');
+  const { content: headerContent } = useSectionContent('header');
+  
   // Get current route pathname for active link styling
   const pathname = usePathname();
   
@@ -158,8 +165,15 @@ export default function Header() {
       }}
       transition={{ duration: 0.4, ease: "easeOut" }}
     >
-      <a href=""> info@kodomogakuen.com</a>
-      <a href="">English</a>
+      <a href=""> {headerContent?.email || 'info@kodomogakuen.com'}</a>
+      <button 
+        onClick={toggleLanguage}
+        className="px-3 py-1 rounded-md bg-white/10 hover:bg-white/20 transition-all duration-200 cursor-pointer border border-white/20 hover:border-white/40"
+        type="button"
+        aria-label={`Switch to ${language === 'ja' ? 'English' : 'Japanese'}`}
+      >
+        {headerContent?.languageToggle || 'English'}
+      </button>
     </motion.div>
 
     {/* Mobile Hamburger Menu Button - Outside header for proper z-index stacking */}
@@ -223,16 +237,22 @@ export default function Header() {
         {/* Logo - Centered on mobile, left-aligned on desktop */}
         <div className="pl-6 md:pl-0 flex-1 md:flex-none md:text-left text-center">
           <Link href="/" className="text-[20px] md:text-[28px] text-white">
-            <span className="text-[#32CD32]"></span>こども学園 Kodomo Gakuen
+            <span className="text-[#32CD32]"></span>{headerContent?.siteName || 'こども学園 Kodomo Gakuen'}
           </Link>
         </div>
 
         {/* Desktop Navigation Menu - Hidden on mobile */}
-        <ul className="hidden md:flex gap-[5px] text-white order-3 items-center">
+        <motion.ul 
+          className="hidden md:flex gap-[5px] text-white order-3 items-center"
+          key={language} // Force re-render on language change
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.3, ease: "easeOut" }}
+        >
           {/* Home Link */}
           <li className=''>
             <Link href="/" className={navLinkClass('/')}>
-              <span>ホーム</span>
+              <span>{navigationContent?.home || 'ホーム'}</span>
             </Link>
           </li>
 
@@ -243,38 +263,38 @@ export default function Header() {
               data-nav="1"
               style={{ cursor: 'pointer' }}
             >
-              インフォメーション
+              {navigationContent?.information || 'インフォメーション'}
             </div>
             {/* Dropdown submenu */}
             <ul className="dropdown-menu">
               <li className="dropdown-item">
                 <Link href="/about" className={dropdownChildClass('/about')}>
-                  <span>保育方針</span>
+                  <span>{navigationContent?.informationSubmenu?.about || '保育方針'}</span>
                 </Link>
               </li>
               <li className="dropdown-item">
                 <Link href="/fees" className={dropdownChildClass('/fees')}>
-                  <span>保育料</span>
+                  <span>{navigationContent?.informationSubmenu?.fees || '保育料'}</span>
                 </Link>
               </li>
               <li className="dropdown-item">
                 <Link href="/privacy" className={dropdownChildClass('/privacy')}>
-                  <span>プライバシーポリシー</span>
+                  <span>{navigationContent?.informationSubmenu?.privacy || 'プライバシーポリシー'}</span>
                 </Link>
               </li>
               <li className="dropdown-item">
                 <Link href="/menu" className={dropdownChildClass('/menu')}>
-                  <span>給食</span>
+                  <span>{navigationContent?.informationSubmenu?.menu || '給食'}</span>
                 </Link>
               </li>
               <li className="dropdown-item">
                 <Link href="/programs" className={dropdownChildClass('/programs')}>
-                  <span>活動内容</span>
+                  <span>{navigationContent?.informationSubmenu?.programs || '活動内容'}</span>
                 </Link>
               </li>
               <li className="dropdown-item">
                 <Link href="/enrolment" className={dropdownChildClass('/enrolment')}>
-                  <span>入園について</span>
+                  <span>{navigationContent?.informationSubmenu?.enrolment || '入園について'}</span>
                 </Link>
               </li>
             </ul>
@@ -287,7 +307,7 @@ export default function Header() {
               className={navLinkClass('/forms')}
               data-nav="2"
             >
-              書類
+              {navigationContent?.forms || '書類'}
             </Link>
           </li>
 
@@ -298,23 +318,23 @@ export default function Header() {
               data-nav="3"
               style={{ cursor: 'pointer' }}
             >
-              クラス
+              {navigationContent?.classes || 'クラス'}
             </div>
             {/* Dropdown submenu */}
             <ul className="dropdown-menu">
               <li className="dropdown-item">
                 <Link href="/nyuuji" className={dropdownChildClass('/nyuuji')}>
-                  <span>乳児</span>
+                  <span>{navigationContent?.classesSubmenu?.nyuuji || '乳児'}</span>
                 </Link>
               </li>
               <li className="dropdown-item">
                 <Link href="/youji" className={dropdownChildClass('/youji')}>
-                  <span>幼児</span>
+                  <span>{navigationContent?.classesSubmenu?.youji || '幼児'}</span>
                 </Link>
               </li>
               <li className="dropdown-item">
                 <Link href="/star" className={dropdownChildClass('/star')}>
-                  <span>国際クラス</span>
+                  <span>{navigationContent?.classesSubmenu?.star || '国際クラス'}</span>
                 </Link>
               </li>
             </ul>
@@ -326,10 +346,10 @@ export default function Header() {
               href="/activities" 
               className={navLinkClass('/activities')}
             >
-              課外教室
+              {navigationContent?.activities || '課外教室'}
             </Link>
           </li>
-        </ul>
+        </motion.ul>
       </motion.nav>
     </motion.div>
 
@@ -354,14 +374,20 @@ export default function Header() {
 
       {/* Mobile Menu Navigation Items */}
       <nav className="pt-16 h-full flex flex-col items-center justify-center">
-        <ul className=" text-white w-full">
+        <motion.ul 
+          className=" text-white w-full"
+          key={language} // Force re-render on language change
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.3, ease: "easeOut", delay: 0.1 }}
+        >
           {/* Home */}
           <li className='text-center '>
             <Link 
               href="/" 
               className={mobileNavLinkClass('/') }
             >
-              ホーム
+              {navigationContent?.home || 'ホーム'}
             </Link>
           </li>
           
@@ -372,7 +398,7 @@ export default function Header() {
               className={mobileDropdownToggleClass(informationRoutes)}
               onClick={() => handleSubmenuToggle('information')}
             >
-              インフォメーション
+              {navigationContent?.information || 'インフォメーション'}
             </div>
             <AnimatePresence>
               {activeSubmenu === 'information' && (
@@ -388,7 +414,7 @@ export default function Header() {
                       href="/about" 
                       className={mobileNavSubLinkClass('/about')}
                     >
-                      保育方針
+                      {navigationContent?.informationSubmenu?.about || '保育方針'}
                     </Link>
                   </li>
                   <li className=''>
@@ -396,7 +422,7 @@ export default function Header() {
                       href="/fees" 
                       className={mobileNavSubLinkClass('/fees')}
                     >
-                      保育料
+                      {navigationContent?.informationSubmenu?.fees || '保育料'}
                     </Link>
                   </li>
                   <li className=''>
@@ -404,7 +430,7 @@ export default function Header() {
                       href="/privacy" 
                       className={mobileNavSubLinkClass('/privacy')}
                     >
-                      プライバシーポリシー
+                      {navigationContent?.informationSubmenu?.privacy || 'プライバシーポリシー'}
                     </Link>
                   </li>
                   <li className=''>
@@ -412,7 +438,7 @@ export default function Header() {
                       href="/menu" 
                       className={mobileNavSubLinkClass('/menu')}
                     >
-                      給食
+                      {navigationContent?.informationSubmenu?.menu || '給食'}
                     </Link>
                   </li>
                   <li className=''>
@@ -420,7 +446,7 @@ export default function Header() {
                       href="/programs" 
                       className={mobileNavSubLinkClass('/programs')}
                     >
-                      活動内容
+                      {navigationContent?.informationSubmenu?.programs || '活動内容'}
                     </Link>
                   </li>
                   <li className=''>
@@ -428,7 +454,7 @@ export default function Header() {
                       href="/enrolment" 
                       className={mobileNavSubLinkClass('/enrolment')}
                     >
-                      入園について
+                      {navigationContent?.informationSubmenu?.enrolment || '入園について'}
                     </Link>
                   </li>
                 </motion.ul>
@@ -442,7 +468,7 @@ export default function Header() {
               href="/forms" 
               className={mobileNavLinkClass('/forms')}
             >
-              書類
+              {navigationContent?.forms || '書類'}
             </Link>
           </li>
 
@@ -453,7 +479,7 @@ export default function Header() {
               className={mobileDropdownToggleClass(classRoutes)}
               onClick={() => handleSubmenuToggle('classes')}
             >
-              クラス
+              {navigationContent?.classes || 'クラス'}
             </div>
             <AnimatePresence>
               {activeSubmenu === 'classes' && (
@@ -469,7 +495,7 @@ export default function Header() {
                       href="/nyuuji" 
                       className={mobileNavSubLinkClass('/nyuuji')}
                     >
-                      乳児
+                      {navigationContent?.classesSubmenu?.nyuuji || '乳児'}
                     </Link>
                   </li>
                   <li>
@@ -477,7 +503,7 @@ export default function Header() {
                       href="/youji" 
                       className={mobileNavSubLinkClass('/youji')}
                     >
-                      幼児
+                      {navigationContent?.classesSubmenu?.youji || '幼児'}
                     </Link>
                   </li>
                   <li>
@@ -485,7 +511,7 @@ export default function Header() {
                       href="/star" 
                       className={mobileNavSubLinkClass('/star')}
                     >
-                      国際クラス
+                      {navigationContent?.classesSubmenu?.star || '国際クラス'}
                     </Link>
                   </li>
                 </motion.ul>
@@ -499,10 +525,11 @@ export default function Header() {
               href="/activities" 
               className={mobileNavLinkClass('/activities')}
             >
-              課外教室
+              {navigationContent?.activities || '課外教室'}
             </Link>
           </li>
-        </ul>
+
+        </motion.ul>
       </nav>
     </motion.div>
   </div>;

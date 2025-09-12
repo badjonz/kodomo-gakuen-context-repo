@@ -3,57 +3,87 @@
 import Hero from '@/components/sections/Hero'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
+import { useLanguage } from '@/context/LanguageContext'
+import { useSectionContent } from '@/hooks/useContent'
 
 export default function YoujiPage() {
-  // Inline age group content data
-  const ageGroups = [
-    {
-      titlePart1: "年",
-      titlePart2: "少", 
-      colorClass: "text-primary",
-      bgColorClass: "bg-primary",
-      textOrder: "order-2 md:order-1",
-      imageOrder: "order-1 md:order-2",
-      description: "たくさんの行事を通してみんなの成長がお互いを刺激しあい認め合う環境作りをしています。「おはよう」のご挨拶「ありがとう」の感謝の言葉・素直な心を養います。",
-      image: "/images/nensho-pic.JPG",
-      alt: "年少クラスの子どもたち"
-    },
-    {
-      titlePart1: "年",
-      titlePart2: "中",
-      colorClass: "text-secondary",
-      bgColorClass: "bg-secondary",
-      textOrder: "order-2 md:order-2",
-      imageOrder: "order-1 md:order-1",
-      description: "たくさんの行事を通してみんなの成長がお互いを刺激しあい認め合う環境作りをしています。「おはよう」のご挨拶「ありがとう」の感謝の言葉・素直な心を養います。",
-      image: "/images/nenchu-pic2.jpg",
-      alt: "年中クラスの子どもたち"
-    },
-    {
-      titlePart1: "年",
-      titlePart2: "長",
-      colorClass: "text-quaternary",
-      bgColorClass: "bg-quaternary",
-      textOrder: "order-1 md:order-1",
-      imageOrder: "order-2 md:order-2",
-      description: "たくさんの行事を通してみんなの成長がお互いを刺激しあい認め合う環境作りをしています。「おはよう」のご挨拶「ありがとう」の感謝の言葉・素直な心を養います。",
-      image: "/images/nencho-pic.jpg",
-      alt: "年長クラスの子どもたち"
+  const { language } = useLanguage();
+  const { content: youjiContent } = useSectionContent('youji');
+
+  // Fallback content in case loading fails
+  const fallbackContent = {
+    page: {
+      introduction: {
+        title: language === 'en' ? 'Toddler Classes' : '幼児クラス',
+        subtitle: language === 'en' ? 'Ages 3-5 years old' : '3歳から5歳までのお子様',
+        description: language === 'en' ? 'Loading...' : '読み込み中...'
+      },
+      classes: [
+        {
+          name: language === 'en' ? 'Nensho Class' : '年少クラス',
+          titleParts: language === 'en' ? ['Nen', 'sho'] : ['年', '少'],
+          colorClass: 'text-primary',
+          bgColorClass: 'bg-primary',
+          description: language === 'en' ? 'Loading...' : '読み込み中...',
+          image: '/images/nensho-pic.JPG',
+          alt: language === 'en' ? 'Nensho Class Children' : '年少クラスの子どもたち'
+        },
+        {
+          name: language === 'en' ? 'Nenchu Class' : '年中クラス',
+          titleParts: language === 'en' ? ['Nen', 'chu'] : ['年', '中'],
+          colorClass: 'text-secondary',
+          bgColorClass: 'bg-secondary',
+          description: language === 'en' ? 'Loading...' : '読み込み中...',
+          image: '/images/nenchu-pic.JPG',
+          alt: language === 'en' ? 'Nenchu Class Children' : '年中クラスの子どもたち'
+        },
+        {
+          name: language === 'en' ? 'Nencho Class' : '年長クラス',
+          titleParts: language === 'en' ? ['Nen', 'cho'] : ['年', '長'],
+          colorClass: 'text-quaternary',
+          bgColorClass: 'bg-quaternary',
+          description: language === 'en' ? 'Loading...' : '読み込み中...',
+          image: '/images/nencho-pic.JPG',
+          alt: language === 'en' ? 'Nencho Class Children' : '年長クラスの子どもたち'
+        }
+      ]
     }
-  ]
+  };
+
+  const content = youjiContent?.page || fallbackContent.page;
 
   return (
     <main className="min-h-screen">
       <Hero 
-        title="乳児"
+        pageKey="youji"
         backgroundImage="/images/page-banner.jpeg"
         isHomepage={false}
       />
       
       <section className="py-16 bg-gray-50">
+        {/* Introduction Section */}
+        <motion.div 
+          className="container mx-auto px-4 mb-16 text-center"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          key={`intro-${language}`}
+        >
+          <h1 className="text-4xl md:text-6xl font-bold mb-4 text-gray-800">
+            {content.introduction.title}
+          </h1>
+          <p className="text-xl md:text-2xl text-gray-600 mb-6">
+            {content.introduction.subtitle}
+          </p>
+          <p className="text-lg text-gray-700 max-w-3xl mx-auto">
+            {content.introduction.description}
+          </p>
+        </motion.div>
+
         <article className="container mx-auto px-4 max-w-[78vw] px-[7rem] py-[8rem] [background-image:linear-gradient(to_bottom,#32cd32_0%,#32cd32_20%,#f35588_40%,#f35588_60%,#00aeff_85%,#00aeff_100%)] rounded-[4rem]">
-          {ageGroups.map((group, index) => (
-            <div key={index} className="mb-16 last:mb-0 bg-white bg-opacity-70 rounded-[6px]">
+          {content.classes.map((classInfo, index) => (
+            <div key={`${index}-${language}`} className="mb-16 last:mb-0 bg-white bg-opacity-70 rounded-[6px]">
               {/* Age Group Header */}
               <motion.header 
                 className="text-center mb-12 pt-[3rem]"
@@ -63,32 +93,36 @@ export default function YoujiPage() {
                 viewport={{ once: true }}
               >
                 <h2 className="text-5xl md:text-[4.4rem] font-bold mb-[2rem]">
-                  {group.titlePart1}<span className={group.colorClass}>{group.titlePart2}</span>
+                  {classInfo.titleParts.map((part, partIndex) => (
+                    <span key={partIndex} className={partIndex === 1 ? classInfo.colorClass : ''}>
+                      {part}
+                    </span>
+                  ))}
                 </h2>
-                <hr className={`w-32 h-1 ${group.bgColorClass} mx-auto border-none rounded`} />
+                <hr className={`w-32 h-1 ${classInfo.bgColorClass} mx-auto border-none rounded`} />
               </motion.header>
 
               {/* Age Group Content */}
               <motion.div 
-                className="grid md:grid-cols-2 gap-8 items-center  p-[3rem] pb-[4rem]"
+                className="grid md:grid-cols-2 gap-8 items-center p-[3rem] pb-[4rem]"
                 initial={{ y: 30, opacity: 0 }}
                 whileInView={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
                 viewport={{ once: true }}
               >
                 {/* Text Content */}
-                <div className={`${group.textOrder} h-full flex items-center`}>
+                <div className={`${index % 2 === 0 ? 'order-1' : 'order-2 md:order-1'} h-full flex items-center`}>
                   <p className="text-lg md:text-[1.6rem] leading-relaxed text-gray-700">
-                    {group.description}
+                    {classInfo.description}
                   </p>
                 </div>
 
                 {/* Image Content */}
-                <div className={`${group.imageOrder} h-full flex items-center`}>
+                <div className={`${index % 2 === 0 ? 'order-2' : 'order-1 md:order-2'} h-full flex items-center`}>
                   <div className="relative aspect-[4/3] w-full overflow-hidden rounded-lg shadow-lg">
                     <Image 
-                      src={group.image}
-                      alt={group.alt}
+                      src={classInfo.image}
+                      alt={classInfo.alt}
                       fill
                       className="object-cover"
                       sizes="(max-width: 768px) 100vw, 50vw"
@@ -96,8 +130,6 @@ export default function YoujiPage() {
                   </div>
                 </div>
               </motion.div>
-
-              
             </div>
           ))}
         </article>
