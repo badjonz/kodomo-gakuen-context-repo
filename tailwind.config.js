@@ -5,6 +5,11 @@ module.exports = {
     './src/components/**/*.{js,ts,jsx,tsx,mdx}',
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
+  safelist: [
+    'font-kosugi',
+    'font-montserrat',
+    'font-fredericka'
+  ],
   theme: {
     extend: {
       colors: {

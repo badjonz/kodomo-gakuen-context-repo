@@ -6,6 +6,7 @@ import { motion } from 'framer-motion'
 import { cn } from '@/utils/cn'
 import { useLanguage } from '@/context/LanguageContext'
 import { useSectionContent } from '@/hooks/useContent'
+import { useFontClass } from '@/hooks/useFontClass'
 
 interface HeroProps {
   title?: string
@@ -26,6 +27,7 @@ export default function Hero({
 }: HeroProps) {
   const { language } = useLanguage()
   const { content: heroContent, loading } = useSectionContent('hero')
+  const fontClass = useFontClass()
 
   // Get content based on whether it's homepage or specific page
   const getHeroContent = () => {
@@ -44,22 +46,22 @@ export default function Hero({
   // Use props as fallback if content is not loaded
   const displayTitle = currentHeroContent?.title || title
   const displaySubtitle = currentHeroContent?.subtitle || subtitle
-  const displayButtonText = (currentHeroContent && 'buttonText' in currentHeroContent) ? currentHeroContent.buttonText : undefined
-  const displayButtonLink = (currentHeroContent && 'buttonLink' in currentHeroContent) ? currentHeroContent.buttonLink : "/about"
+  const displayButtonText: string | undefined = (currentHeroContent && 'buttonText' in currentHeroContent) ? currentHeroContent.buttonText as string : undefined
+  const displayButtonLink: string = (currentHeroContent && 'buttonLink' in currentHeroContent) ? currentHeroContent.buttonLink as string : "/about"
 
-  const coloredTitle = (
-    <h1 className="mb-8 bg-black/10 rounded-lg p-4" style={isHomepage ? { fontSize: '4.2rem' } : { fontSize: '4rem' }} key={language}>
-      {isHomepage ? (
-        <>
-          <span className="text-primary">E</span>
-          <span className="text-secondary">n</span>
-          <span className="text-tertiary">j</span>
-          <span className="text-quaternary">o</span>
-          <span className="text-primary">y</span> Learning With Us
-        </>
-      ) : (
-        displayTitle
-      )}
+  // Homepage gets special colored title treatment
+  const coloredTitle = isHomepage ? (
+    <h1 className={cn("mb-8 bg-black/10 rounded-lg p-4", fontClass)} style={{ fontSize: '4.2rem' }} key={language}>
+      <span className="text-primary">E</span>
+      <span className="text-secondary">n</span>
+      <span className="text-tertiary">j</span>
+      <span className="text-quaternary">o</span>
+      <span className="text-primary">y</span> Learning With Us
+    </h1>
+  ) : (
+    // Standardized non-homepage title: consistent 4xl responsive sizing
+    <h1 className={cn("text-3xl md:text-4xl lg:text-5xl font-bold mb-8 bg-black/10 rounded-lg p-4", fontClass)} key={language}>
+      {displayTitle}
     </h1>
   )
 
@@ -67,10 +69,11 @@ export default function Hero({
     <section
       className={cn(
         'relative flex items-center justify-center text-center text-white overflow-hidden',
+        // Homepage: full screen, Non-homepage: standardized 40vh with consistent header offset
         isHomepage ? 'h-screen pt-[105px]' : 'h-[40vh] pt-[105px]'
       )}
     >
-      {/* Background image */}
+      {/* Background image - unified animation approach */}
       <motion.img
         src={backgroundImage}
         alt="Hero Background"
@@ -80,26 +83,34 @@ export default function Hero({
         transition={{ duration: 1, delay: 0.3, ease: 'easeInOut' }}
       />
 
-      {/* Overlay */}
+      {/* Overlay - consistent across all pages */}
       <div className="absolute inset-0 bg-black/45" />
 
-      {/* Content */}
+      {/* Content - standardized positioning and animations */}
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.4, delay: 0.2 }}
-        className="relative z-10 max-w-4xl px-8"
+        transition={{ duration: 0.8, delay: 0.2 }}
+        className={cn(
+          'relative z-10 max-w-4xl px-8',
+          // Non-homepage pages get consistent top padding for proper centering with header offset
+          isHomepage ? '' : 'pt-8'
+        )}
       >
-        {/* removed the padding top */}
         <div className="mb-8">
           {coloredTitle}
           
-          {displaySubtitle && (
+          {displaySubtitle && isHomepage && (
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="mb-8 bg-black/10 rounded-lg p-6 font-kosugi text-[2rem]"
+              className={cn(
+                'mb-8 bg-black/10 rounded-lg p-6',
+                fontClass,
+                // Standardized subtitle sizing for non-homepage
+                isHomepage ? 'text-[2rem]' : 'text-lg md:text-xl lg:text-2xl'
+              )}
               key={`${language}-subtitle`}
             >
               {displaySubtitle}
@@ -116,8 +127,7 @@ export default function Hero({
           >
             <Link
               href={displayButtonLink}
-              className='btn'
-              style={{ fontSize: '1.6rem' }}
+              className={cn('btn text-[1.6rem] px-8 py-4 hover:scale-105 transition-transform', fontClass)}
             >
               <i className="fas fa-chevron-right mr-2"></i>
               {displayButtonText}

@@ -5,6 +5,8 @@ import { motion } from 'framer-motion';
 import Hero from '@/components/sections/Hero';
 import { useLanguage } from '@/context/LanguageContext';
 import { useSectionContent } from '@/hooks/useContent';
+import { useFontClass } from '@/hooks/useFontClass';
+import { cn } from '@/utils/cn';
 
 // Star bullet icon component
 const StarBullet = () => (
@@ -16,6 +18,7 @@ const StarBullet = () => (
 export default function Fees() {
   const { language } = useLanguage();
   const { content: feesContent } = useSectionContent('fees');
+  const fontClass = useFontClass();
 
   // Fallback content in case loading fails
   const fallbackContent = {

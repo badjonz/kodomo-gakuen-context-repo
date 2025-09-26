@@ -6,6 +6,7 @@ import { motion } from 'framer-motion'
 import { cn } from '@/utils/cn'
 import { useLanguage } from '@/context/LanguageContext'
 import { useSectionContent } from '@/hooks/useContent'
+import { useFontClass } from '@/hooks/useFontClass'
 
 /**
  * Props interface for individual AboutCard component
@@ -17,13 +18,14 @@ interface AboutCardProps {
   color: string    // Theme color identifier for styling
   delay: number    // Animation delay for staggered entrance effects
   language: string // Current language for key prop
+  fontClass: string // Dynamic font class based on language
 }
 /**
  * Individual AboutCard Component
  * Renders an animated card with intersection observer for scroll-triggered animations
  * Features truncated text, themed colors, and hover effects
  */
-function AboutCard({ title, content, color, delay, language }: AboutCardProps) {
+function AboutCard({ title, content, color, delay, language, fontClass }: AboutCardProps) {
   // State to track if the card is visible in viewport
   const [isVisible, setIsVisible] = useState(false)
   // Reference to the card element for intersection observer
@@ -128,10 +130,10 @@ const getAnimatePosition = (colorName: string, isVisible: boolean) => {
       {/* Card Content Container - Centers content and provides spacing */}
       <div className="text-center">
         {/* Card Title - Large, bold heading */}
-        <h3 className="text-[3rem] font-bold font-kosugi text-white mb-[2rem]">{title}</h3>
+        <h3 className={cn("text-[3rem] font-bold text-white mb-[2rem]", fontClass)}>{title}</h3>
         
         {/* Card Description - Truncated content with consistent spacing */}
-        <p className="text-[1.6rem] leading-relaxed text-white font-kosugi mb-[4rem]">
+        <p className={cn("text-[1.6rem] leading-relaxed text-white mb-[4rem]", fontClass)}>
           {truncateText(content)}
         </p>
         
@@ -163,6 +165,7 @@ const getAnimatePosition = (colorName: string, isVisible: boolean) => {
 export default function AboutInfo() {
   const { language } = useLanguage()
   const { content: aboutContent, loading } = useSectionContent('about')
+  const fontClass = useFontClass()
 
   // Create card data using content or fallback
   const getAboutData = () => {
@@ -216,7 +219,7 @@ export default function AboutInfo() {
         {/* Section Header - Centered title with decorative underline */}
         <header className="text-center mb-16" key={`${language}-header`}>
           {/* Main Section Title - Large Japanese text with colored accent */}
-          <h2 className="text-5xl md:text-6xl font-bold font-kosugi text-dark-1 mb-6">
+          <h2 className={cn("text-5xl md:text-6xl font-bold text-dark-1 mb-6", fontClass)}>
             {language === 'ja' ? (
               <>なんで<span className="text-tertiary">こども</span>がくえん？</>
             ) : (
@@ -237,6 +240,7 @@ export default function AboutInfo() {
               color={item.color}
               delay={0} // Staggered animation delays (0s, 0.2s, 0.4s)
               language={language}
+              fontClass={fontClass}
             />
           ))}
         </div>

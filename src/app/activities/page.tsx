@@ -5,7 +5,9 @@ import { motion } from 'framer-motion'
 import Image from 'next/image'
 import { useLanguage } from '@/context/LanguageContext'
 import { useSectionContent } from '@/hooks/useContent'
+import { useFontClass } from '@/hooks/useFontClass'
 import { useMemo } from 'react'
+import { cn } from '@/utils/cn'
 
 // Fallback content for loading states - moved outside component to prevent recreation
 const fallbackContent = {
@@ -38,6 +40,7 @@ const fallbackContent = {
 export default function ActivitiesPage() {
   const { language } = useLanguage();
   const { content: activitiesContent } = useSectionContent('activities');
+  const fontClass = useFontClass();
 
   const content = useMemo(() => 
     activitiesContent?.page || fallbackContent.page,
@@ -64,7 +67,7 @@ export default function ActivitiesPage() {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <p className="text-[1.6rem] md:text-[1.8rem] leading-relaxed text-dark-1">
+            <p className={cn("text-[1.6rem] md:text-[1.8rem] leading-relaxed text-dark-1", fontClass)}>
               {content.introduction}
             </p>
           </motion.div>
@@ -102,7 +105,7 @@ export default function ActivitiesPage() {
               
               <div className="space-y-6 text-lg md:text-[1.6rem] leading-relaxed text-gray-700">
                 {content.englishClassSection.description.map((paragraph, index) => (
-                  <p key={`english-desc-${index}-${language}`}>
+                  <p key={`english-desc-${index}-${language}`} className={fontClass}>
                     {paragraph}
                   </p>
                 ))}
@@ -124,7 +127,7 @@ export default function ActivitiesPage() {
               
               <div className="grid md:grid-cols-1 gap-8 items-center">
                 <div className="space-y-6 text-lg md:text-[1.6rem] leading-relaxed text-gray-700">
-                  <p>
+                  <p className={fontClass}>
                     {content.adultClassSection.description}
                   </p>
                 </div>
@@ -166,7 +169,7 @@ export default function ActivitiesPage() {
                     <h3 className="text-2xl font-bold text-gray-800 mb-2">
                       {content.downloadSection.title}
                     </h3>
-                    <p className="text-gray-600 text-[1.4rem]">
+                    <p className={cn("text-gray-600 text-[1.4rem]", fontClass)}>
                       {content.downloadSection.description}
                     </p>
                   </div>

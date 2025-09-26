@@ -6,10 +6,13 @@ import { motion } from 'framer-motion';
 import Hero from '@/components/sections/Hero';
 import { useLanguage } from '@/context/LanguageContext';
 import { useSectionContent } from '@/hooks/useContent';
+import { useFontClass } from '@/hooks/useFontClass';
+import { cn } from '@/utils/cn';
 
 export default function About() {
   const { language } = useLanguage();
   const { content: aboutContent } = useSectionContent('about');
+  const fontClass = useFontClass();
   
   // Fallback content in case loading fails
   const fallbackContent = {
@@ -28,7 +31,8 @@ export default function About() {
         content: 'Loading...'
       },
       vision: {
-        title: language === 'en' ? 'Vision' : 'ビジョン',
+        title: language === 'en' ? 'Vis' : 'ビジ',
+        title2: language === 'en' ? 'ion' : 'ョン',
         paragraphs: ['Loading...']
       },
       callToAction: {
@@ -62,7 +66,7 @@ export default function About() {
             viewport={{ once: true }}
             key={`about-header-${language}`}
           >
-            <h2 className="text-[3.6rem] md:text-[4.8rem] font-bold mb-4">
+            <h2 className={cn("text-[3.6rem] md:text-[4.8rem] font-bold mb-4", fontClass)}>
               {language === 'en' ? (
                 <>Kodomo <span className="text-quaternary">Gakuen</span></>
               ) : (
@@ -85,7 +89,7 @@ export default function About() {
               {content.mainContent.paragraphs.map((paragraph, index) => (
                 <motion.p 
                   key={`paragraph-${index}-${language}`}
-                  className="text-[1.6rem] md:text-[1.8rem] leading-relaxed text-dark-1"
+                  className={cn("text-[1.6rem] md:text-[1.8rem] leading-relaxed text-dark-1", fontClass)}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
@@ -124,17 +128,17 @@ export default function About() {
               key={`nurturing-${language}`}
             >
               <header className="text-center mb-[4rem]">
-                <h2 className="text-[3.2rem] md:text-[4rem] font-bold mb-4">
+                <h2 className={cn("text-[3.2rem] md:text-[4rem] font-bold mb-4", fontClass)}>
                   <span className="text-primary">{content.nurturing.title}</span>
                 </h2>
                 <hr className="w-[6rem] h-[3px] bg-primary mx-auto border-none rounded" />
               </header>
               
               <div className="space-y-6 mb-8">
-                <p className="text-[1.8rem] md:text-[2rem] font-semibold text-primary text-center">
+                <p className={cn("text-[1.8rem] md:text-[2rem] font-semibold text-primary text-center", fontClass)}>
                   {content.nurturing.subtitle}
                 </p>
-                <p className="text-[1.6rem] md:text-[1.8rem] leading-relaxed text-dark-1">
+                <p className={cn("text-[1.6rem] md:text-[1.8rem] leading-relaxed text-dark-1", fontClass)}>
                   {content.nurturing.content}
                 </p>
               </div>
@@ -163,8 +167,8 @@ export default function About() {
               key={`vision-${language}`}
             >
               <header className="text-center mb-[4rem]">
-                <h2 className="text-[3.2rem] md:text-[4rem] font-bold mb-4">
-                  <span className="text-secondary">{content.vision.title}</span>
+                <h2 className={cn("text-[3.2rem] md:text-[4rem] font-bold mb-4", fontClass)}>
+                  {content.vision.title}<span className="text-secondary"> {content.vision.title2}</span>
                 </h2>
                 <hr className="w-[6rem] h-[3px] bg-secondary mx-auto border-none rounded" />
               </header>
@@ -173,7 +177,7 @@ export default function About() {
                 {content.vision.paragraphs.map((paragraph, index) => (
                   <motion.p 
                     key={`vision-paragraph-${index}-${language}`}
-                    className="text-[1.6rem] md:text-[1.8rem] leading-relaxed text-dark-1"
+                    className={cn("text-[1.6rem] md:text-[1.8rem] leading-relaxed text-dark-1", fontClass)}
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: index * 0.1 }}
@@ -200,29 +204,7 @@ export default function About() {
             </motion.div>
           </div>
 
-          {/* Call to Action Section */}
-          <motion.div 
-            className="text-center mt-[8rem] p-[4rem] bg-gradient-to-r from-primary-light/20 to-quaternary/20 rounded-2xl"
-            initial={{ y: 50, opacity: 0 }}
-            whileInView={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            key={`cta-${language}`}
-          >
-            <h3 className="text-[2.4rem] md:text-[3.2rem] font-bold mb-4 text-dark-1">
-              {content.callToAction.title}
-            </h3>
-            <p className="text-[1.6rem] md:text-[1.8rem] text-dark-2 mb-6">
-              {content.callToAction.description}
-            </p>
-            <motion.button 
-              className="btn hover:scale-105"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              {content.callToAction.buttonText}
-            </motion.button>
-          </motion.div>
+          
         </div>
       </section>
     </div>

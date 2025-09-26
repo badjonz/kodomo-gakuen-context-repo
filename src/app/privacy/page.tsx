@@ -5,10 +5,13 @@ import { motion } from 'framer-motion';
 import Hero from '@/components/sections/Hero';
 import { useLanguage } from '@/context/LanguageContext';
 import { useSectionContent } from '@/hooks/useContent';
+import { useFontClass } from '@/hooks/useFontClass';
+import { cn } from '@/utils/cn';
 
 export default function Privacy() {
   const { language } = useLanguage();
   const { content: privacyContent } = useSectionContent('privacy');
+  const fontClass = useFontClass();
 
   // Fallback content for loading states
   const fallbackContent = {

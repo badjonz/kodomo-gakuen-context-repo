@@ -5,10 +5,13 @@ import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { useLanguage } from '@/context/LanguageContext'
 import { useSectionContent } from '@/hooks/useContent'
+import { useFontClass } from '@/hooks/useFontClass'
+import { cn } from '@/utils/cn'
 
 export default function Footer() {
   const { language } = useLanguage()
   const { content: footerContent, loading } = useSectionContent('footer')
+  const fontClass = useFontClass()
 
   // Get quick links from content or fallback
   const getQuickLinks = () => {
@@ -49,7 +52,7 @@ export default function Footer() {
   const quickLinks = getQuickLinks()
 
   return (
-    <footer id="main-footer" className="home-footer bg-quaternary text-white pt-[2rem]">
+    <footer id="main-footer" className={cn("home-footer bg-quaternary text-white pt-[2rem]", fontClass)}>
       <div className="container footer-container grid grid-cols-1 md:grid-cols-4 gap-[1.5rem]">
         
         {/* Quick Links */}

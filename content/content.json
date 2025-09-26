@@ -41,48 +41,37 @@
       },
       "pages": {
         "about": {
-          "title": "保育方針",
-          "subtitle": "Our Education Philosophy"
+          "title": "保育方針"
         },
         "fees": {
-          "title": "保育料",
-          "subtitle": "Tuition and Fees"
+          "title": "保育料"
         },
         "privacy": {
-          "title": "プライバシーポリシー",
-          "subtitle": "Privacy Policy"
+          "title": "プライバシーポリシー"
         },
         "menu": {
-          "title": "給食",
-          "subtitle": "School Lunch Menu"
+          "title": "給食"
         },
         "programs": {
-          "title": "活動内容",
-          "subtitle": "Educational Programs"
+          "title": "活動内容"
         },
         "enrolment": {
-          "title": "入園について",
-          "subtitle": "Enrollment Information"
+          "title": "入園について"
         },
         "forms": {
-          "title": "書類",
-          "subtitle": "Application Forms"
+          "title": "書類"
         },
         "nyuuji": {
-          "title": "乳児クラス",
-          "subtitle": "Infant Class"
+          "title": "乳児クラス"
         },
         "youji": {
-          "title": "幼児クラス",
-          "subtitle": "Toddler Class"
+          "title": "幼児クラス"
         },
         "star": {
-          "title": "国際クラス",
-          "subtitle": "International Class"
+          "title": "国際クラス"
         },
         "activities": {
-          "title": "課外教室",
-          "subtitle": "After-school Activities"
+          "title": "課外教室"
         }
       }
     },
@@ -98,7 +87,7 @@
         "name": "幼児クラス",
         "ageRange": "3歳 - 5歳",
         "description": "遊びを通じて学び、社会性と創造性を育みます。",
-        "image": "/images/youji-pic.JPG"
+        "image": "/images/nensho-pic.JPG"
       },
       "star": {
         "name": "国際クラス",
@@ -126,7 +115,8 @@
           "content": "親を敬い、誰とでも仲良くなれる子に世の中の優しさを忘れません。やっと大人になった時、目立たない存在でも、なんとなく頼ってた一部の人に、困った時に相談したい、そんな人になるために基材を目指そう。"
         },
         "vision": {
-          "title": "ビジョン",
+          "title": "ビジ",
+          "title2": "ョン",
           "paragraphs": [
             "幼児は小さな植物がついに芽を出したようなものです。つぼみが大きくなるご不明な点がございましたら、お気軽にお問い合わせください。ご不明な点がございましたら、お気軽にお問い合わせください。良い家庭生活としっかりとした幼児教育が必要です。",
             "単語、数字、学校で教えること、または行き過ぎたことを強制することはできません。やりがいのある人格を持った良い人の芽を育てることが重要です。あなたはそれを行うことができます。",
@@ -688,48 +678,37 @@
       },
       "pages": {
         "about": {
-          "title": "Education Policy",
-          "subtitle": "保育方針"
+          "title": "Education Policy"
         },
         "fees": {
-          "title": "Tuition and Fees",
-          "subtitle": "保育料"
+          "title": "Tuition and Fees"
         },
         "privacy": {
-          "title": "Privacy Policy",
-          "subtitle": "プライバシーポリシー"
+          "title": "Privacy Policy"
         },
         "menu": {
-          "title": "School Lunch Menu",
-          "subtitle": "給食"
+          "title": "School Lunch Menu"
         },
         "programs": {
-          "title": "Educational Programs",
-          "subtitle": "活動内容"
+          "title": "Educational Programs"
         },
         "enrolment": {
-          "title": "Enrollment Information",
-          "subtitle": "入園について"
+          "title": "Enrollment Information"
         },
         "forms": {
-          "title": "Application Forms",
-          "subtitle": "書類"
+          "title": "Application Forms"
         },
         "nyuuji": {
-          "title": "Infant Class",
-          "subtitle": "乳児クラス"
+          "title": "Infant Class"
         },
         "youji": {
-          "title": "Toddler Class",
-          "subtitle": "幼児クラス"
+          "title": "Toddler Class"
         },
         "star": {
-          "title": "International Class",
-          "subtitle": "国際クラス"
+          "title": "International Class"
         },
         "activities": {
-          "title": "After-school Activities",
-          "subtitle": "課外教室"
+          "title": "After-school Activities"
         }
       }
     },
@@ -745,7 +724,7 @@
         "name": "Toddler Class",
         "ageRange": "3-5 years old",
         "description": "Learning through play, fostering social skills and creativity.",
-        "image": "/images/youji-pic.JPG"
+        "image": "/images/nensho-pic.JPG"
       },
       "star": {
         "name": "International Class",
@@ -773,7 +752,8 @@
           "content": "We aim to raise children who respect their parents and can get along with anyone, never forgetting the kindness of the world. When they finally become adults, even if they are not prominent figures, we want them to be the kind of people others instinctively rely on and turn to when in trouble."
         },
         "vision": {
-          "title": "Vision",
+          "title": "Vis",
+          "title2": "ion",
           "paragraphs": [
             "Young children are like small plants that have finally sprouted. For buds to grow properly, good family life and solid early childhood education are necessary.",
             "We cannot force words, numbers, or excessive academic learning. What's important is nurturing the seeds of good character that will make them worthwhile individuals.",

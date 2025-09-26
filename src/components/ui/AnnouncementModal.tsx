@@ -6,6 +6,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { cn } from '@/utils/cn'
 import { useLanguage } from '@/context/LanguageContext'
 import { useSectionContent } from '@/hooks/useContent'
+import { useFontClass } from '@/hooks/useFontClass'
 
 interface AnnouncementModalProps {
   title?: string
@@ -29,6 +30,7 @@ export default function AnnouncementModal({
 }: AnnouncementModalProps) {
   const { language } = useLanguage();
   const { content: announcementContent } = useSectionContent('announcement');
+  const fontClass = useFontClass();
   
   const [isModalOpen, setIsModalOpen] = useState(true)
   const [isMinimized, setIsMinimized] = useState(false)
@@ -79,7 +81,7 @@ export default function AnnouncementModal({
               animate={{ opacity: 1, scale: 1, x: '-50%', y: '-50%' }}
               exit={{ opacity: 0, scale: 0.7, x: '-50%', y: '-50%' }}
               className={cn(
-                'fixed top-1/2 left-1/2 w-1/2 max-w-2xl bg-white rounded-lg shadow-2xl z-[10001] p-24',
+                'fixed top-1/2 left-1/2 md:w-1/2 w-3/4 max-w-[52rem] bg-white rounded-lg shadow-2xl z-[10001] p-24',
                 'lg:w-3/4 md:w-4/5 sm:w-4/5 sm:p-14'
               )}
             >
@@ -94,15 +96,15 @@ export default function AnnouncementModal({
 
               {/* Modal Content */}
               <div className="text-center">
-                <h1 className="text-3xl lg:text-4xl font-medium mb-6 text-gray-800">
+                <h1 className={cn("text-[2.2rem] md:text-[2.4rem] font-medium mb-6 text-gray-800", fontClass)}>
                   {title || announcementData.title}
                 </h1>
-                <p className="text-lg text-gray-700 leading-relaxed mb-6">
+                <p className={cn("text-[1.4rem] md:text-[1.6rem] text-gray-700 leading-relaxed mb-6", fontClass)}>
                   {content || announcementData.content}
                   {(readMoreLink || announcementData.readMoreLink) && (
                     <Link
                       href={readMoreLink || announcementData.readMoreLink}
-                      className="text-primary hover:text-primary-dark ml-2 underline"
+                      className={cn("text-primary hover:text-primary-dark ml-2 underline", fontClass)}
                     >
                       {announcementData.readMoreText}
                     </Link>
@@ -122,10 +124,10 @@ export default function AnnouncementModal({
             initial={{ y: 100 }}
             animate={{ y: 0 }}
             exit={{ y: 100 }}
-            className="fixed bottom-0 left-0 w-full bg-yellow-300 h-16 flex items-center justify-center z-[10002] cursor-pointer text-quaternary"
+            className={cn("fixed bottom-0 left-0 w-full bg-yellow-300 h-16 flex items-center justify-center z-[10002] cursor-pointer text-quaternary", fontClass)}
             onClick={openModal}
           >
-            <h2 className="text-xl font-medium">{announcementData.minimizedText}</h2>
+            <h2 className={cn("text-xl font-medium", fontClass)}>{announcementData.minimizedText}</h2>
           </motion.div>
         )}
       </AnimatePresence>

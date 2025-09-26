@@ -3,6 +3,7 @@ import './globals.scss'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 import BackToTop from '@/components/ui/BackToTop'
+import BodyWrapper from '@/components/layout/BodyWrapper'
 import { LanguageProvider } from '@/context/LanguageContext'
 import { ErrorBoundary } from '@/components/ui/ErrorBoundary'
 
@@ -21,6 +22,12 @@ export default function RootLayout({
     <html lang="ja">
       <head>
         <link rel="canonical" href="http://www.kodomogakuen.com/" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Kosugi:wght@400&family=Montserrat:wght@400;500;600;700&display=swap"
+          rel="stylesheet"
+        />
         <link
           rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
@@ -30,16 +37,18 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body className="font-kosugi bg-light-2 text-dark-1">
+      <body>
         <LanguageProvider>
-          <ErrorBoundary>
-            <Header />
-            <main>
-              {children}
-            </main>
-            <Footer />
-            <BackToTop />
-          </ErrorBoundary>
+          <BodyWrapper>
+            <ErrorBoundary>
+              <Header />
+              <main>
+                {children}
+              </main>
+              <Footer />
+              <BackToTop />
+            </ErrorBoundary>
+          </BodyWrapper>
         </LanguageProvider>
       </body>
     </html>

@@ -5,6 +5,8 @@ import { motion } from 'framer-motion';
 import Hero from '@/components/sections/Hero';
 import { useLanguage } from '@/context/LanguageContext';
 import { useSectionContent } from '@/hooks/useContent';
+import { useFontClass } from '@/hooks/useFontClass';
+import { cn } from '@/utils/cn';
 
 // Download icon component
 const DownloadIcon = () => (
@@ -98,6 +100,7 @@ const fallbackContent = {
 export default function Enrolment() {
   const { language } = useLanguage();
   const { content: enrolmentContent } = useSectionContent('enrolment');
+  const fontClass = useFontClass();
 
   const content = useMemo(() => 
     enrolmentContent?.page || fallbackContent.page,

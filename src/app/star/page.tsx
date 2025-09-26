@@ -6,10 +6,13 @@ import Image from 'next/image'
 import { useRef } from 'react'
 import { useLanguage } from '@/context/LanguageContext'
 import { useSectionContent } from '@/hooks/useContent'
+import { useFontClass } from '@/hooks/useFontClass'
+import { cn } from '@/utils/cn'
 
 export default function StarPage() {
   const { language } = useLanguage();
   const { content: starContent } = useSectionContent('star');
+  const fontClass = useFontClass();
   const infoRef = useRef<HTMLElement>(null)
   const teachersRef = useRef<HTMLElement>(null)
   const curriculumRef = useRef<HTMLElement>(null)
@@ -81,10 +84,10 @@ export default function StarPage() {
           <h1 className="text-4xl md:text-6xl font-bold mb-4 text-gray-800">
             {content.introduction.title}
           </h1>
-          <p className="text-xl md:text-2xl text-gray-600 mb-6">
+          <p className={cn("text-xl md:text-2xl text-gray-600 mb-6", fontClass)}>
             {content.introduction.subtitle}
           </p>
-          <p className="text-lg text-gray-700 max-w-3xl mx-auto">
+          <p className={cn("text-lg text-gray-700 max-w-3xl mx-auto", fontClass)}>
             {content.introduction.description}
           </p>
         </motion.div>
@@ -151,11 +154,11 @@ export default function StarPage() {
                 <div className={`h-full flex flex-col justify-center ${
                   index % 2 === 0 ? 'md:order-1' : 'md:order-2'
                 }`}>
-                  <p className="text-lg md:text-[1.4rem] leading-relaxed text-gray-700 mb-4">
+                  <p className={cn("text-lg md:text-[1.4rem] leading-relaxed text-gray-700 mb-4", fontClass)}>
                     {info.text}
                   </p>
                   {info.text2 && (
-                    <p className="text-lg md:text-[1.4rem] leading-relaxed text-gray-700">
+                    <p className={cn("text-lg md:text-[1.4rem] leading-relaxed text-gray-700", fontClass)}>
                       {info.text2}
                     </p>
                   )}
@@ -223,7 +226,7 @@ export default function StarPage() {
                     {teacher.name} ({teacher.englishName})
                   </h3>
                   {teacher.description.map((desc, descIndex) => (
-                    <p key={descIndex} className="text-lg md:text-[1.4rem] leading-relaxed text-gray-700 mb-3">
+                    <p key={descIndex} className={cn("text-lg md:text-[1.4rem] leading-relaxed text-gray-700 mb-3", fontClass)}>
                       {desc}
                     </p>
                   ))}
@@ -284,11 +287,11 @@ export default function StarPage() {
                   <h3 className="text-2xl md:text-3xl font-bold mb-4 text-gray-800">
                     {item.title}
                   </h3>
-                  <p className="text-lg md:text-[1.4rem] leading-relaxed text-gray-700 mb-4">
+                  <p className={cn("text-lg md:text-[1.4rem] leading-relaxed text-gray-700 mb-4", fontClass)}>
                     {item.description}
                   </p>
                   {item.special && (
-                    <p className="text-lg md:text-[1.4rem] leading-relaxed text-gray-700 bg-yellow-100 p-4 rounded-md">
+                    <p className={cn("text-lg md:text-[1.4rem] leading-relaxed text-gray-700 bg-yellow-100 p-4 rounded-md", fontClass)}>
                       {item.special}
                     </p>
                   )}

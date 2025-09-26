@@ -1,17 +1,22 @@
 'use client'
 
 import React from 'react'
+import Link from 'next/link'
 import { motion } from 'framer-motion'
 import Hero from '@/components/sections/Hero'
 import { useLanguage } from '@/context/LanguageContext'
+import { useFontClass } from '@/hooks/useFontClass'
+import { cn } from '@/utils/cn'
 
 export default function AnnouncementPage() {
   const { language } = useLanguage()
+  const fontClass = useFontClass()
 
   const content = {
     ja: {
       pageTitle: '園からのあいさつ',
-      title: '７月のあいさつ',
+      title1: '７月の',
+      title2:'あいさつ',
       paragraphs: [
         '春の進級・入園から3ヶ月が経ち、子どもたち一人ひとり、少しずつ落ち着きが感じられるようになってきました。新しいクラスでの生活リズムにも、だんだんと慣れてきたようです。日々の生活の中で基本的な生活習慣を身につけながら、自分を表現する楽しさを感じたり、お友だちとの関わりを通して「我慢」や「譲り合い」といった大切な気持ちも少しずつ育んでいます。',
         'とはいえ、まだまだ体力や抵抗力が十分ではない子どもたち。夕方や週末が近づくと、少しお疲れ気味になったり、寝不足の様子が見られることもあります。そんな時は、早めの就寝や、親子でゆったりと過ごす時間を持つことで、心と体の回復につながると思います。',
@@ -21,7 +26,8 @@ export default function AnnouncementPage() {
     },
     en: {
       pageTitle: 'Message from the School',
-      title: 'July Greeting',
+      title1: 'July',
+      title2: 'Greeting',
       paragraphs: [
         'Three months have passed since the spring advancement and enrollment, and we can gradually feel a sense of calm in each child. They seem to be getting used to the rhythm of life in their new classes. While learning basic daily habits in their daily lives, they are feeling the joy of expressing themselves and gradually nurturing important feelings such as "patience" and "giving way" through interactions with their friends.',
         'However, children still do not have sufficient physical strength and resistance. As evening or weekends approach, they may seem a little tired or show signs of lack of sleep. At such times, we believe that early bedtime and taking time to spend relaxed time with parents and children will help restore the mind and body.',
@@ -36,20 +42,11 @@ export default function AnnouncementPage() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <div 
-        className="relative h-64 md:h-80 bg-cover bg-center bg-no-repeat flex items-center justify-center"
-        style={{ backgroundImage: 'url(/images/page-banner.jpeg)' }}
-      >
-        <div className="absolute inset-0 bg-black bg-opacity-50"></div>
-        <div className="relative z-10 text-center text-white">
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-2">
-            {currentContent.pageTitle}
-          </h1>
-          <div className="text-lg md:text-xl font-medium opacity-90">
-            {language === 'ja' ? 'Our Education Philosophy' : 'Our Education Philosophy'}
-          </div>
-        </div>
-      </div>
+      <Hero
+        title={currentContent.pageTitle}
+        backgroundImage="/images/page-banner.jpeg"
+        isHomepage={false}
+      />
 
       {/* Main Content Section */}
       <motion.section 
@@ -65,10 +62,11 @@ export default function AnnouncementPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
-              {currentContent.title}
+            <h2 className="text-[4rem] md:text-[4.8rem] font-bold text-gray-800 mb-4">
+              {currentContent.title1}
+              <span className='text-primary'>{language === 'en' ? ' ':''}{currentContent.title2}</span>
             </h2>
-            <div className="w-20 h-1 bg-blue-500 mx-auto"></div>
+            <div className="w-[8rem] h-1 bg-primary mx-auto"></div>
           </motion.header>
 
           <motion.div 
@@ -80,7 +78,7 @@ export default function AnnouncementPage() {
             {currentContent.paragraphs.map((paragraph, index) => (
               <motion.p 
                 key={index}
-                className="text-gray-700 leading-relaxed mb-6 text-lg"
+                className={cn("text-gray-700 leading-relaxed mb-6 text-[1.6rem]", fontClass)}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.6 + (index * 0.1) }}
@@ -97,12 +95,12 @@ export default function AnnouncementPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.8 }}
           >
-            <a
+            <Link
               href="/"
-              className="inline-block bg-primary hover:bg-primary-dark text-white px-8 py-3 rounded-lg font-semibold transition-colors duration-200"
+              className="btn text-[1.6rem] px-8 py-4 hover:scale-105 transition-transform"
             >
               {language === 'ja' ? 'ホームに戻る' : 'Back to Home'}
-            </a>
+            </Link>
           </motion.div>
         </div>
       </motion.section>

@@ -107,6 +107,7 @@ export interface AboutNurturing {
 
 export interface AboutVision {
   title: string;
+  title2?: string;
   paragraphs: string[];
 }
 

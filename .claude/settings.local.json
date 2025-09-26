@@ -43,7 +43,8 @@
       "Bash(Get-Process node -ErrorAction SilentlyContinue)",
       "Bash(Stop-Process -Force)",
       "Bash(netstat:*)",
-      "Bash(cmd //c:*)"
+      "Bash(cmd //c:*)",
+      "Read(//c/**)"
     ],
     "deny": []
   }

@@ -5,10 +5,13 @@ import { motion } from 'framer-motion'
 import Image from 'next/image'
 import { useLanguage } from '@/context/LanguageContext'
 import { useSectionContent } from '@/hooks/useContent'
+import { useFontClass } from '@/hooks/useFontClass'
+import { cn } from '@/utils/cn'
 
 export default function YoujiPage() {
   const { language } = useLanguage();
   const { content: youjiContent } = useSectionContent('youji');
+  const fontClass = useFontClass();
 
   // Fallback content in case loading fails
   const fallbackContent = {
@@ -73,10 +76,10 @@ export default function YoujiPage() {
           <h1 className="text-4xl md:text-6xl font-bold mb-4 text-gray-800">
             {content.introduction.title}
           </h1>
-          <p className="text-xl md:text-2xl text-gray-600 mb-6">
+          <p className={cn("text-xl md:text-2xl text-gray-600 mb-6", fontClass)}>
             {content.introduction.subtitle}
           </p>
-          <p className="text-lg text-gray-700 max-w-3xl mx-auto">
+          <p className={cn("text-lg text-gray-700 max-w-3xl mx-auto", fontClass)}>
             {content.introduction.description}
           </p>
         </motion.div>
@@ -112,7 +115,7 @@ export default function YoujiPage() {
               >
                 {/* Text Content */}
                 <div className={`${index % 2 === 0 ? 'order-1' : 'order-2 md:order-1'} h-full flex items-center`}>
-                  <p className="text-lg md:text-[1.6rem] leading-relaxed text-gray-700">
+                  <p className={cn("text-lg md:text-[1.6rem] leading-relaxed text-gray-700", fontClass)}>
                     {classInfo.description}
                   </p>
                 </div>

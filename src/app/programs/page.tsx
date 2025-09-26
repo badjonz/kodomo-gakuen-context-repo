@@ -5,6 +5,8 @@ import { motion } from 'framer-motion';
 import Hero from '@/components/sections/Hero';
 import { useLanguage } from '@/context/LanguageContext';
 import { useSectionContent } from '@/hooks/useContent';
+import { useFontClass } from '@/hooks/useFontClass';
+import { cn } from '@/utils/cn';
 
 // Download icon component
 const DownloadIcon = () => (
@@ -60,6 +62,7 @@ const DocumentCard = ({ title, href, downloadName, description, language, delay 
 export default function Programs() {
   const { language } = useLanguage();
   const { content: programsContent } = useSectionContent('programs');
+  const fontClass = useFontClass();
 
   // Fallback content for loading states
   const fallbackContent = {

@@ -68,7 +68,7 @@ const fallbackContent: LanguageContent = {
       name: '幼児クラス',
       ageRange: '3歳 - 5歳',
       description: '遊びを通じて学び、社会性と創造性を育みます。',
-      image: '/images/youji-pic.JPG'
+      image: '/images/nensho-pic.JPG'
     },
     star: {
       name: '国際クラス',

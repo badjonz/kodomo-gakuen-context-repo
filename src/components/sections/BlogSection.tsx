@@ -4,6 +4,9 @@ import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
+import { useLanguage } from '@/context/LanguageContext'
+import { useFontClass } from '@/hooks/useFontClass'
+import { cn } from '@/utils/cn'
 
 interface BlogPost {
   title: string
@@ -34,12 +37,15 @@ const blogPosts: BlogPost[] = [
 ]
 
 export default function BlogSection() {
+  const { language } = useLanguage()
+  const fontClass = useFontClass()
+
   return (
-    <section id="blog-info" className="blog-info col-3 section-margin">
+    <section id="blog-info" className={cn("blog-info col-3 section-margin", fontClass)}>
       <div className="container">
         {/* Section Header */}
-        <header id="blog-header" className="blog-header section-header">
-          <h2 style={{ fontSize: '4.4rem' }}>
+        <header id="blog-header" className="blog-header section-header" key={`${language}-header`}>
+          <h2 className={fontClass} style={{ fontSize: '4.4rem' }}>
             学校の<span className="text-color-4">ブログ</span>とニュース
           </h2>
           <hr className="heading-hr text-color-4" />
@@ -63,16 +69,17 @@ export default function BlogSection() {
               />
               
               {/* Blog Content */}
-              <h3 className="blog-title">
+              <h3 className={cn("blog-title", fontClass)}>
                 <span className="text-color-4">{post.title}</span>
               </h3>
-              
-              <h4 className="blog-date" style={{ fontSize: '1.8rem' }}>
+
+              <h4 className={cn("blog-date", fontClass)} style={{ fontSize: '1.8rem' }}>
                 {post.date}
               </h4>
-              
+
               <Link
                 href={`/blog/${post.slug}`}
+                className={fontClass}
                 style={{ fontSize: '1.6rem' }}
               >
                 続きを読む <i className="fas fa-chevron-right"></i>

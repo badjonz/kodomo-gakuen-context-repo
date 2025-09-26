@@ -6,6 +6,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { cn } from '@/utils/cn'
 import { useLanguage } from '@/context/LanguageContext'
 import { useSectionContent } from '@/hooks/useContent'
+import { useFontClass } from '@/hooks/useFontClass'
 
 interface AgeGroupData {
   id: number
@@ -27,6 +28,7 @@ const ageGroupConfig = [
 export default function AgeGroups() {
   const { language } = useLanguage()
   const { content: ageGroupsContent, loading } = useSectionContent('ageGroups')
+  const fontClass = useFontClass()
   const [activeTab, setActiveTab] = useState(1)
   const [mounted, setMounted] = useState(false)
 
@@ -90,16 +92,16 @@ export default function AgeGroups() {
       >
         {/* Section Header */}
         <div className="text-center mb-16" key={`${language}-header`}>
-          <h2 className="text-[3.4rem] lg:text-[4.4rem] font-light mb-4">
+          <h2 className={cn("text-[3.4rem] lg:text-[4.4rem] font-light mb-4", fontClass)}>
             {ageGroupsContent?.sectionTitle || '学年の紹介'}
           </h2>
           <hr className="w-[14rem] h-[3px] bg-secondary mx-auto border-0" />
         </div>
 
         {/* Tab Container */}
-        <div className="relative w-full md:w-[90%] mx-auto h-[70rem] md:h-[54rem]">
+        <div className="relative w-full lg:w-[90%] md:w-full mx-auto h-[70rem] md:h-[54rem]">
           {/* Tabs */}
-          <div className="flex gap-0 mb-0">
+          <div className="flex gap-0 mb-0 md:static absolute top-[-8px]">
             {ageGroups.map((group) => {
               const isActive = activeTab === group.id
               const tabColors = {
@@ -116,6 +118,7 @@ export default function AgeGroups() {
                     'tabbed-btn',
                     'rounded-md',
                     tabColors[group.id as keyof typeof tabColors],
+                    fontClass,
                     isActive ? 'transform -translate-y-[6px] z-10' : ''
                   )}
                   whileHover={{ y: isActive ? -6 : -4 }}
@@ -143,7 +146,7 @@ export default function AgeGroups() {
                 <div
                   key={`${group.id}-${language}`}
                   className={cn(
-                    'rounded-lg rounded-tl-none p-[3rem] md:p-[6rem] h-[60rem] md:h-[48rem] absolute top-[5rem]',
+                    'rounded-lg rounded-tl-none p-[3rem] md:p-[4.8rem] lg:p-[6rem] h-[60rem] md:h-[48rem] absolute top-[5rem]',
                     contentColors[group.id as keyof typeof contentColors]
                   )}
                 >
@@ -160,18 +163,18 @@ export default function AgeGroups() {
                       
                       {/* Content */}
                       <div className="flex-1 flex flex-col justify-center order-1 md:order-2">
-                        <h2 className="text-[3rem] md:text-[3.4rem] font-light text-gray-800 mb-6">
+                        <h2 className={cn("text-[2.4rem] md:text-[2.6rem] lg:text-[3rem] font-light text-gray-800 mb-6", fontClass)}>
                           {group.name} － {group.ageRange}
                         </h2>
-                        
-                        <p className="text-[1.6rem] text-gray-700 mb-4 leading-relaxed">
+
+                        <p className={cn("text-[1.6rem] text-gray-700 mb-4 leading-relaxed", fontClass)}>
                           {group.description}
                         </p>
 
                         <div className="mt-8">
                           <Link
                             href={group.href}
-                            className='btn'
+                            className={cn('btn', fontClass)}
                           >
                             More Details
                           </Link>

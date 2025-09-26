@@ -1,9 +1,7 @@
 // Import mixins
 @use '../styles/mixins' as mixins;
 
-// Google Fonts
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Kosugi:wght@400&display=swap');
+// Google Fonts - Fredericka font for special headings
 @import url('https://fonts.googleapis.com/css2?family=Fredericka+the+Great&display=swap');
 
 // Tailwind CSS
@@ -56,7 +54,6 @@ html {
 
 body {
   box-sizing: border-box;
-  font-family: "Kosugi", sans-serif;
   background: var(--color-light-2);
   color: var(--color-dark-1);
   line-height: 1.6;
@@ -204,7 +201,7 @@ body {
   }
 
   .tabbed-btn{
-    @apply px-[3rem] py-[1.7rem] text-[1.6rem] mr-[4px] font-bold border-none cursor-pointer;
+    @apply md:px-[3rem] md:py-[2rem] md:leading-[2rem] px-[2.6rem] leading-[1.6rem] py-[2.2rem] pb-[3.4rem] text-[1.6rem] mr-[4px] font-bold border-none cursor-pointer;
   }
 
   .btn-transparent {

@@ -6,12 +6,14 @@ import Link from 'next/link';
 import { motion, useMotionValue, useTransform, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '@/context/LanguageContext';
 import { useSectionContent } from '@/hooks/useContent';
+import { useFontClass } from '@/hooks/useFontClass';
 
 export default function Header() {
   // Language context integration
   const { language, toggleLanguage } = useLanguage();
   const { content: navigationContent } = useSectionContent('navigation');
   const { content: headerContent } = useSectionContent('header');
+  const fontClass = useFontClass();
   
   // Get current route pathname for active link styling
   const pathname = usePathname();
@@ -150,7 +152,7 @@ export default function Header() {
     setActiveSubmenu(null);
   };
 
-   return <div className="flex flex-col">
+   return <div className={`flex flex-col ${fontClass}`}>
     {/* Top info bar - changes color on scroll */}
     <motion.div 
       className="flex justify-between h-[30px] px-[60px] text-[11px] items-center fixed w-full z-50"
@@ -236,7 +238,7 @@ export default function Header() {
       >
         {/* Logo - Centered on mobile, left-aligned on desktop */}
         <div className="pl-6 md:pl-0 flex-1 md:flex-none md:text-left text-center">
-          <Link href="/" className="text-[20px] md:text-[28px] text-white">
+          <Link href="/" className="text-[2rem] lg:text-[2.8rem] md:text-[2.6rem] text-white">
             <span className="text-[#32CD32]"></span>{headerContent?.siteName || 'こども学園 Kodomo Gakuen'}
           </Link>
         </div>

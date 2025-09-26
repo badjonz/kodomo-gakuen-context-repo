@@ -6,10 +6,13 @@ import { motion } from 'framer-motion';
 import Hero from '@/components/sections/Hero';
 import { useLanguage } from '@/context/LanguageContext';
 import { useSectionContent } from '@/hooks/useContent';
+import { useFontClass } from '@/hooks/useFontClass';
+import { cn } from '@/utils/cn';
 
 export default function Menu() {
   const { language } = useLanguage();
   const { content: menuContent } = useSectionContent('menu');
+  const fontClass = useFontClass();
 
   // Fallback content for loading states
   const fallbackContent = {
