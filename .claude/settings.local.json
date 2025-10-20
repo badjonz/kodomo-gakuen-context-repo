@@ -44,7 +44,8 @@
       "Bash(Stop-Process -Force)",
       "Bash(netstat:*)",
       "Bash(cmd //c:*)",
-      "Read(//c/**)"
+      "Read(//c/**)",
+      "mcp__ide__getDiagnostics"
     ],
     "deny": []
   }

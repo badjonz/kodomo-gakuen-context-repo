@@ -26,13 +26,14 @@ export default function About() {
         ]
       },
       nurturing: {
-        title: language === 'en' ? 'Nurturing' : 'はぐくみ',
+        title: language === 'en' ? 'Nur' : 'はぐ',
+        titleColored: language === 'en' ? 'turing' : 'くみ',
         subtitle: language === 'en' ? 'For bright and spirited children.' : '明るく伸びやかな子どもたちへ。',
         content: 'Loading...'
       },
       vision: {
-        title: language === 'en' ? 'Vis' : 'ビジ',
-        title2: language === 'en' ? 'ion' : 'ョン',
+        title: language === 'en' ? 'Vi' : 'ビ',
+        titleColored: language === 'en' ? 'sion' : 'ジョン',
         paragraphs: ['Loading...']
       },
       callToAction: {
@@ -129,7 +130,7 @@ export default function About() {
             >
               <header className="text-center mb-[4rem]">
                 <h2 className={cn("text-[3.2rem] md:text-[4rem] font-bold mb-4", fontClass)}>
-                  <span className="text-primary">{content.nurturing.title}</span>
+                  {content.nurturing.title}<span className="text-primary">{content.nurturing.titleColored}</span>
                 </h2>
                 <hr className="w-[6rem] h-[3px] bg-primary mx-auto border-none rounded" />
               </header>
@@ -149,7 +150,7 @@ export default function About() {
                 className="text-center"
               >
                 <Image
-                  src="/images/about-2.JPG"
+                  src="/images/about-2.jpg"
                   alt="Kodomo Gakuen - Nurturing"
                   width={500}
                   height={350}
@@ -168,7 +169,7 @@ export default function About() {
             >
               <header className="text-center mb-[4rem]">
                 <h2 className={cn("text-[3.2rem] md:text-[4rem] font-bold mb-4", fontClass)}>
-                  {content.vision.title}<span className="text-secondary"> {content.vision.title2}</span>
+                  {content.vision.title}<span className="text-secondary">{content.vision.titleColored}</span>
                 </h2>
                 <hr className="w-[6rem] h-[3px] bg-secondary mx-auto border-none rounded" />
               </header>
@@ -194,7 +195,7 @@ export default function About() {
                 className="text-center"
               >
                 <Image
-                  src="/images/about-3.JPG"
+                  src="/images/about-3.jpg"
                   alt="Kodomo Gakuen - Tanabata Festival"
                   width={500}
                   height={350}

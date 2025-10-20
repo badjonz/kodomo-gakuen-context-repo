@@ -152,9 +152,18 @@ export default function Header() {
     setActiveSubmenu(null);
   };
 
+  // Helper function to generate mailto link with pre-populated content
+  const getMailtoLink = () => {
+    const email = headerContent?.email || 'info@kodomogakuen.com';
+    const subject = headerContent?.mailtoSubject || 'お問合せ';
+    const body = headerContent?.mailtoBody || 'ご希望内容: 　 見学　入園の相談\nご希望日程： 　 \nお子様生年月日：';
+
+    return `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  };
+
    return <div className={`flex flex-col ${fontClass}`}>
     {/* Top info bar - changes color on scroll */}
-    <motion.div 
+    <motion.div
       className="flex justify-between h-[30px] px-[60px] text-[11px] items-center fixed w-full z-50"
       initial={{
         backgroundColor: 'rgba(0,174,255,0.85)', // Initial blue background
@@ -167,8 +176,16 @@ export default function Header() {
       }}
       transition={{ duration: 0.4, ease: "easeOut" }}
     >
-      <a href=""> {headerContent?.email || 'info@kodomogakuen.com'}</a>
-      <button 
+      <div className="flex items-center gap-3">
+        <a
+          href={getMailtoLink()}
+          className="px-3 py-1 rounded-md bg-white/10 hover:bg-white/20 transition-all duration-200 cursor-pointer border border-white/20 hover:border-white/40"
+          aria-label="Contact us via email"
+        >
+          {headerContent?.contactButton || 'お問合せ'}
+        </a>
+      </div>
+      <button
         onClick={toggleLanguage}
         className="px-3 py-1 rounded-md bg-white/10 hover:bg-white/20 transition-all duration-200 cursor-pointer border border-white/20 hover:border-white/40"
         type="button"
@@ -238,7 +255,7 @@ export default function Header() {
       >
         {/* Logo - Centered on mobile, left-aligned on desktop */}
         <div className="pl-6 md:pl-0 flex-1 md:flex-none md:text-left text-center">
-          <Link href="/" className="text-[2rem] lg:text-[2.8rem] md:text-[2.6rem] text-white">
+          <Link href="/" className="text-[2.4rem] lg:text-[2.8rem] md:text-[2.6rem] text-white">
             <span className="text-[#32CD32]"></span>{headerContent?.siteName || 'こども学園 Kodomo Gakuen'}
           </Link>
         </div>

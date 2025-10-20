@@ -39,7 +39,7 @@ export function DocumentSection({
         viewport={{ once: true }}
       >
         <h2 className="text-[3.6rem] md:text-[4.8rem] font-bold mb-4">
-          {titlePart1}<span className="text-primary">{titlePart2}</span>
+          {titlePart1}{language === 'en' ? ' ' : ''}<span className="text-primary">{titlePart2}</span>
         </h2>
         <hr className="w-[8rem] h-[4px] bg-primary mx-auto border-none rounded" />
       </motion.header>
@@ -57,7 +57,7 @@ export function DocumentSection({
       
       <motion.div 
         key={`section-documents-${titlePart1}-${language}`}
-        className="grid gap-6 md:grid-cols-2 lg:grid-cols-1 max-w-4xl mx-auto"
+        className="grid gap-6 grid-cols-1 max-w-4xl mx-auto"
         initial={{ y: 30, opacity: 0 }}
         whileInView={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8, delay: 0.4 }}

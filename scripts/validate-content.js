@@ -164,10 +164,10 @@ function validateHero(hero, language) {
     if (!hero.pages[page]) {
       throw new Error(`Missing hero.pages.${page} in ${language}`);
     }
-    
+
     const pageHero = hero.pages[page];
-    if (!pageHero.title || !pageHero.subtitle) {
-      throw new Error(`Missing title or subtitle for hero.pages.${page} in ${language}`);
+    if (!pageHero.title) {
+      throw new Error(`Missing title for hero.pages.${page} in ${language}`);
     }
   }
 }

@@ -5,8 +5,6 @@ import { motion } from 'framer-motion';
 import Hero from '@/components/sections/Hero';
 import { useLanguage } from '@/context/LanguageContext';
 import { useSectionContent } from '@/hooks/useContent';
-import { useFontClass } from '@/hooks/useFontClass';
-import { cn } from '@/utils/cn';
 
 // Download icon component
 const DownloadIcon = () => (
@@ -40,6 +38,7 @@ const TableRow = ({ certification, ages, language }: {
     ))}
   </tr>
 );
+
 
 // Fallback content for loading states - moved outside component to prevent recreation
 const fallbackContent = {
@@ -100,7 +99,6 @@ const fallbackContent = {
 export default function Enrolment() {
   const { language } = useLanguage();
   const { content: enrolmentContent } = useSectionContent('enrolment');
-  const fontClass = useFontClass();
 
   const content = useMemo(() => 
     enrolmentContent?.page || fallbackContent.page,
@@ -343,14 +341,14 @@ export default function Enrolment() {
                     <tbody className="text-[1.6rem]">
                       <tr className="hover:bg-gray-50">
                         <td className="px-4 py-4 text-center font-semibold text-dark-1">
-                          {content.internationalClassTable.description.split('\n').map((line, index) => (
+                          {content.internationalClassTable.description.split('\n').map((line: string, index: number) => (
                             <span key={`description-line-${index}-${language}`}>
                               {line}
                               {index < content.internationalClassTable.description.split('\n').length - 1 && <br />}
                             </span>
                           ))}
                         </td>
-                        {content.internationalClassTable.numbers.map((number, index) => (
+                        {content.internationalClassTable.numbers.map((number: string, index: number) => (
                           <td key={`international-number-${index}-${language}`} className="px-4 py-4 text-center font-semibold">
                             {number}
                           </td>

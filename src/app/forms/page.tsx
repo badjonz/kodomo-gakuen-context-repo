@@ -4,16 +4,13 @@ import Hero from '@/components/sections/Hero'
 import { DocumentSection } from './components/DocumentSection'
 import { useLanguage } from '@/context/LanguageContext'
 import { useSectionContent } from '@/hooks/useContent'
-import { useFontClass } from '@/hooks/useFontClass'
 import { motion } from 'framer-motion'
-import { cn } from '@/utils/cn'
 
 // Metadata handled by layout.tsx for client components
 
 export default function FormsPage() {
   const { language } = useLanguage();
   const { content: formsContent } = useSectionContent('forms');
-  const fontClass = useFontClass();
 
   // Fallback content for loading states
   const fallbackContent = {
@@ -55,7 +52,7 @@ export default function FormsPage() {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <p className={cn("text-[1.6rem] md:text-[1.8rem] leading-relaxed text-dark-1", fontClass)}>
+            <p className="text-[1.6rem] md:text-[1.8rem] leading-relaxed text-dark-1">
               {content.introduction}
             </p>
           </motion.div>

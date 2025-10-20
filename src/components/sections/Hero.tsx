@@ -60,7 +60,7 @@ export default function Hero({
     </h1>
   ) : (
     // Standardized non-homepage title: consistent 4xl responsive sizing
-    <h1 className={cn("text-3xl md:text-4xl lg:text-5xl font-bold mb-8 bg-black/10 rounded-lg p-4", fontClass)} key={language}>
+    <h1 className={cn("text-[3rem] md:text-[3.4rem] lg:text-[3.6rem] font-bold mb-8 bg-black/10 rounded-lg p-4", fontClass)} key={language}>
       {displayTitle}
     </h1>
   )

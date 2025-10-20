@@ -26,11 +26,14 @@ const fallbackContent: LanguageContent = {
   header: {
     email: 'info@kodomogakuen.com',
     languageToggle: 'English',
-    siteName: 'こども学園 Kodomo Gakuen'
+    siteName: 'こども学園 Kodomo Gakuen',
+    contactButton: 'お問合せ',
+    mailtoSubject: 'お問合せ',
+    mailtoBody: 'ご希望内容: 　 見学　入園の相談\nご希望日程： 　 \nお子様生年月日：'
   },
   announcement: {
-    title: '７月のあいさつ',
-    content: '春の進級・入園から3ヶ月が経ち、子どもたち一人ひとり、少しずつ落ち着きが感じられるようになってきました。',
+    title: 'さあ、2学期の開幕！新たな挑戦の始まりです',
+    content: '子どもたちの元気な声が園に戻り、園内が一気ににぎやかになりました。夏休みの思い出を楽しそうに話す姿や、日焼けしたお顔から、たくさんの楽しい体験をしたことが伝わってきます',
     readMoreText: '続き',
     readMoreLink: '/announcement',
     minimizedText: '園長からのあいさつ'

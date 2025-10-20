@@ -6,7 +6,6 @@ import Hero from '@/components/sections/Hero';
 import { useLanguage } from '@/context/LanguageContext';
 import { useSectionContent } from '@/hooks/useContent';
 import { useFontClass } from '@/hooks/useFontClass';
-import { cn } from '@/utils/cn';
 
 // Download icon component
 const DownloadIcon = () => (
@@ -62,7 +61,6 @@ const DocumentCard = ({ title, href, downloadName, description, language, delay 
 export default function Programs() {
   const { language } = useLanguage();
   const { content: programsContent } = useSectionContent('programs');
-  const fontClass = useFontClass();
 
   // Fallback content for loading states
   const fallbackContent = {
@@ -143,7 +141,7 @@ export default function Programs() {
                 {content.enrollmentSection.title}
               </h3>
               <div className="space-y-6">
-                {content.enrollmentSection.documents.map((doc, index) => (
+                {content.enrollmentSection.documents.map((doc: any, index: number) => (
                   <DocumentCard
                     key={`enrollment-doc-${index}-${language}`}
                     title={doc.title}
@@ -166,7 +164,7 @@ export default function Programs() {
               transition={{ duration: 0.8, delay: 0.1 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-[3.6rem] md:text-[4.8rem] font-bold mb-4">
+              <h2 className="text-[2.6rem] md:text-[3.2rem] font-bold mb-4">
                 {language === 'ja' ? (
                   <>とうきょうすくわくプログラム<span className="text-quaternary">地域支援</span></>
                 ) : (
@@ -183,7 +181,7 @@ export default function Programs() {
 
             {/* Documents Grid */}
             <div className="max-w-5xl mx-auto space-y-6">
-              {content.tokyoSukuwakuSection.documents.map((doc, index) => (
+              {content.tokyoSukuwakuSection.documents.map((doc: any, index: number) => (
                 <DocumentCard
                   key={`sukuwaku-doc-${index}-${language}`}
                   title={doc.title}

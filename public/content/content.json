@@ -23,11 +23,14 @@
     "header": {
       "email": "info@kodomogakuen.com",
       "languageToggle": "English",
-      "siteName": "こども学園 Kodomo Gakuen"
+      "siteName": "こども学園 Kodomo Gakuen",
+      "contactButton": "メールで問い合わせる",
+      "mailtoSubject": "お問合せ",
+      "mailtoBody": "ご希望内容: 　 見学　入園の相談\nご希望日程： 　 \nお子様生年月日："
     },
     "announcement": {
-      "title": "７月のあいさつ",
-      "content": "春の進級・入園から3ヶ月が経ち、子どもたち一人ひとり、少しずつ落ち着きが感じられるようになってきました。",
+      "title": "さあ、2学期の開幕！新たな挑戦の始まりです",
+      "content": "子どもたちの元気な声が園に戻り、園内が一気ににぎやかになりました。夏休みの思い出を楽しそうに話す姿や、日焼けしたお顔から、たくさんの楽しい体験をしたことが伝わってきます。",
       "readMoreText": "続き",
       "readMoreLink": "/announcement",
       "minimizedText": "園長からのあいさつ"
@@ -121,12 +124,14 @@
           ]
         },
         "nurturing": {
-          "title": "はぐくみ",
+          "title": "はぐ",
+          "titleColored": "くみ",
           "subtitle": "明るく伸びやかな子どもたちへ。",
           "content": "親を敬い、誰とでも仲良くなれる子に世の中の優しさを忘れません。やっと大人になった時、目立たない存在でも、なんとなく頼ってた一部の人に、困った時に相談したい、そんな人になるために基材を目指そう。"
         },
         "vision": {
-          "title": "ビジョン",
+          "title": "ビ",
+          "titleColored": "ジョン",
           "paragraphs": [
             "幼児は小さな植物がついに芽を出したようなものです。つぼみが大きくなるご不明な点がございましたら、お気軽にお問い合わせください。ご不明な点がございましたら、お気軽にお問い合わせください。良い家庭生活としっかりとした幼児教育が必要です。",
             "単語、数字、学校で教えること、または行き過ぎたことを強制することはできません。やりがいのある人格を持った良い人の芽を育てることが重要です。あなたはそれを行うことができます。",
@@ -670,11 +675,14 @@
     "header": {
       "email": "info@kodomogakuen.com",
       "languageToggle": "日本語",
-      "siteName": "Kodomo Gakuen こども学園"
+      "siteName": "Kodomo Gakuen こども学園",
+      "contactButton": "Contact Us Via Email",
+      "mailtoSubject": "Inquiry",
+      "mailtoBody": "Request: School tour / Enrollment consultation\nPreferred date:\nChild's date of birth:"
     },
     "announcement": {
-      "title": "July Greetings",
-      "content": "Three months have passed since the spring enrollment and promotion period, and each child is gradually finding their rhythm and settling in comfortably.",
+      "title": "The second semester has begun! A new challenge begins!",
+      "content": "The cheerful voices of children have returned to the kindergarten, making it lively again all at once. From their joyful sharing of summer vacation memories and their sun-tanned faces, we can see they had many wonderful experiences.",
       "readMoreText": "Read more",
       "readMoreLink": "/announcement",
       "minimizedText": "Message from the Principal"
@@ -768,12 +776,14 @@
           ]
         },
         "nurturing": {
-          "title": "Nurturing",
+          "title": "Nur",
+          "titleColored": "turing",
           "subtitle": "For bright and spirited children.",
           "content": "We aim to raise children who respect their parents and can get along with anyone, never forgetting the kindness of the world. When they finally become adults, even if they are not prominent figures, we want them to be the kind of people others instinctively rely on and turn to when in trouble."
         },
         "vision": {
-          "title": "Vision",
+          "title": "Vi",
+          "titleColored": "sion",
           "paragraphs": [
             "Young children are like small plants that have finally sprouted. For buds to grow properly, good family life and solid early childhood education are necessary.",
             "We cannot force words, numbers, or excessive academic learning. What's important is nurturing the seeds of good character that will make them worthwhile individuals.",

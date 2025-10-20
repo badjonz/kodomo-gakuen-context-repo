@@ -14,7 +14,7 @@ export function DocumentCard({ title, fileName, downloadName, description, langu
   return (
     <div className={cn(
       "bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300",
-      "p-6 flex items-center justify-between",
+      "md:p-6 p-10 flex items-center justify-between md:flex-row flex-col md:space-y-0 space-y-4",
       className
     )}>
       <div className="flex items-center space-x-4">
@@ -28,15 +28,15 @@ export function DocumentCard({ title, fileName, downloadName, description, langu
           />
         </div>
         <div className="flex-1">
-          <h3 className="text-[1.4rem] font-semibold text-gray-900 mb-1">
+          <h3 className="text-[1.8rem] font-semibold text-gray-900 mb-1">
             {title}
           </h3>
           {description && (
-            <p className="text-[1.2rem] text-gray-600 mb-2 leading-relaxed">
+            <p className="text-[1.6rem] text-gray-600 mb-2 leading-relaxed">
               {description}
             </p>
           )}
-          <p className="text-[1.2rem] text-gray-500">
+          <p className="text-[1.6rem] text-gray-500">
             {language === 'ja' ? 'PDF形式' : 'PDF Format'}
           </p>
         </div>
@@ -46,7 +46,7 @@ export function DocumentCard({ title, fileName, downloadName, description, langu
         <a
           href={`/documents/${fileName}`}
           download={downloadName}
-          className="btn"
+          className="btn text-[1.6rem]"
         >
           <svg 
             className="download-icon" 

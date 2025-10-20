@@ -16,8 +16,8 @@ interface AnnouncementModalProps {
 
 // Fallback content for loading states - moved outside component to prevent recreation
 const fallbackContent = {
-  title: '７月のあいさつ',
-  content: '春の進級・入園から3ヶ月が経ち、子どもたち一人ひとり、少しずつ落ち着きが感じられるようになってきました。',
+  title: 'さあ、2学期の開幕！新たな挑戦の始まりです',
+  content: '子どもたちの元気な声が園に戻り、園内が一気ににぎやかになりました。夏休みの思い出を楽しそうに話す姿や、日焼けしたお顔から、たくさんの楽しい体験をしたことが伝わってきます。',
   readMoreText: '続き',
   readMoreLink: '/announcement',
   minimizedText: '園長からのあいさつ'
@@ -31,12 +31,12 @@ export default function AnnouncementModal({
   const { language } = useLanguage();
   const { content: announcementContent } = useSectionContent('announcement');
   const fontClass = useFontClass();
-  
+
   const [isModalOpen, setIsModalOpen] = useState(true)
   const [isMinimized, setIsMinimized] = useState(false)
   const [mounted, setMounted] = useState(false)
 
-  const announcementData = useMemo(() => 
+  const announcementData = useMemo(() =>
     announcementContent || fallbackContent,
     [announcementContent]
   );
@@ -81,7 +81,7 @@ export default function AnnouncementModal({
               animate={{ opacity: 1, scale: 1, x: '-50%', y: '-50%' }}
               exit={{ opacity: 0, scale: 0.7, x: '-50%', y: '-50%' }}
               className={cn(
-                'fixed top-1/2 left-1/2 md:w-1/2 w-3/4 max-w-[52rem] bg-white rounded-lg shadow-2xl z-[10001] p-24',
+                'fixed top-1/2 left-1/2 md:w-1/2 w-3/4 max-w-[60rem] bg-white rounded-lg shadow-2xl z-[10001] p-24',
                 'lg:w-3/4 md:w-4/5 sm:w-4/5 sm:p-14'
               )}
             >

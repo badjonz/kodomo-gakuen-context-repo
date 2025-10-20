@@ -6,8 +6,8 @@ import Image from 'next/image'
 import { useLanguage } from '@/context/LanguageContext'
 import { useSectionContent } from '@/hooks/useContent'
 import { useFontClass } from '@/hooks/useFontClass'
-import { useMemo } from 'react'
 import { cn } from '@/utils/cn'
+import { useMemo } from 'react'
 
 // Fallback content for loading states - moved outside component to prevent recreation
 const fallbackContent = {
@@ -61,13 +61,13 @@ export default function ActivitiesPage() {
           {/* Introduction */}
           <motion.div 
             key={`activities-intro-${language}`}
-            className="max-w-5xl mx-auto text-center mb-[6rem]"
+            className="max-w-[78vw] mx-auto text-center mb-[6rem]"
             initial={{ y: 50, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <p className={cn("text-[1.6rem] md:text-[1.8rem] leading-relaxed text-dark-1", fontClass)}>
+            <p className={cn("text-[1.6rem] leading-relaxed text-dark-1", fontClass)}>
               {content.introduction}
             </p>
           </motion.div>
@@ -81,7 +81,7 @@ export default function ActivitiesPage() {
             transition={{ duration: 0.8, delay: 0.1 }}
             viewport={{ once: true }}
           >
-            <h1 className="text-5xl md:text-[4.4rem] font-bold mb-[2rem] text-gray-800">
+            <h1 className="text-[2.6rem] md:text-[4.4rem] font-bold mb-[2rem] text-gray-800">
               {content.mainTitle}
             </h1>
             <hr className="w-32 h-1 bg-primary mx-auto border-none rounded" />
@@ -99,13 +99,13 @@ export default function ActivitiesPage() {
               transition={{ duration: 0.8, delay: 0.2 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-800 text-center">
+              <h2 className="text-[2.2rem] md:text-4xl font-bold mb-6 text-gray-800 text-center">
                 {content.englishClassSection.title}
               </h2>
               
-              <div className="space-y-6 text-lg md:text-[1.6rem] leading-relaxed text-gray-700">
-                {content.englishClassSection.description.map((paragraph, index) => (
-                  <p key={`english-desc-${index}-${language}`} className={fontClass}>
+              <div className="space-y-6 text-[1.6rem] leading-relaxed text-gray-700">
+                {content.englishClassSection.description.map((paragraph: string, index: number) => (
+                  <p key={`english-desc-${index}-${language}`}>
                     {paragraph}
                   </p>
                 ))}
@@ -121,19 +121,19 @@ export default function ActivitiesPage() {
               transition={{ duration: 0.8, delay: 0.3 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-800 text-center">
+              <h2 className="text-[2.2rem] md:text-4xl font-bold mb-6 text-gray-800 text-center">
                 {content.adultClassSection.title}
               </h2>
               
               <div className="grid md:grid-cols-1 gap-8 items-center">
-                <div className="space-y-6 text-lg md:text-[1.6rem] leading-relaxed text-gray-700">
+                <div className="space-y-6 text-[1.6rem] leading-relaxed text-gray-700">
                   <p className={fontClass}>
                     {content.adultClassSection.description}
                   </p>
                 </div>
                 
                 <div className="flex justify-center">
-                  <div className="relative w-full max-w-[58rem] overflow-hidden rounded-lg shadow-lg">
+                  <div className="relative w-full md:max-w-[58rem] overflow-hidden rounded-lg shadow-lg">
                     <img 
                       src={content.adultClassSection.image}
                       alt={content.adultClassSection.imageAlt}
@@ -147,14 +147,14 @@ export default function ActivitiesPage() {
             {/* PDF Download Section */}
             <motion.section
               key={`activities-download-${language}`}
-              className="bg-gray-50 rounded-lg p-8"
+              className="bg-gray-50 rounded-lg md:p-8"
               initial={{ y: 30, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.4 }}
               viewport={{ once: true }}
             >
-              <div className="flex items-center justify-between bg-white p-6 rounded-lg shadow">
-                <div className="flex items-center">
+              <div className="flex md:flex-row flex-col items-center justify-between bg-white md:p-6 p-10 rounded-lg shadow">
+                <div className="flex items-center mb-4 md:mb-0">
                   
                     {/* <i className="fas fa-file-pdf text-white text-2xl"></i> */}
                     <Image 
@@ -162,14 +162,14 @@ export default function ActivitiesPage() {
                                 alt="PDF"
                                 width={48}
                                 height={48}
-                                className="object-contain"
+                                className="object-contain mr-4 md:mr-0"
                               />
                   
                   <div>
-                    <h3 className="text-2xl font-bold text-gray-800 mb-2">
+                    <h3 className="text-[1.8rem] font-bold text-gray-800 mb-2">
                       {content.downloadSection.title}
                     </h3>
-                    <p className={cn("text-gray-600 text-[1.4rem]", fontClass)}>
+                    <p className={cn("text-gray-600 text-[1.6rem]", fontClass)}>
                       {content.downloadSection.description}
                     </p>
                   </div>

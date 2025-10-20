@@ -8,6 +8,7 @@ import { useLanguage } from '@/context/LanguageContext'
 import { useSectionContent } from '@/hooks/useContent'
 import { useFontClass } from '@/hooks/useFontClass'
 import { cn } from '@/utils/cn'
+import type { StarInformation, StarTeacher, StarCurriculumItem } from '@/types/content'
 
 export default function StarPage() {
   const { language } = useLanguage();
@@ -22,7 +23,11 @@ export default function StarPage() {
   }
 
   // Fallback content for when JSON is loading
-  const fallbackContent = {
+  const fallbackContent: {
+    information: StarInformation[];
+    teachers: StarTeacher[];
+    curriculum: StarCurriculumItem[];
+  } = {
     information: [
       {
         text: language === 'en' ? 'Loading...' : '読み込み中...',
@@ -81,18 +86,18 @@ export default function StarPage() {
           viewport={{ once: true }}
           key={`intro-${language}`}
         >
-          <h1 className="text-4xl md:text-6xl font-bold mb-4 text-gray-800">
+          <h1 className="text-[2.6rem] md:text-6xl font-bold mb-4 text-gray-800">
             {content.introduction.title}
           </h1>
-          <p className={cn("text-xl md:text-2xl text-gray-600 mb-6", fontClass)}>
+          <p className={cn("text-[1.6rem] text-gray-600 mb-6", fontClass)}>
             {content.introduction.subtitle}
           </p>
-          <p className={cn("text-lg text-gray-700 max-w-3xl mx-auto", fontClass)}>
+          <p className={cn("text-[1.6rem] text-gray-700 max-w-3xl mx-auto", fontClass)}>
             {content.introduction.description}
           </p>
         </motion.div>
       
-        <article className="container mx-auto px-4 max-w-[78vw] px-[7rem] py-[8rem] bg-gradient-to-b from-secondary via-primary to-quaternary rounded-[4rem]">
+        <article className="container mx-auto md:max-w-[78vw] max-w-[82vw] md:px-[7rem] md:py-[8rem] px-[3rem] py-[4rem] bg-gradient-to-b from-secondary via-primary to-quaternary rounded-[4rem]">
           
           {/* Navigation Buttons */}
           <motion.nav 
@@ -107,7 +112,7 @@ export default function StarPage() {
                 <button
                   key={index}
                   onClick={() => scrollToSection(button.ref)}
-                  className="px-6 py-3 rounded-full font-semibold text-white hover:bg-white/10 transition-all duration-300"
+                  className="text-[1.6rem] px-6 py-3 rounded-full font-semibold text-white hover:bg-white/10 transition-all duration-300"
                 >
                   {button.label}
                 </button>
@@ -131,7 +136,7 @@ export default function StarPage() {
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-5xl md:text-[4.4rem] font-bold mb-[2rem]">
+              <h2 className="text-[2.6rem] md:text-[4.4rem] font-bold mb-[2rem]">
                 {language === 'en' ? 
                   <>Infor<span className="text-blue-500">mation</span></> : 
                   <>情<span className="text-blue-500">報</span></>
@@ -140,7 +145,7 @@ export default function StarPage() {
               <hr className="w-32 h-1 bg-blue-500 mx-auto border-none rounded" />
             </motion.header>
 
-            {(content.information || fallbackContent.information).map((info, index) => (
+            {(content.information || fallbackContent.information).map((info: StarInformation, index: number) => (
               <motion.div 
                 key={`${index}-${language}`}
                 className={`grid md:grid-cols-2 gap-8 items-center mb-8 ${
@@ -154,11 +159,11 @@ export default function StarPage() {
                 <div className={`h-full flex flex-col justify-center ${
                   index % 2 === 0 ? 'md:order-1' : 'md:order-2'
                 }`}>
-                  <p className={cn("text-lg md:text-[1.4rem] leading-relaxed text-gray-700 mb-4", fontClass)}>
+                  <p className={cn("text-[1.6rem] leading-relaxed text-gray-700 mb-4", fontClass)}>
                     {info.text}
                   </p>
                   {info.text2 && (
-                    <p className={cn("text-lg md:text-[1.4rem] leading-relaxed text-gray-700", fontClass)}>
+                    <p className={cn("text-[1.6rem] md:text-[1.4rem] leading-relaxed text-gray-700", fontClass)}>
                       {info.text2}
                     </p>
                   )}
@@ -199,7 +204,7 @@ export default function StarPage() {
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-5xl md:text-[4.4rem] font-bold mb-[2rem]">
+              <h2 className="text-[2.6rem] md:text-[4.4rem] font-bold mb-[2rem]">
                 {language === 'en' ? 
                   <>Star Class <span className="text-teal-500">Teachers</span></> : 
                   <>スター<span className="text-teal-500">クラス</span>の先生</>
@@ -208,7 +213,7 @@ export default function StarPage() {
               <hr className="w-32 h-1 bg-teal-500 mx-auto border-none rounded" />
             </motion.header>
 
-            {(content.teachers || fallbackContent.teachers).map((teacher, index) => (
+            {(content.teachers || fallbackContent.teachers).map((teacher: StarTeacher, index: number) => (
               <motion.div 
                 key={`${index}-${language}`}
                 className={`grid md:grid-cols-2 gap-8 items-center mb-12 last:mb-0 ${
@@ -222,11 +227,11 @@ export default function StarPage() {
                 <div className={`h-full flex flex-col justify-center ${
                   index % 2 === 0 ? 'md:order-1' : 'md:order-2'
                 }`}>
-                  <h3 className="text-2xl md:text-3xl font-bold mb-4 text-gray-800">
+                  <h3 className="text-[1.8rem] md:text-3xl font-bold mb-4 text-gray-800">
                     {teacher.name} ({teacher.englishName})
                   </h3>
-                  {teacher.description.map((desc, descIndex) => (
-                    <p key={descIndex} className={cn("text-lg md:text-[1.4rem] leading-relaxed text-gray-700 mb-3", fontClass)}>
+                  {teacher.description.map((desc: string, descIndex: number) => (
+                    <p key={descIndex} className={cn("text-[1.6rem] leading-relaxed text-gray-700 mb-3", fontClass)}>
                       {desc}
                     </p>
                   ))}
@@ -235,7 +240,7 @@ export default function StarPage() {
                 <div className={`h-full flex items-center ${
                   index % 2 === 0 ? 'md:order-2' : 'md:order-1'
                 }`}>
-                  <div className="relative aspect-[3/4] w-full max-w-xs mx-auto overflow-hidden rounded-lg shadow-lg">
+                  <div className="relative aspect-[3/4] w-full md:max-w-xs mx-auto overflow-hidden rounded-lg shadow-lg">
                     <Image 
                       src={teacher.image}
                       alt={`${teacher.name}${language === 'en' ? ' photo' : 'の写真'}`}
@@ -265,7 +270,7 @@ export default function StarPage() {
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-5xl md:text-[4.4rem] font-bold mb-[2rem]">
+              <h2 className="text-[2.6rem] md:text-[4.4rem] font-bold mb-[2rem]">
                 {language === 'en' ? 
                   <>Curri<span className="text-purple-500">culum</span></> : 
                   <>カリ<span className="text-purple-500">キュラム</span></>
@@ -275,7 +280,7 @@ export default function StarPage() {
             </motion.header>
 
             <div className="grid gap-8">
-              {(content.curriculum || fallbackContent.curriculum).map((item, index) => (
+              {(content.curriculum || fallbackContent.curriculum).map((item: StarCurriculumItem, index: number) => (
                 <motion.div 
                   key={`${index}-${language}`}
                   className="bg-white bg-opacity-50 rounded-lg p-6"
@@ -284,14 +289,14 @@ export default function StarPage() {
                   transition={{ duration: 0.8, delay: index * 0.1 }}
                   viewport={{ once: true }}
                 >
-                  <h3 className="text-2xl md:text-3xl font-bold mb-4 text-gray-800">
+                  <h3 className="text-[1.8rem] md:text-3xl font-bold mb-4 text-gray-800">
                     {item.title}
                   </h3>
-                  <p className={cn("text-lg md:text-[1.4rem] leading-relaxed text-gray-700 mb-4", fontClass)}>
+                  <p className={cn("text-[1.6rem] leading-relaxed text-gray-700 mb-4", fontClass)}>
                     {item.description}
                   </p>
                   {item.special && (
-                    <p className={cn("text-lg md:text-[1.4rem] leading-relaxed text-gray-700 bg-yellow-100 p-4 rounded-md", fontClass)}>
+                    <p className={cn("text-[1.4rem] leading-relaxed text-gray-700 bg-yellow-100 p-4 rounded-md", fontClass)}>
                       {item.special}
                     </p>
                   )}

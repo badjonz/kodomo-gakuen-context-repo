@@ -64,18 +64,18 @@ export default function NyuujiPage() {
           viewport={{ once: true }}
           key={`intro-${language}`}
         >
-          <h1 className="text-4xl md:text-6xl font-bold mb-4 text-gray-800">
+          <h1 className="text-[2.6rem] md:text-6xl font-bold mb-4 text-gray-800">
             {content.introduction.title}
           </h1>
-          <p className={cn("text-xl md:text-2xl text-gray-600 mb-6", fontClass)}>
+          <p className={cn("text-[1.6rem] text-gray-600 mb-6", fontClass)}>
             {content.introduction.subtitle}
           </p>
-          <p className={cn("text-lg text-gray-700 max-w-3xl mx-auto", fontClass)}>
+          <p className={cn("text-[1.6rem] text-gray-700 max-w-3xl mx-auto", fontClass)}>
             {content.introduction.description}
           </p>
         </motion.div>
 
-        <article className="container mx-auto px-4 max-w-[78vw] px-[7rem] py-[8rem] [background-image:linear-gradient(to_bottom,#f688ab_0%,#f688ab_40%,#ffca3a_70%,#ffca3a_100%)] rounded-[4rem]">
+        <article className="container mx-auto md:max-w-[78vw] max-w-[82vw] md:px-[7rem] md:py-[8rem] px-[3rem] py-[4rem] [background-image:linear-gradient(to_bottom,#f688ab_0%,#f688ab_40%,#ffca3a_70%,#ffca3a_100%)] rounded-[4rem]">
           {content.classes.map((classInfo, index) => (
             <div key={`${index}-${language}`} className="mb-16 last:mb-0 bg-white bg-opacity-70 rounded-[6px]">
               {/* Age Group Header */}
@@ -86,7 +86,7 @@ export default function NyuujiPage() {
                 transition={{ duration: 0.8 }}
                 viewport={{ once: true }}
               >
-                <h2 className="text-5xl md:text-[4.4rem] font-bold mb-[2rem]">
+                <h2 className="text-[2.6rem] md:text-[4.4rem] font-bold mb-[2rem]">
                   {classInfo.titleParts.map((part, partIndex) => (
                     <span key={partIndex} className={partIndex === 1 ? classInfo.colorClass : ''}>
                       {part}
@@ -106,7 +106,7 @@ export default function NyuujiPage() {
               >
                 {/* Text Content */}
                 <div className={`${index % 2 === 0 ? 'order-1' : 'order-2 md:order-1'} h-full flex items-center`}>
-                  <p className={cn("text-lg md:text-[1.6rem] leading-relaxed text-gray-700", fontClass)}>
+                  <p className={cn("text-[1.6rem] leading-relaxed text-gray-700", fontClass)}>
                     {classInfo.description}
                   </p>
                 </div>

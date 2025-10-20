@@ -5,13 +5,10 @@ import { motion } from 'framer-motion';
 import Hero from '@/components/sections/Hero';
 import { useLanguage } from '@/context/LanguageContext';
 import { useSectionContent } from '@/hooks/useContent';
-import { useFontClass } from '@/hooks/useFontClass';
-import { cn } from '@/utils/cn';
 
 export default function Privacy() {
   const { language } = useLanguage();
   const { content: privacyContent } = useSectionContent('privacy');
-  const fontClass = useFontClass();
 
   // Fallback content for loading states
   const fallbackContent = {
@@ -78,7 +75,7 @@ export default function Privacy() {
                 transition={{ duration: 0.8, delay: 0.4 }}
                 viewport={{ once: true }}
               >
-                {content.sections.map((section, index) => (
+                {content.sections.map((section: any, index: number) => (
                   <motion.li 
                     key={`section-${index}-${language}`}
                     className="mb-6"
@@ -91,7 +88,7 @@ export default function Privacy() {
                       {section.title}
                     </div>
                     <ol className="space-y-4 ml-8 list-decimal">
-                      {section.items.map((item, itemIndex) => (
+                      {section.items.map((item: string, itemIndex: number) => (
                         <li 
                           key={`item-${index}-${itemIndex}-${language}`}
                           className="leading-relaxed"

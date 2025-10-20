@@ -6,13 +6,10 @@ import { motion } from 'framer-motion';
 import Hero from '@/components/sections/Hero';
 import { useLanguage } from '@/context/LanguageContext';
 import { useSectionContent } from '@/hooks/useContent';
-import { useFontClass } from '@/hooks/useFontClass';
-import { cn } from '@/utils/cn';
 
 export default function Menu() {
   const { language } = useLanguage();
   const { content: menuContent } = useSectionContent('menu');
-  const fontClass = useFontClass();
 
   // Fallback content for loading states
   const fallbackContent = {
@@ -118,13 +115,13 @@ export default function Menu() {
                   {language === 'ja' ? '給食の特徴' : 'Lunch Features'}
                 </h3>
                 <ul className="space-y-4">
-                  {content.features.map((feature, index) => (
+                  {content.features.map((feature: string, index: number) => (
                     <motion.li
                       key={`feature-${index}-${language}`}
                       className="flex items-start text-[1.6rem] md:text-[1.8rem] leading-relaxed text-dark-1"
-                      initial={{ x: -30, opacity: 0 }}
-                      whileInView={{ x: 0, opacity: 1 }}
-                      transition={{ duration: 0.5, delay: 0.1 * index }}
+                      initial={{ opacity: 0 }}
+                      whileInView={{ opacity: 1 }}
+                      transition={{ duration: 0.8, delay: 0.15 * index }}
                       viewport={{ once: true }}
                     >
                       <span className="text-quaternary text-[2rem] mr-4 flex-shrink-0">•</span>

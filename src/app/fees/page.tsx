@@ -5,8 +5,6 @@ import { motion } from 'framer-motion';
 import Hero from '@/components/sections/Hero';
 import { useLanguage } from '@/context/LanguageContext';
 import { useSectionContent } from '@/hooks/useContent';
-import { useFontClass } from '@/hooks/useFontClass';
-import { cn } from '@/utils/cn';
 
 // Star bullet icon component
 const StarBullet = () => (
@@ -18,7 +16,6 @@ const StarBullet = () => (
 export default function Fees() {
   const { language } = useLanguage();
   const { content: feesContent } = useSectionContent('fees');
-  const fontClass = useFontClass();
 
   // Fallback content in case loading fails
   const fallbackContent = {
@@ -113,15 +110,16 @@ export default function Fees() {
               </h3>
 
               {/* Payment Details */}
-              <div className="space-y-4 mb-8">
-                {content.paymentSection.paymentDetails.map((detail, index) => (
-                  <motion.div 
+              <motion.div className="space-y-4 mb-8"  initial={{ y: 30, opacity: 0 }} whileInView={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              viewport={{ once: true }}
+              key={`payment-details-${language}`}
+              >
+                {content.paymentSection.paymentDetails.map((detail: string, index: number) => (
+                  <div 
                     key={`payment-detail-${index}-${language}`}
                     className="flex gap-4"
-                    initial={{ x: -30, opacity: 0 }}
-                    whileInView={{ x: 0, opacity: 1 }}
-                    transition={{ duration: 0.6, delay: 0.1 * (index + 1) }}
-                    viewport={{ once: true }}
+                    
                   >
                     <div className="flex-shrink-0 pt-1">
                       <StarBullet />
@@ -129,15 +127,15 @@ export default function Fees() {
                     <p className="text-[1.6rem] md:text-[1.8rem] text-dark-1">
                       {detail}
                     </p>
-                  </motion.div>
+                  </  div>
                 ))}
-              </div>
+              </motion.div>
 
               <motion.p 
                 className="text-[1.6rem] md:text-[1.8rem] font-semibold text-dark-1 mb-8"
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
-                transition={{ duration: 0.6, delay: 0.5 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
                 viewport={{ once: true }}
                 key={`bus-note-${language}`}
               >
@@ -157,7 +155,7 @@ export default function Fees() {
                 </h3>
 
                 <div className="space-y-4 mb-8">
-                  {content.paymentSection.allParents.points.map((point, index) => (
+                  {content.paymentSection.allParents.points.map((point: string, index: number) => (
                     <div key={`parent-point-${index}-${language}`} className="flex gap-4">
                       <div className="flex-shrink-0 pt-1">
                         <StarBullet />
@@ -174,7 +172,7 @@ export default function Fees() {
               <motion.div
                 initial={{ y: 30, opacity: 0 }}
                 whileInView={{ y: 0, opacity: 1 }}
-                transition={{ duration: 0.8, delay: 0.3 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
                 viewport={{ once: true }}
                 className="mb-8"
                 key={`discount-${language}`}
@@ -191,7 +189,7 @@ export default function Fees() {
               <motion.div
                 initial={{ y: 30, opacity: 0 }}
                 whileInView={{ y: 0, opacity: 1 }}
-                transition={{ duration: 0.8, delay: 0.4 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
                 viewport={{ once: true }}
                 key={`certification-${language}`}
               >
@@ -248,7 +246,7 @@ export default function Fees() {
                 className="space-y-6 mb-8"
                 initial={{ y: 30, opacity: 0 }}
                 whileInView={{ y: 0, opacity: 1 }}
-                transition={{ duration: 0.8, delay: 0.3 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
                 viewport={{ once: true }}
                 key={`additional-fees-${language}`}
               >
@@ -294,7 +292,9 @@ export default function Fees() {
                   </table>
                 </div>
 
-                <div className="space-y-4">
+                <motion.div className="space-y-4" initial={{ y: 30, opacity: 0 }} whileInView={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              viewport={{ once: true }}>
                   <p className="text-[1.6rem] md:text-[1.8rem] text-dark-1">
                     {content.contentSection.additionalFees.reductionNote}
                   </p>
@@ -302,11 +302,13 @@ export default function Fees() {
                   <p className="text-[1.6rem] md:text-[1.8rem] text-dark-1">
                     {content.contentSection.additionalFees.busFee}
                   </p>
-                </div>
+                </motion.div>
 
                 {/* Bus Usage Rules */}
-                <div className="space-y-4 mt-8">
-                  {content.contentSection.busRules.map((rule, index) => (
+                <motion.div className="space-y-4 mt-8"  initial={{ y: 30, opacity: 0 }} whileInView={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              viewport={{ once: true }}>
+                  {content.contentSection.busRules.map((rule: string, index: number) => (
                     <div key={`bus-rule-${index}-${language}`} className="flex gap-4">
                       <div className="flex-shrink-0 pt-1">
                         <StarBullet />
@@ -316,7 +318,7 @@ export default function Fees() {
                       </p>
                     </div>
                   ))}
-                </div>
+                </motion.div>
               </motion.div>
             </motion.div>
           </div>

@@ -23,11 +23,14 @@
     "header": {
       "email": "info@kodomogakuen.com",
       "languageToggle": "English",
-      "siteName": "こども学園 Kodomo Gakuen"
+      "siteName": "こども学園 Kodomo Gakuen",
+      "contactButton": "メールで問い合わせる",
+      "mailtoSubject": "お問合せ",
+      "mailtoBody": "ご希望内容: 　 見学　入園の相談\nご希望日程： 　 \nお子様生年月日："
     },
     "announcement": {
-      "title": "７月のあいさつ",
-      "content": "春の進級・入園から3ヶ月が経ち、子どもたち一人ひとり、少しずつ落ち着きが感じられるようになってきました。",
+      "title": "さあ、2学期の開幕！新たな挑戦の始まりです",
+      "content": "子どもたちの元気な声が園に戻り、園内が一気ににぎやかになりました。夏休みの思い出を楽しそうに話す姿や、日焼けしたお顔から、たくさんの楽しい体験をしたことが伝わってきます。",
       "readMoreText": "続き",
       "readMoreLink": "/announcement",
       "minimizedText": "園長からのあいさつ"
@@ -110,7 +113,9 @@
           ]
         },
         "nurturing": {
-          "title": "はぐくみ",
+          "title": "はぐ",
+          "title2": "くみ",
+
           "subtitle": "明るく伸びやかな子どもたちへ。",
           "content": "親を敬い、誰とでも仲良くなれる子に世の中の優しさを忘れません。やっと大人になった時、目立たない存在でも、なんとなく頼ってた一部の人に、困った時に相談したい、そんな人になるために基材を目指そう。"
         },
@@ -660,7 +665,10 @@
     "header": {
       "email": "info@kodomogakuen.com",
       "languageToggle": "日本語",
-      "siteName": "Kodomo Gakuen こども学園"
+      "siteName": "Kodomo Gakuen こども学園",
+      "contactButton": "Contact Us Via Email",
+      "mailtoSubject": "Inquiry",
+      "mailtoBody": "Request: School tour / Enrollment consultation\nPreferred date:\nChild's date of birth:"
     },
     "announcement": {
       "title": "July Greetings",
