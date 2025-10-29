@@ -12,6 +12,17 @@ export const metadata: Metadata = {
   title: 'こども学園 - 東大和市の幼稚園・保育園 | Kodomo Gakuen',
   description: '東大和市奈良橋の幼稚園・保育園。日英バイリンガル教育で横田基地周辺のご家族にも対応。月〜土7:30-18:30開園。0歳〜5歳児クラス。',
   keywords: 'こども学園, Kodomo Gakuen, 幼稚園, 保育園, ようちえん, ほいくえん, 東大和市, ひがしやまと, 東やまと, 奈良橋, 横田基地, 横田基地近く, Yokota Air Base, バイリンガル, bilingual, プレスクール, preschool, 子育て支援, 幼児教育, 東村山市, 武蔵村山市, 小平市, 所沢市, 立川市, Higashi Yamato, Higashi Murayama, Musashi Murayama, Kodaira, Tokorozawa, Tachikawa, 保育園東京, 幼稚園東京',
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
   alternates: {
     canonical: 'https://www.kodomogakuen.com',
     languages: {
@@ -19,6 +30,31 @@ export const metadata: Metadata = {
       'en-JP': 'https://www.kodomogakuen.com',
       'x-default': 'https://www.kodomogakuen.com',
     },
+  },
+  openGraph: {
+    type: 'website',
+    locale: 'ja_JP',
+    alternateLocale: ['en_JP'],
+    url: 'https://www.kodomogakuen.com',
+    siteName: 'こども学園 Kodomo Gakuen',
+    title: 'こども学園 - 東大和市の幼稚園・保育園 | Kodomo Gakuen',
+    description: '東大和市奈良橋の幼稚園・保育園。日英バイリンガル教育で横田基地周辺のご家族にも対応。月〜土7:30-18:30開園。0歳〜5歳児クラス。',
+    images: [
+      {
+        url: 'https://www.kodomogakuen.com/images/hero-image.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'こども学園 - 東大和市の幼稚園・保育園 | Kodomo Gakuen Preschool',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    site: '@kodomogakuen',
+    creator: '@kodomogakuen',
+    title: 'こども学園 - 東大和市の幼稚園・保育園 | Kodomo Gakuen',
+    description: '東大和市奈良橋の幼稚園・保育園。日英バイリンガル教育で横田基地周辺のご家族にも対応。月〜土7:30-18:30開園。0歳〜5歳児クラス。',
+    images: ['https://www.kodomogakuen.com/images/hero-image.jpg'],
   },
 }
 
