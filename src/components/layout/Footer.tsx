@@ -90,9 +90,9 @@ export default function Footer() {
                     <td className='border-r-[6px] border-transparent align-top'><i className="fas fa-home text-[1.6rem] md:text-[1.4rem] mt-[4px]"></i></td>
                     <td>
                       <span className='text-[1.6rem] md:text-[1.4rem]'>
-                        {footerContent?.contact?.address || (language === 'ja' 
+                        {footerContent?.contact?.address || (language === 'ja'
                           ? 'こども学園、〒207-0031 Tokyo, Higashiyamato, Narahashi, 2 Chome-409'
-                          : '2-8-3 Tatsuno, Higashi-Yamato, Tokyo'
+                          : '2-409 Narahashi, Higashiyamato, Tokyo 207-0031, Japan'
                         )}
                       </span>
                     </td>
