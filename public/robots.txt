@@ -1,0 +1,11 @@
+# *
+User-agent: *
+Allow: /
+Disallow: /test
+Disallow: /api
+
+# Host
+Host: https://www.kodomogakuen.com
+
+# Sitemaps
+Sitemap: https://www.kodomogakuen.com/sitemap.xml
