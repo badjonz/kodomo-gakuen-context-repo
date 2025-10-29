@@ -88,7 +88,7 @@ export default function Menu() {
               <motion.div
                 whileHover={{ scale: 1.02 }}
                 transition={{ duration: 0.3 }}
-                className="relative overflow-hidden rounded-xl shadow-2xl"
+                className="relative overflow-hidden rounded-xl shadow-2xl mb-[3rem]"
               >
                 <Image
                   src={content.menuImage.src}
@@ -98,6 +98,37 @@ export default function Menu() {
                   className="w-full h-auto object-cover"
                   priority
                 />
+              </motion.div>
+
+              {/* Download Button */}
+              <motion.div
+                className="mt-8 flex justify-center"
+                initial={{ y: 20, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+                viewport={{ once: true }}
+              >
+                <a
+                  href="/documents/menu.pdf"
+                  download="kodomo-gakuen-lunch-menu.pdf"
+                  className="btn inline-flex items-center gap-2"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-8 w-8"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                    />
+                  </svg>
+                  {language === 'ja' ? 'メニューをダウンロード' : 'Download Menu'}
+                </a>
               </motion.div>
             </motion.div>
 

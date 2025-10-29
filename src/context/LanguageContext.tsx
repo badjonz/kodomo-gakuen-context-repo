@@ -1,6 +1,6 @@
 'use client';
 
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useContext, useState, useEffect } from 'react';
 import type { Language, LanguageContextType } from '@/types/language';
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
@@ -10,7 +10,28 @@ interface LanguageProviderProps {
 }
 
 export function LanguageProvider({ children }: LanguageProviderProps) {
-  const [language, setLanguageState] = useState<Language>('ja'); // Default to Japanese
+  // Always initialize to 'ja' to avoid hydration mismatch
+  const [language, setLanguageState] = useState<Language>('ja');
+  const [mounted, setMounted] = useState(false);
+
+  // Load saved language preference after hydration
+  useEffect(() => {
+    setMounted(true);
+
+    if (typeof window !== 'undefined') {
+      const savedLanguage = localStorage.getItem('kodomo-language') as Language | null;
+      if (savedLanguage && savedLanguage !== language) {
+        setLanguageState(savedLanguage);
+      }
+    }
+  }, []);
+
+  // Persist language changes to localStorage
+  useEffect(() => {
+    if (mounted && typeof window !== 'undefined') {
+      localStorage.setItem('kodomo-language', language);
+    }
+  }, [language, mounted]);
 
   const toggleLanguage = () => {
     setLanguageState(prev => prev === 'ja' ? 'en' : 'ja');

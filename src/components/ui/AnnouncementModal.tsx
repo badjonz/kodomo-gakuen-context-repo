@@ -32,7 +32,7 @@ export default function AnnouncementModal({
   const { content: announcementContent } = useSectionContent('announcement');
   const fontClass = useFontClass();
 
-  const [isModalOpen, setIsModalOpen] = useState(true)
+  const [isModalOpen, setIsModalOpen] = useState(false)
   const [isMinimized, setIsMinimized] = useState(false)
   const [mounted, setMounted] = useState(false)
 
@@ -43,6 +43,18 @@ export default function AnnouncementModal({
 
   useEffect(() => {
     setMounted(true)
+
+    // Check if user has already seen the modal in this session
+    const hasSeenModal = sessionStorage.getItem('kodomo-announcement-seen');
+    if (hasSeenModal === 'true') {
+      // Already seen - show minimized bar
+      setIsModalOpen(false)
+      setIsMinimized(true)
+    } else {
+      // First time - show modal
+      setIsModalOpen(true)
+      setIsMinimized(false)
+    }
   }, [])
 
   if (!mounted) {
@@ -52,6 +64,9 @@ export default function AnnouncementModal({
   const closeModal = () => {
     setIsModalOpen(false)
     setIsMinimized(true)
+    if (typeof window !== 'undefined') {
+      sessionStorage.setItem('kodomo-announcement-seen', 'true');
+    }
   }
 
   const openModal = () => {
