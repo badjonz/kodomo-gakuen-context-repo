@@ -6,11 +6,20 @@ import BackToTop from '@/components/ui/BackToTop'
 import BodyWrapper from '@/components/layout/BodyWrapper'
 import { LanguageProvider } from '@/context/LanguageContext'
 import { ErrorBoundary } from '@/components/ui/ErrorBoundary'
+import { generateAllStructuredData, schemaToJsonLd } from '@/utils/structuredData'
 
 export const metadata: Metadata = {
-  title: 'こども学園[Kodomo Gakuen] - 幼稚園/保育園',
-  description: 'こども学園は東大和市を中心に東村山市、武蔵村山市、小平市、所沢市、立川市、横田基地など周辺地域の幼稚園/保育園で、子供たちの成長をサポートします。東大和周辺の子育て支援、幼児教育に特化したプレスクールです。Kodomo Gakuen is a preschool/daycare located in and around Higashi Yamato, serving the surrounding areas including Higashi Murayama, Musashi Murayama, Kodaira, Tokorozawa, Tachikawa, and Yokota Air Base. We are dedicated to supporting children\'s growth, offering specialized services for parenting support and early childhood education.',
-  keywords: 'こども学園, 幼稚園, 保育園, 子供, 成長, 東大和市, 東村山市, 武蔵村山市, 小平市, 所沢市, 立川市, 横田基地, プレスクール, 子育て支援, 幼児教育, Kodomo Gakuen, preschool, daycare, children, growth, Higashi Yamato, Higashi Murayama, Musashi Murayama, Kodaira, Tokorozawa, Tachikawa, Yokota Air Base, preschool, parenting support, early childhood education',
+  title: 'こども学園 - 東大和市の幼稚園・保育園 | Kodomo Gakuen',
+  description: '東大和市奈良橋の幼稚園・保育園。日英バイリンガル教育で横田基地周辺のご家族にも対応。月〜土7:30-18:30開園。0歳〜5歳児クラス。',
+  keywords: 'こども学園, Kodomo Gakuen, 幼稚園, 保育園, ようちえん, ほいくえん, 東大和市, ひがしやまと, 東やまと, 奈良橋, 横田基地, 横田基地近く, Yokota Air Base, バイリンガル, bilingual, プレスクール, preschool, 子育て支援, 幼児教育, 東村山市, 武蔵村山市, 小平市, 所沢市, 立川市, Higashi Yamato, Higashi Murayama, Musashi Murayama, Kodaira, Tokorozawa, Tachikawa, 保育園東京, 幼稚園東京',
+  alternates: {
+    canonical: 'https://www.kodomogakuen.com',
+    languages: {
+      'ja-JP': 'https://www.kodomogakuen.com',
+      'en-JP': 'https://www.kodomogakuen.com',
+      'x-default': 'https://www.kodomogakuen.com',
+    },
+  },
 }
 
 export default function RootLayout({
@@ -18,10 +27,12 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
+  // Generate structured data schemas for SEO
+  const [localBusinessSchema, educationalOrgSchema] = generateAllStructuredData()
+
   return (
     <html lang="ja">
       <head>
-        <link rel="canonical" href="http://www.kodomogakuen.com/" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
@@ -35,6 +46,16 @@ export default function RootLayout({
         <link
           href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/2.9.0/css/flag-icon.css"
           rel="stylesheet"
+        />
+
+        {/* Structured Data for Rich Search Results */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: schemaToJsonLd(localBusinessSchema) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: schemaToJsonLd(educationalOrgSchema) }}
         />
       </head>
       <body>
