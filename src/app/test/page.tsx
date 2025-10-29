@@ -7,14 +7,18 @@ export default function TestPage() {
         <h1 className="text-3xl font-bold text-gray-800 mb-4">Image Test Page</h1>
         <p className="text-gray-600 mb-8">Testing image loading:</p>
         
-        {/* Test 1: Regular img tag */}
+        {/* Test 1: Next.js Image Component */}
         <div className="mb-8">
-          <h2 className="text-xl font-semibold mb-4">Regular img tag:</h2>
-          <img 
-            src="/images/hero-image.jpg" 
-            alt="Hero Image Test" 
-            className="w-64 h-48 object-cover rounded"
-          />
+          <h2 className="text-xl font-semibold mb-4">Next.js Image Component:</h2>
+          <div className="relative w-64 h-48">
+            <Image
+              src="/images/hero-image.jpg"
+              alt="Hero Image Test - こども学園 | Kodomo Gakuen"
+              fill
+              sizes="256px"
+              className="object-cover rounded"
+            />
+          </div>
         </div>
 
         {/* Test 2: Next.js Image component */}

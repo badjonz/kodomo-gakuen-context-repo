@@ -2,6 +2,7 @@
 
 import React from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { cn } from '@/utils/cn'
 import { useLanguage } from '@/context/LanguageContext'
@@ -73,15 +74,24 @@ export default function Hero({
         isHomepage ? 'h-screen pt-[105px]' : 'h-[40vh] pt-[105px]'
       )}
     >
-      {/* Background image - unified animation approach */}
-      <motion.img
-        src={backgroundImage}
-        alt="Hero Background"
-        className="absolute inset-0 w-full h-full object-cover"
+      {/* Background image - optimized with Next.js Image */}
+      <motion.div
+        className="absolute inset-0"
         initial={{ scale: 1.05 }}
         animate={{ scale: 1 }}
         transition={{ duration: 1, delay: 0.3, ease: 'easeInOut' }}
-      />
+      >
+        <Image
+          src={backgroundImage}
+          alt={isHomepage ? "こども学園 - 東大和市の幼稚園・保育園 | Kodomo Gakuen Preschool - Higashi Yamato" : "こども学園 | Kodomo Gakuen"}
+          fill
+          priority={isHomepage}
+          quality={90}
+          sizes="100vw"
+          className="object-cover"
+          style={{ objectFit: 'cover' }}
+        />
+      </motion.div>
 
       {/* Overlay - consistent across all pages */}
       <div className="absolute inset-0 bg-black/45" />

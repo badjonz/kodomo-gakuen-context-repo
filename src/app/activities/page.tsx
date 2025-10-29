@@ -133,11 +133,14 @@ export default function ActivitiesPage() {
                 </div>
                 
                 <div className="flex justify-center">
-                  <div className="relative w-full md:max-w-[58rem] overflow-hidden rounded-lg shadow-lg">
-                    <img 
+                  <div className="relative w-full md:max-w-[58rem] h-96 overflow-hidden rounded-lg shadow-lg">
+                    <Image
                       src={content.adultClassSection.image}
                       alt={content.adultClassSection.imageAlt}
-                      className="w-full h-full object-cover"
+                      fill
+                      sizes="(max-width: 768px) 100vw, 928px"
+                      className="object-cover"
+                      loading="lazy"
                     />
                   </div>
                 </div>

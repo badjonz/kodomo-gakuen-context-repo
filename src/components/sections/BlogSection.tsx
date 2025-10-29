@@ -63,11 +63,17 @@ export default function BlogSection() {
               className="column"
             >
               {/* Blog Image */}
-              <img
-                src={post.image}
-                alt={post.title}
-              />
-              
+              <div className="relative w-full h-64 mb-4">
+                <Image
+                  src={post.image}
+                  alt={`${post.title} - こども学園のイベント | Kodomo Gakuen Event`}
+                  fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  className="object-cover rounded-lg"
+                  loading="lazy"
+                />
+              </div>
+
               {/* Blog Content */}
               <h3 className={cn("blog-title", fontClass)}>
                 <span className="text-color-4">{post.title}</span>

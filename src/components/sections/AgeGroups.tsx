@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { motion, AnimatePresence } from 'framer-motion'
 import { cn } from '@/utils/cn'
 import { useLanguage } from '@/context/LanguageContext'
@@ -153,11 +154,14 @@ export default function AgeGroups() {
                   <div className="bg-white/70 backdrop-blur-sm rounded-lg p-8 h-full">
                     <div className="flex md:flex-row flex-col items-center justify-between h-full gap-8">
                       {/* Image */}
-                      <div className="flex-1 order-2 md:order-1">
-                        <img
+                      <div className="flex-1 order-2 md:order-1 relative h-80">
+                        <Image
                           src={group.image}
-                          alt={group.name}
-                          className="w-full h-80 object-cover rounded-lg shadow-lg"
+                          alt={`${group.name} - ${group.ageRange} クラスの子どもたち | ${group.name} Class Children`}
+                          fill
+                          sizes="(max-width: 768px) 100vw, 50vw"
+                          className="object-cover rounded-lg shadow-lg"
+                          loading={activeTab === group.id ? "eager" : "lazy"}
                         />
                       </div>
                       
