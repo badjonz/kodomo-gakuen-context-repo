@@ -209,7 +209,7 @@ body {
   }
 
   .container{
-    @apply max-w-[82vw] md:max-w-[78vw] mx-auto;
+    @apply max-w-[82vw] md:max-w-[78vw] mx-auto px-[20px];
   }
 
   .column{

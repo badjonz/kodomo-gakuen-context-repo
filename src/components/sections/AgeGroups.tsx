@@ -83,9 +83,9 @@ export default function AgeGroups() {
 
   return (
     <section className="py-16 mb-12">
-      <motion.div 
-        ref={ageRef} 
-        className="container md:px-8 animate-on-scroll" 
+      <motion.div
+        ref={ageRef}
+        className="container animate-on-scroll" 
         initial={{ visibility: 'hidden', opacity: 0, y: 200 }} 
         whileInView={{ visibility: 'visible', opacity: 1, y: 0 }} 
         transition={{ duration: 0.8, ease: 'easeInOut' }}
@@ -147,7 +147,7 @@ export default function AgeGroups() {
                 <div
                   key={`${group.id}-${language}`}
                   className={cn(
-                    'rounded-lg rounded-tl-none p-[3rem] md:p-[4.8rem] lg:p-[6rem] h-[60rem] md:h-[48rem] absolute top-[5rem]',
+                    'rounded-lg rounded-tl-none p-[3rem] md:p-[4.8rem] lg:p-[6rem] h-[60rem] md:h-[48rem] absolute top-[5rem] w-full',
                     contentColors[group.id as keyof typeof contentColors]
                   )}
                 >
@@ -164,7 +164,7 @@ export default function AgeGroups() {
                           loading={activeTab === group.id ? "eager" : "lazy"}
                         />
                       </div>
-                      
+
                       {/* Content */}
                       <div className="flex-1 flex flex-col justify-center order-1 md:order-2">
                         <h2 className={cn("text-[2.4rem] md:text-[2.6rem] lg:text-[3rem] font-light text-gray-800 mb-6", fontClass)}>
