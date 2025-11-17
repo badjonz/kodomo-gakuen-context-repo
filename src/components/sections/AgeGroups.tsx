@@ -85,9 +85,9 @@ export default function AgeGroups() {
     <section className="py-16 mb-12">
       <motion.div
         ref={ageRef}
-        className="container animate-on-scroll" 
-        initial={{ visibility: 'hidden', opacity: 0, y: 200 }} 
-        whileInView={{ visibility: 'visible', opacity: 1, y: 0 }} 
+        className="container px-0 md:px-8 animate-on-scroll"
+        initial={{ visibility: 'hidden', opacity: 0, y: 200 }}
+        whileInView={{ visibility: 'visible', opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: 'easeInOut' }}
         viewport={{ once: true, amount: 0.1 }}
       >
@@ -147,26 +147,26 @@ export default function AgeGroups() {
                 <div
                   key={`${group.id}-${language}`}
                   className={cn(
-                    'rounded-lg rounded-tl-none p-[3rem] md:p-[4.8rem] lg:p-[6rem] h-[60rem] md:h-[48rem] absolute top-[5rem] w-full',
+                    'rounded-lg rounded-tl-none p-[3rem] md:p-[4.8rem] lg:p-[6rem] md:h-[48rem] absolute top-[5rem] w-full',
                     contentColors[group.id as keyof typeof contentColors]
                   )}
                 >
-                  <div className="bg-white/70 backdrop-blur-sm rounded-lg p-8 h-full">
-                    <div className="flex md:flex-row flex-col items-center justify-between h-full gap-8">
+                  <div className="bg-white/70 backdrop-blur-sm rounded-lg p-8">
+                    <div className="flex md:flex-row flex-col items-center gap-8">
                       {/* Image */}
-                      <div className="flex-1 order-2 md:order-1 relative h-80">
+                      <div className="md:flex-1 order-2 md:order-1 relative w-full h-[19.2rem] md:h-80">
                         <Image
                           src={group.image}
                           alt={`${group.name} - ${group.ageRange} クラスの子どもたち | ${group.name} Class Children`}
                           fill
                           sizes="(max-width: 768px) 100vw, 50vw"
-                          className="object-cover rounded-lg shadow-lg"
+                          className="object-contain md:object-cover rounded-lg shadow-lg"
                           loading={activeTab === group.id ? "eager" : "lazy"}
                         />
                       </div>
 
                       {/* Content */}
-                      <div className="flex-1 flex flex-col justify-center order-1 md:order-2">
+                      <div className="md:flex-1 flex flex-col justify-center order-1 md:order-2">
                         <h2 className={cn("text-[2.4rem] md:text-[2.6rem] lg:text-[3rem] font-light text-gray-800 mb-6", fontClass)}>
                           {group.name} － {group.ageRange}
                         </h2>
