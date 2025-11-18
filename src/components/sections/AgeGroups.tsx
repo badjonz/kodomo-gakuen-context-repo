@@ -151,8 +151,8 @@ export default function AgeGroups() {
                     contentColors[group.id as keyof typeof contentColors]
                   )}
                 >
-                  <div className="bg-white/70 backdrop-blur-sm rounded-lg p-8">
-                    <div className="flex md:flex-row flex-col items-center gap-8">
+                  <div className="bg-white/70 backdrop-blur-sm rounded-lg p-8 h-full">
+                    <div className="flex md:flex-row flex-col items-center gap-8 justify-between h-full">
                       {/* Image */}
                       <div className="md:flex-1 order-2 md:order-1 relative w-full h-[19.2rem] md:h-80">
                         <Image

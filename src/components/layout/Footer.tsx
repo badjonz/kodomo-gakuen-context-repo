@@ -91,7 +91,7 @@ export default function Footer() {
                     <td>
                       <span className='text-[1.6rem] md:text-[1.4rem]'>
                         {footerContent?.contact?.address || (language === 'ja'
-                          ? 'こども学園、〒207-0031 Tokyo, Higashiyamato, Narahashi, 2 Chome-409'
+                          ? 'こども学園、〒207-0031 東京都東大和市奈良橋２－４０９'
                           : '2-409 Narahashi, Higashiyamato, Tokyo 207-0031, Japan'
                         )}
                       </span>

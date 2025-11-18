@@ -103,7 +103,7 @@ const fallbackContent: LanguageContent = {
       title: 'お問い合わせ',
       phone: '042-590-3715',
       email: 'info@kodomogakuen.com',
-      address: '東京都東大和市立野2-8-3'
+      address: '東京都東大和市奈良橋２－４０９'
     },
     social: {
       title: 'ソーシャルメディア'
