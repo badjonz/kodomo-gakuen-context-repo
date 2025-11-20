@@ -39,7 +39,7 @@ export default function StarPage() {
       {
         name: language === 'en' ? 'Loading...' : '読み込み中...',
         englishName: 'Loading...',
-        image: "/images/heshani.jpg",
+        image: "/images/Fatma.jpg",
         description: [language === 'en' ? 'Loading...' : '読み込み中...']
       }
     ],
@@ -241,11 +241,11 @@ export default function StarPage() {
                   index % 2 === 0 ? 'md:order-2' : 'md:order-1'
                 }`}>
                   <div className="relative aspect-[3/4] w-full md:max-w-xs mx-auto overflow-hidden rounded-lg shadow-lg">
-                    <Image 
+                    <Image
                       src={teacher.image}
                       alt={`${teacher.name}${language === 'en' ? ' photo' : 'の写真'}`}
                       fill
-                      className="object-cover"
+                      className="object-cover object-[70%_center]"
                       sizes="(max-width: 768px) 100vw, 50vw"
                     />
                   </div>

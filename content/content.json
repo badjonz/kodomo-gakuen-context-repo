@@ -29,8 +29,8 @@
       "mailtoBody": "ご希望内容: 　 見学　入園の相談\nご希望日程： 　 \nお子様生年月日："
     },
     "announcement": {
-      "title": "さあ、2学期の開幕！新たな挑戦の始まりです",
-      "content": "子どもたちの元気な声が園に戻り、園内が一気ににぎやかになりました。夏休みの思い出を楽しそうに話す姿や、日焼けしたお顔から、たくさんの楽しい体験をしたことが伝わってきます。",
+      "title": "園庭の木々も冬の訪れを感じ始めたようで、葉が緑から黄色へと色づき、秋の深まりを感じる季節となりました。",
+      "content": "子どもたちは、運動会に向けて日々の練習に励み、気持ちもどんどん高まり、お友達とのつながりも深め、自信へとつながってきています。当日は、温かいご声援をどうぞよろしくお願いいたします。",
       "readMoreText": "続き",
       "readMoreLink": "/announcement",
       "minimizedText": "園長からのあいさつ"
@@ -474,14 +474,13 @@
         ],
         "teachers": [
           {
-            "name": "ヘシャーニ先生",
-            "englishName": "Ms. Heshani",
-            "image": "/images/heshani.jpg",
+            "name": "ファティマ先生",
+            "englishName": "Ms. Fatma",
+            "image": "/images/Fatma.jpg",
             "description": [
-              "スリランカ出身のヘシャーニ先生（Ms. Heshani）は、東京外国語大学で国際業務の修士号を取得し、語学堪能な真面目で穏やかな先生です。",
-              "和やか雰囲気の中で、単語を聴覚と視覚の両面から分かりやすく教え、授業を行っています。",
-              "社会科学と文学に長けており、何にでも挑戦をするヘシャーニ先生は、スタークラスのお友達の想像力と好奇心を引き出し、高めています。",
-              "英語教師や研究者としてのこれまでの様々な功績や経験が、スタークラスの向上につながっています。"
+              "ファティマ先生は東アフリカのケニア出身です。ケニアで生まれ育ちましたが、これまでに4つの異なる国で生活してきました。",
+              "国際開発学の修士号を持っていますが、子どもたちを教えることが大好きで、こども学園ファミリーの一員となることを選びました。",
+              "趣味は旅行、読書、ショッピングです。特に子どもたちにダンスを教えたり、物語を読み聞かせることが大好きです。"
             ]
           },
           {
@@ -671,8 +670,8 @@
       "mailtoBody": "Request: School tour / Enrollment consultation\nPreferred date:\nChild's date of birth:"
     },
     "announcement": {
-      "title": "July Greetings",
-      "content": "Three months have passed since the spring enrollment and promotion period, and each child is gradually finding their rhythm and settling in comfortably.",
+      "title": "The trees in our playground are beginning to sense winter's approach, their leaves changing from green to yellow, marking the deepening of autumn.",
+      "content": "The children are working hard in their daily practice for Sports Day, their excitement growing, deepening their friendships, and building confidence. We look forward to your warm support and cheering on the day of the event.",
       "readMoreText": "Read more",
       "readMoreLink": "/announcement",
       "minimizedText": "Message from the Principal"
@@ -1114,14 +1113,13 @@
         ],
         "teachers": [
           {
-            "name": "Ms. Heshani",
-            "englishName": "Ms. Heshani",
-            "image": "/images/heshani.jpg",
+            "name": "Ms. Fatma",
+            "englishName": "Ms. Fatma",
+            "image": "/images/Fatma.jpg",
             "description": [
-              "Ms. Heshani from Sri Lanka obtained a master's degree in international affairs from Tokyo University of Foreign Studies and is a linguistically talented, serious, and gentle teacher.",
-              "She teaches vocabulary in a clear and understandable way through both auditory and visual approaches in a harmonious atmosphere.",
-              "Skilled in social sciences and literature, Ms. Heshani challenges everything and draws out and enhances the imagination and curiosity of Star Class friends.",
-              "Her various achievements and experience as an English teacher and researcher contribute to the improvement of the Star Class."
+              "Miss Fatma is from Kenya, East Africa to be precise. She was born and raised in Kenya but has since lived in four different countries.",
+              "She holds a Master's degree in International Development Studies but chose to join our Kodomo Gakuen family because she thoroughly enjoys teaching children.",
+              "Her hobbies include traveling, reading, and shopping. She especially loves teaching the kids how to dance and reading stories aloud."
             ]
           },
           {

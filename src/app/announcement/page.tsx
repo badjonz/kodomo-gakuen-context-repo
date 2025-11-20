@@ -15,24 +15,22 @@ export default function AnnouncementPage() {
   const content = {
     ja: {
       pageTitle: '園からのあいさつ',
-      title1: 'さあ、2学期の開幕！',
-      title2:'新たな挑戦の始まりです',
+      title1: '園庭の木々も冬の訪れを感じ始めたようで、葉が緑から黄色へと色づき、',
+      title2:'秋の深まりを感じる季節となりました。',
       paragraphs: [
-        '子どもたちの元気な声が園に戻り、園内が一気ににぎやかになりました。夏休みの思い出を楽しそうに話す姿や、日焼けしたお顔から、たくさんの楽しい体験をしたことが伝わってきます。夏の経験が、子どもたちをひと回り大きくしてくれたように感じます。',
-        '今年の夏は猛暑のため各クラスではスライムづくりや色水あそびや感触あそび、しゃぼん玉、水鉄砲など、さまざまな工夫で楽しい時間を過ごしました。新しい遊びや発見も多く、子どもたちは驚きや喜びを感じながら充実した夏を過ごしていました。',
-        '先日は保育公開にご参加いただき、ありがとうございました。日頃の子どもたちの様子はいかがだったでしょうか？おうちの方の前で張り切る姿も見られ、私たち職員もとても嬉しく思いました。今月は、「ゆりーと君と遊ぼう！」「とうもろこし狩り」「すいか割り」、「水あそび」、そして年長児の「お泊まり保育」など、楽しい行事が盛りだくさんです。',
-        'いよいよ、楽しい夏の扉が開かれます！子どもたちと一緒に、たくさんの思い出を作っていきたいと思います。1学期間たくさんのご協力、ご理解をありがとうございました。'
+        '子どもたちは、運動会に向けて日々の練習に励み、気持ちもどんどん高まり、お友達とのつながりも深め、自信へとつながってきています。当日は、温かいご声援をどうぞよろしくお願いいたします。詳細はプログラムをご確認ください。',
+        '一年の時が過ぎる早さを感じるとともに、子どもたちの成長には目を見張るものがあります。ルールを守り、お友だちと協力しながら、毎日元気に楽しく遊ぶ姿に日々嬉しさを感じています。',
+        '今月は、さつまいもほりや運動会、ごほうび遠足、勤労感謝訪問（年少児以上）などの園外活動があります。四季を肌で感じながら五感に沢山の刺激をうけ、自分たちの周りの大人のお仕事にも関心が高められる月となることでしょう。'
       ]
     },
     en: {
       pageTitle: 'Message from the School',
-      title1: 'The second semester has begun!',
-      title2: ' A new challenge begins!',
+      title1: 'The trees in our playground are beginning to sense winter\'s approach, their leaves changing from green to yellow,',
+      title2: ' marking the deepening of autumn.',
       paragraphs: [
-        'The cheerful voices of children have returned to the kindergarten, making it lively again all at once. From their joyful sharing of summer vacation memories and their sun-tanned faces, we can see they had many wonderful experiences. The summer experience seems to have helped the children grow significantly.',
-        'This summer was extremely hot, so each class enjoyed various creative activities such as making slime, colored water play, sensory play, bubbles, and water guns. With many new games and discoveries, the children spent a fulfilling summer filled with surprise and joy.',
-        'Thank you for participating in the recent open house. How did you find the children\'s daily activities? We were delighted to see them being enthusiastic in front of their families. This month is packed with fun events such as "Let\'s play with Yurito-kun!", "Corn picking", "Watermelon splitting", "Water play", and "Overnight stay" for the older children.',
-        'Finally, the door to an exciting summer is opening! We look forward to creating many wonderful memories together with the children. Thank you for your cooperation and understanding throughout the first semester.'
+        'The children are working hard in their daily practice for Sports Day, their excitement growing, deepening their friendships, and building confidence. We look forward to your warm support and cheering on the day of the event. Please check the program for details.',
+        'While feeling how quickly a year passes, we are amazed by the children\'s growth. We feel joy every day seeing them playing energetically and happily, following rules and cooperating with friends.',
+        'This month, we have outdoor activities such as sweet potato digging, Sports Day, reward excursion, and Thanksgiving visits (for 3-year-olds and older). It will be a month where children can feel the four seasons with their skin, receive lots of stimulation to their five senses, and develop interest in the work of the adults around them.'
       ]
     }
   }
