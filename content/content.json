@@ -484,13 +484,13 @@
             ]
           },
           {
-            "name": "ジョン先生",
-            "englishName": "Mr. Jon",
-            "image": "/images/jon.jpg",
+            "name": "ウィリアム先生",
+            "englishName": "Mr. William",
+            "image": "/images/william.jpg",
             "description": [
-              "トリニダード・トバゴ出身のジョン先生（Mr. Jon）はITに長けていて、音楽が大好きなとても明るく元気な先生です。",
-              "毎日楽しみながら遊びを通して学ぶレッスンを行うので、スタークラスのお友達は頭と身体でどんどん単語やフレーズを覚えています。",
-              "TEFLを取得しており、前職でのインターナショナルのプリスクールでの豊富な経験も持っている先生です。"
+              "私の名前はウィリアムで、スコットランドのグラスゴー出身です。7年間オーストラリアで生活し勉強をしていた時に、日本出身の妻と出会いました。現在、2人の子どもがいます。",
+              "家具工芸、デザイン、建築管理のディプロマを取得しています。趣味はサッカー、サイクリング、ハイキング、木工です。",
+              "日本に移住してから英会話学校で働き始め、子どもたちを教えることがとても楽しくやりがいのあることだと気づきました。今はこども学園のチームの一員として、とても幸せです。"
             ]
           }
         ],
@@ -1123,13 +1123,13 @@
             ]
           },
           {
-            "name": "Mr. Jon",
-            "englishName": "Mr. Jon",
-            "image": "/images/jon.jpg",
+            "name": "Mr. William",
+            "englishName": "Mr. William",
+            "image": "/images/william.jpg",
             "description": [
-              "Mr. Jon from Trinidad and Tobago is skilled in IT, loves music, and is a very bright and energetic teacher.",
-              "Through daily fun learning lessons through play, Star Class friends steadily memorize vocabulary and phrases with both their heads and bodies.",
-              "He holds TEFL certification and has extensive experience from his previous work at an international preschool."
+              "My name is William, and I am from Glasgow, Scotland. I lived and studied in Australia for seven years, where I met my wife, who is from Japan. We now have two children.",
+              "I have a diploma in Furniture Craft, Design, and Building Construction and Management. My hobbies are football, cycling, hiking, and woodworking.",
+              "Since moving to Japan, I started working at an English school and realized how much fun and rewarding it is to teach children. I am now part of the team at Kodomo Gakuen and couldn't be happier."
             ]
           }
         ],
